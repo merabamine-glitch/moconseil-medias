@@ -642,15 +642,28 @@ def video_texte(fiche, sortie):
         if p.get("photo"):
             ph = ouvrir_photo(p["photo"])
             fonds[k] = traitement_doux(recadrer(ph, int(VW * 1.15), int(VH * 1.15), *p.get("focus", (0.5, 0.5))))
+    # Variété : sans ambiance explicite, les plans sans photo alternent entre
+    # l'ambiance principale et une ambiance contrastée.
+    contraste = {"marine": "pierre", "nuit": "sable", "pierre": "marine", "sable": "nuit",
+                 "blanc": "marine", "terre": "pierre", "olive": "sable", "mer": "pierre"}
+    alterne = 0
+    for k, p in enumerate(plans):
+        if "ambiance" not in p and k not in fonds:
+            p["ambiance"] = amb if alterne % 2 == 0 else contraste.get(amb, "pierre")
+            alterne += 1
     for k, p in enumerate(plans):
         duree = float(p.get("duree", 3.0))
         nb = int(duree * fps)
         amb_p = AMBIANCES[p.get("ambiance", amb)]
         lignes = [typo(l) for l in p["texte"]]
-        taille = int(p.get("taille", 92))
-        f = police("titre" if p.get("style", "titre") == "titre" else "moyen", taille)
+        nom_f = "titre" if p.get("style", "titre") == "titre" else "moyen"
         lmax = VW - 2 * M
-        # coupe chaque ligne logique en sous-lignes
+        # Chaque ligne logique tient sur une seule ligne à l'écran : la taille
+        # baisse (jusqu'à 60) plutôt que de laisser un mot orphelin.
+        taille = int(p.get("taille", 96))
+        while taille > 60 and any(police(nom_f, taille).getlength(l) > lmax for l in lignes):
+            taille -= 2
+        f = police(nom_f, taille)
         rendu = []
         for l in lignes:
             for sl in couper(l, f, lmax):

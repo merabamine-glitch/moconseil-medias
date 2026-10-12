@@ -1,5 +1,5 @@
 {
-  "nom": "certificat-negatif-3-mois",
+  "nom": "certificat-negatif-3-mois-v2",
   "date": "2026-10-22T19:00",
   "objectif": "Prouver",
   "pilier": "P2",
@@ -26,38 +26,33 @@
       "focus": [
         0.5,
         0.4
-      ],
-      "taille": 84
+      ]
     },
     {
       "texte": [
         "Le certificat négatif,",
         "délivré par la conservation foncière"
       ],
-      "duree": 3.2,
-      "taille": 80
+      "duree": 3.2
     },
     {
       "texte": [
         "Il atteste l'absence d'hypothèque, de saisie ou de mesure conservatoire."
       ],
-      "duree": 3.6,
-      "taille": 72
+      "duree": 3.6
     },
     {
       "texte": [
         "Il n'est valable",
         "que 3 mois."
       ],
-      "duree": 2.8,
-      "taille": 104
+      "duree": 2.8
     },
     {
       "texte": [
         "La parole du vendeur ou de l'agence ne le remplace pas."
       ],
-      "duree": 3.2,
-      "taille": 80
+      "duree": 3.2
     },
     {
       "texte": [
@@ -65,8 +60,7 @@
         "Pack Achat Immobilier",
         "Appel découverte : lien en bio"
       ],
-      "duree": 3.6,
-      "taille": 64
+      "duree": 3.6
     }
   ]
 }
