@@ -346,6 +346,8 @@ def titre_texte(s, A, couv, lmax=W - 2 * M, t_couv=84, t_int=70, coul_titre=None
             y, _ = bloc(dc, x, y, s["surtitre"], "moyen", 28, A["accent"], lmax, 1.3, 2, 22, esp=3, maj=True)
             y += 28
         y, _ = bloc(dc, x, y, s["titre"], "titre", t_couv if couv else t_int, ct, lmax, 1.12, 5, 50)
+        if s.get("titre2"):
+            y, _ = bloc(dc, x, y + 10, s["titre2"], "titre", t_couv if couv else t_int, A["accent"], lmax, 1.12, 4, 50)
         filet(dc, x, y + 22, 110, A["accent"], 4)
         y += 22 + 4
         if s.get("texte"):
@@ -600,6 +602,8 @@ def g_bande(s, i, n, opts):
             y, _ = bloc(dc, M, y, s["surtitre"], "moyen", 28, b["sur"], lmax, 1.3, 2, 24, esp=3, maj=True)
             y += 28
         y, _ = bloc(dc, M, y, s["titre"], "titre", 66, b["titre"], lmax, 1.16, 4, 48, maj=True)
+        if s.get("titre2"):
+            y, _ = bloc(dc, M, y + 10, s["titre2"], "titre", 66, b["sur"], lmax, 1.16, 4, 48, maj=True)
         filet(dc, M, y + 20, 110, b["filet"], 3)
         y += 24
         if s.get("texte"):
