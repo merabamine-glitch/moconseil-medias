@@ -13,6 +13,7 @@ modifier sans l'accord d'Amine (voir claude/STRATEGIE_EDITORIALE_RESEAUX).
 import json, math, os, re, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+Image.init()
 
 ICI = os.path.dirname(os.path.abspath(__file__))
 RACINE = os.path.dirname(ICI)
@@ -716,11 +717,18 @@ def rendre(fiche, dossier):
     g = GABARITS[fiche["gabarit"]]
     slides = fiche["slides"]
     n = len(slides)
+    images = []
     for i, s in enumerate(slides, 1):
-        img = g(s, i, n, fiche.get("options", {}))
+        img = g(s, i, n, fiche.get("options", {})).convert("RGB")
         out = os.path.join(dossier, f"{fiche.get('nom', 'post')}-{i:02d}.png")
-        img.convert("RGB").save(out, optimize=True)
+        img.save(out, optimize=True)
+        images.append(img)
         sorties.append(out)
+    if n > 1:
+        # version PDF du carrousel, pour la publication manuelle sur LinkedIn (post « document »)
+        pdf = os.path.join(dossier, f"{fiche.get('nom', 'post')}-linkedin.pdf")
+        images[0].save(pdf, save_all=True, append_images=images[1:], resolution=150)
+        sorties.append(pdf)
     return sorties
 
 if __name__ == "__main__":
