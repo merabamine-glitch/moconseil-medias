@@ -1,0 +1,72 @@
+{
+  "nom": "certificat-negatif-3-mois",
+  "date": "2026-10-22T19:00",
+  "objectif": "Prouver",
+  "pilier": "P2",
+  "pack": "Pack Achat Immobilier",
+  "format": "video",
+  "gabarit": "video",
+  "ambiance": "marine",
+  "cadre": "Erreur nommée",
+  "levier": "Aversion à la perte",
+  "cta": "Enregistrer + appel découverte",
+  "sources": "Manuel opérationnel, Pack 6 étape 4 ; rétroplanning Pack Achat Immobilier étape 8",
+  "photos": [
+    "banque/site/pack-patrimoine-immobilier-1600.webp"
+  ],
+  "plans": [
+    {
+      "texte": [
+        "Avant d'acheter en Algérie,",
+        "vérifiez la date",
+        "de ce document."
+      ],
+      "duree": 3.2,
+      "photo": "banque/site/pack-patrimoine-immobilier-1600.webp",
+      "focus": [
+        0.5,
+        0.4
+      ],
+      "taille": 84
+    },
+    {
+      "texte": [
+        "Le certificat négatif,",
+        "délivré par la conservation foncière"
+      ],
+      "duree": 3.2,
+      "taille": 80
+    },
+    {
+      "texte": [
+        "Il atteste l'absence d'hypothèque, de saisie ou de mesure conservatoire."
+      ],
+      "duree": 3.6,
+      "taille": 72
+    },
+    {
+      "texte": [
+        "Il n'est valable",
+        "que 3 mois."
+      ],
+      "duree": 2.8,
+      "taille": 104
+    },
+    {
+      "texte": [
+        "La parole du vendeur ou de l'agence ne le remplace pas."
+      ],
+      "duree": 3.2,
+      "taille": 80
+    },
+    {
+      "texte": [
+        "Vérification écrite du titre",
+        "Pack Achat Immobilier",
+        "Appel découverte : lien en bio"
+      ],
+      "duree": 3.6,
+      "taille": 64
+    }
+  ]
+}
