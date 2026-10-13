@@ -1,0 +1,24 @@
+{
+  "nom": "virement-international-3-8-semaines",
+  "date": "2026-10-15T19:00",
+  "objectif": "Prouver",
+  "pilier": "P1",
+  "pack": "Pack Compte Bancaire",
+  "format": "visuel texte",
+  "gabarit": "chiffre",
+  "options": {"ambiance": "mer"},
+  "cadre": "Chiffre vérifiable",
+  "levier": "Autorité",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "sources": "Catalogue Pack 8 (virement 3 à 8 semaines) ; manuel opérationnel, points de vigilance transversaux et Pack 6 étape 5",
+  "photos": [],
+  "slides": [
+    {
+      "surtitre": "Virement international",
+      "chiffre": "3 à 8",
+      "unite": "semaines",
+      "titre": "Le délai d'un virement vers l'Algérie",
+      "texte": "Tout se joue sur le dossier : origine des fonds, compte en devises, circuit bancaire officiel. Lancez-le dès qu'une offre se dessine, pas après avoir signé. Délai indicatif."
+    }
+  ]
+}
