@@ -1,5 +1,5 @@
 {
-  "nom": "virement-international-3-8-semaines",
+  "nom": "virement-circuit-bancaire-algerie",
   "date": "2026-10-15T19:00",
   "objectif": "Prouver",
   "pilier": "P2",
@@ -10,17 +10,17 @@
   "cadre": "Erreur nommée",
   "levier": "Aversion à la perte",
   "cta": "Enregistrer le post et réserver l'appel découverte",
-  "sources": "Catalogue Pack 8 (virement 3 à 8 semaines) ; manuel opérationnel, Pack 6 étape 5 (piège du virement lancé après l'engagement) et points de vigilance transversaux",
+  "sources": "Rétroplanning Pack 8 (ouverture des comptes S2-4, dossier KYC origine des fonds S4-5, virement test puis principal à partir de S5) ; manuel opérationnel Pack 8 (compte en devises ouvert depuis l'Europe via BEA France ou BNP Paribas El Djazair) ; piège du virement lancé après la signature d'un engagement immobilier",
   "photos": ["banque/amine/dossier-bancaire-documents.jpg"],
   "slides": [
     {
       "photo": "banque/amine/dossier-bancaire-documents.jpg",
       "focus": [0.5, 0.58],
-      "surtitre": "Compte bancaire · délai réel",
-      "titre": "Un virement vers l'Algérie",
-      "titre2": "prend 3 à 8 semaines",
-      "texte": "Ce délai tient au dossier, pas à la banque.",
-      "accent": "Lancez-le dès qu'une offre se dessine, jamais après avoir signé."
+      "surtitre": "Compte bancaire · ce qui prend du temps",
+      "titre": "Le virement est rapide.",
+      "titre2": "Le circuit, beaucoup moins.",
+      "texte": "Compte en devises, origine des fonds, virement test.",
+      "accent": "Préparez-le avant d'en avoir besoin, pas quand l'échéance tombe."
     }
   ]
 }
