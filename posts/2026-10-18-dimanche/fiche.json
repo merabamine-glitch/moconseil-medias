@@ -11,15 +11,25 @@
   "levier": "Réciprocité",
   "cta": "Appel découverte (lien en bio)",
   "sources": "Infographie Pack 1 ; rétroplanning Pack Création société ; check-lists opérationnelles Pack 1",
-  "photos": [],
+  "photos": [
+    "banque/site/pack-creation-immeuble-1600.webp",
+    "banque/site/cta-poignee-de-main-1600.webp",
+    "banque/site/hero-2-front-de-mer-1600.webp"
+  ],
   "slides": [
-    {"surtitre": "Démarche expliquée", "titre": "Créer votre société en Algérie depuis l'étranger, en 4 étapes",
-     "liste": ["Réserver le nom au CNRC", "Signer les statuts chez le notaire", "Déposer le capital, publier au BOAL", "Immatriculer la société au CNRC"],
-     "texte": "Volet administratif : 8 à 12 semaines, délai indicatif."},
+    {"gabarit": "bande", "options": {"bande": "nuit"},
+     "photo": "banque/site/pack-creation-immeuble-1600.webp", "focus": [0.55, 0.45],
+     "surtitre": "Démarche expliquée",
+     "titre": "Créer votre société en Algérie",
+     "titre2": "depuis l'étranger",
+     "texte": "Les quatre étapes, dans l'ordre où elles s'enchaînent.",
+     "accent": "Volet administratif : 8 à 12 semaines, délai indicatif."},
     {"numero": 1, "total": 4, "titre": "Réserver le nom", "texte": "Vous proposez 2 à 3 noms, classés par préférence. La dénomination est vérifiée puis réservée au CNRC, sur le portail Sijilcom ou au guichet.", "delai": "1 à 2 jours"},
-    {"numero": 2, "total": 4, "titre": "Signer les statuts chez le notaire", "texte": "Une procuration consulaire spéciale permet à votre mandataire de signer pour vous. Elle se demande dès le premier jour, avec le casier judiciaire du gérant.", "delai": "3 à 5 jours ouvrables"},
+    {"numero": 2, "total": 4, "photo": "banque/site/cta-poignee-de-main-1600.webp", "focus": [0.58, 0.45],
+     "titre": "Signer les statuts chez le notaire", "texte": "Une procuration consulaire spéciale permet à votre mandataire de signer pour vous. Elle se demande dès le premier jour, avec le casier judiciaire du gérant.", "delai": "3 à 5 jours ouvrables"},
     {"numero": 3, "total": 4, "titre": "Déposer le capital et publier l'avis", "texte": "Le capital est déposé et bloqué en banque, contre une attestation. L'avis de constitution paraît au BOAL et dans un quotidien national.", "delai": "quelques jours"},
-    {"numero": 4, "total": 4, "titre": "Immatriculer au CNRC", "texte": "Avec les statuts, l'attestation de capital, le justificatif du siège et le casier du gérant, le CNRC délivre l'extrait du registre de commerce. Viennent ensuite NIF, NIS et CASNOS.", "delai": "quelques jours"},
+    {"numero": 4, "total": 4, "photo": "banque/site/hero-2-front-de-mer-1600.webp", "focus": [0.5, 0.5],
+     "titre": "Immatriculer au CNRC", "texte": "Avec les statuts, l'attestation de capital, le justificatif du siège et le casier du gérant, le CNRC délivre l'extrait du registre de commerce. Viennent ensuite NIF, NIS et CASNOS.", "delai": "quelques jours"},
     {"role": "cta", "titre": "Votre société, suivie depuis chez vous", "texte": "C'est exactement ce que couvre le Pack Création de Société : nous menons chaque étape sur place, vous validez les décisions.", "action": "Appel découverte gratuit · lien en bio"}
   ]
 }

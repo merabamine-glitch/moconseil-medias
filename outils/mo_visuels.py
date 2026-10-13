@@ -432,8 +432,26 @@ def g_etapes(s, i, n, opts):
         return img
     num = str(s.get("numero", i - 1))
     tot = int(s.get("total", n - 2))
-    d.text((M - 10, 60), num, font=police("titre", 300), fill=A["accent"])
-    fx0, fx1, fy = M, W - M, 450
+    # Bandeau photo optionnel en haut de l'étape : le texte reste sur fond clair,
+    # donc parfaitement lisible (procédure §4 I).
+    hb = 0
+    if s.get("photo"):
+        hb = 430
+        ph = traitement_charte(recadrer(ouvrir_photo(s["photo"]), W, hb, *s.get("focus", (0.5, 0.5))))
+        a = np.asarray(ph).astype(np.float32) / 255.0
+        yy = np.linspace(0, 1, hb)[:, None, None]
+        xx = np.linspace(0, 1, W)[None, :, None]
+        # voile renforcé à gauche : le grand numéro reste lisible quelle que soit la photo
+        voile = (0.30 + 0.20 * np.clip((yy - 0.45) / 0.55, 0, 1)
+                 + 0.32 * np.clip((0.44 - xx) / 0.44, 0, 1) ** 1.3)
+        voile = np.clip(voile, 0, 0.88)
+        a = a * (1 - voile) + (np.array([10, 20, 32]) / 255.0) * voile
+        img.paste(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)), (0, 0))
+        d.rectangle([0, hb - 5, W, hb], fill=A["accent"])
+        d.text((M - 10, 60), num, font=police("titre", 300), fill=C["or_clair"])
+    else:
+        d.text((M - 10, 60), num, font=police("titre", 300), fill=A["accent"])
+    fx0, fx1, fy = M, W - M, (hb + 60 if hb else 450)
     d.line([(fx0, fy), (fx1, fy)], fill=C["sable"], width=4)
     if tot > 1:
         pos = fx0 + (fx1 - fx0) * (int(num) - 1) / (tot - 1)
@@ -442,7 +460,7 @@ def g_etapes(s, i, n, opts):
             px = fx0 + (fx1 - fx0) * k / (tot - 1)
             r = 10 if k + 1 == int(num) else 7
             d.ellipse([px - r, fy - r, px + r, fy + r], fill=A["accent"] if k + 1 <= int(num) else C["sable"])
-    poser(img, titre_texte(s, A, False, t_int=68), 510, H - 260, "centre")
+    poser(img, titre_texte(s, A, False, t_int=68), fy + 60, H - 260, "centre")
     if s.get("delai"):
         f2 = police("moyen", 28)
         t = typo("Délai indicatif : " + s["delai"])
@@ -731,12 +749,17 @@ def rendre(fiche, dossier):
         video_texte(fiche, out)
         sorties.append(out)
         return sorties
-    g = GABARITS[fiche["gabarit"]]
+    g_post = GABARITS[fiche["gabarit"]]
+    opts_post = fiche.get("options", {})
     slides = fiche["slides"]
     n = len(slides)
     images = []
     for i, s in enumerate(slides, 1):
-        img = g(s, i, n, fiche.get("options", {})).convert("RGB")
+        # Une slide peut porter son propre gabarit et ses propres options :
+        # un carrousel peut ainsi ouvrir sur une couverture photo (bande) et
+        # poursuivre sur un autre gabarit.
+        g = GABARITS.get(s.get("gabarit"), g_post)
+        img = g(s, i, n, {**opts_post, **s.get("options", {})}).convert("RGB")
         out = os.path.join(dossier, f"{fiche.get('nom', 'post')}-{i:02d}.png")
         img.save(out, optimize=True)
         images.append(img)
