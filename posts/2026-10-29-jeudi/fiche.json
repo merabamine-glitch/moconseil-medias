@@ -1,0 +1,77 @@
+{
+  "nom": "retour-definitif-3-points",
+  "date": "2026-10-29T19:00",
+  "objectif": "Attirer",
+  "pilier": "P1",
+  "pack": "Pack Retour Définitif",
+  "format": "carrousel",
+  "gabarit": "zellige",
+  "options": {
+    "ambiance": "olive"
+  },
+  "cadre": "Liste complète (3 points annoncés, 3 points tenus)",
+  "levier": "Franchise (délais réels)",
+  "cta": "Appel découverte (lien en bio)",
+  "sources": "Manuel opérationnel Pack 10 (note de vérification, étape 5 véhicule, points de friction) et Pack 4 étape 6 (4 conditions cumulatives du CCR, aucune procuration) ; infographie Pack 10 (passeport biométrique 2 à 3 mois hors saison, 4 à 6 mois de mai à août, jusqu'à 8 mois selon le consulat) ; rétroplanning Pack 10",
+  "photos": [
+    "banque/site/pack-retour-definitif-1600.webp",
+    "banque/site/pack-residence-1600.webp",
+    "banque/site/pourquoi-arcades-santa-cruz-1600.webp"
+  ],
+  "slides": [
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/pack-retour-definitif-1600.webp",
+      "focus": [
+        0.5,
+        0.35
+      ],
+      "surtitre": "Retour définitif",
+      "titre": "Rentrer en Algérie ?",
+      "titre2": "3 points à régler\navant de partir.",
+      "texte": "Passeport, CCR, véhicule : l'ordre compte."
+    },
+    {
+      "surtitre": "01 · Le passeport biométrique",
+      "titre": "À lancer en tout premier",
+      "texte": "C'est lui qui fixe le calendrier : 2 à 3 mois hors saison, 4 à 6 mois de mai à août, jusqu'à 8 mois selon le consulat.",
+      "accent": "Délais indicatifs."
+    },
+    {
+      "surtitre": "02 · Le CCR",
+      "titre": "Jamais automatique",
+      "texte": "Quatre conditions cumulatives : plus de 19 ans, inscrit au consulat depuis 3 ans, 3 ans de séjour ininterrompu à l'étranger, aucun CCR déjà obtenu.",
+      "accent": "Dépôt et retrait en personne."
+    },
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/pack-residence-1600.webp",
+      "focus": [
+        0.5,
+        0.3
+      ],
+      "surtitre": "03 · Le véhicule",
+      "titre": "L'accord du consulat,",
+      "titre2": "puis l'achat.",
+      "texte": "Acheter avant l'accord préalable est l'erreur la plus coûteuse. Le véhicule importé reste ensuite incessible 5 ans."
+    },
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/pourquoi-arcades-santa-cruz-1600.webp",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "surtitre": "Et ensuite",
+      "titre": "Tout le reste avance",
+      "titre2": "en parallèle.",
+      "texte": "Logement, banque, santé, école : un rétroplanning daté, partagé avec vous."
+    },
+    {
+      "role": "cta",
+      "titre": "Votre retour, piloté depuis le premier jour",
+      "texte": "C'est exactement ce que couvre le Pack Retour Définitif : un seul interlocuteur pour tous les chantiers.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}

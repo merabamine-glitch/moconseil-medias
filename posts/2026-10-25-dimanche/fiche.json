@@ -1,0 +1,32 @@
+{
+  "nom": "geneve-alger-binome",
+  "date": "2026-10-25T11:00",
+  "objectif": "Humaniser",
+  "pilier": "P4",
+  "pack": "Pack Conciergerie",
+  "format": "photo unique",
+  "gabarit": "pierre",
+  "options": {
+    "ambiance": "sable"
+  },
+  "cadre": "Coulisses : qui fait quoi entre Genève et Alger",
+  "levier": "Similarité",
+  "cta": "Question ouverte en commentaire",
+  "sources": "Stratégie éditoriale §8 (rôles d'Amine et d'Emily, positionnement) ; contrat annexe Pack Conciergerie (représentation sur place, reporting mensuel avec justificatifs)",
+  "photos": [
+    "banque/site/hero-1-maqam-echahid-1600.webp"
+  ],
+  "slides": [
+    {
+      "photo": "banque/site/hero-1-maqam-echahid-1600.webp",
+      "focus": [
+        0.5,
+        0.3
+      ],
+      "surtitre": "Coulisses\nGenève · Alger",
+      "titre": "Vous vivez loin.",
+      "titre2": "Nous, des deux côtés.",
+      "texte": "Amine à Genève cadre et coordonne. Emily à Alger agit sur place."
+    }
+  ]
+}
