@@ -1,5 +1,5 @@
 {
-  "nom": "geneve-alger-binome",
+  "nom": "des-deux-cotes-de-la-mediterranee",
   "date": "2026-10-25T11:00",
   "objectif": "Humaniser",
   "pilier": "P4",
@@ -9,10 +9,10 @@
   "options": {
     "ambiance": "sable"
   },
-  "cadre": "Coulisses : qui fait quoi entre Genève et Alger",
+  "cadre": "Coulisses : une équipe de chaque côté de la Méditerranée",
   "levier": "Similarité",
   "cta": "Question ouverte en commentaire",
-  "sources": "Stratégie éditoriale §8 (rôles d'Amine et d'Emily, positionnement) ; contrat annexe Pack Conciergerie (représentation sur place, reporting mensuel avec justificatifs)",
+  "sources": "Stratégie éditoriale §8 (organisation du cabinet) ; contrat annexe Pack Conciergerie (représentation sur place, compte rendu mensuel avec justificatifs). Décision d'Amine du 14/10/2026 : aucun prénom, montrer les équipes des deux côtés de la Méditerranée.",
   "photos": [
     "banque/site/hero-1-maqam-echahid-1600.webp"
   ],
@@ -23,10 +23,10 @@
         0.5,
         0.3
       ],
-      "surtitre": "Coulisses\nGenève · Alger",
+      "surtitre": "Votre projet\nen Algérie",
       "titre": "Vous vivez loin.",
       "titre2": "Nous, des deux côtés.",
-      "texte": "Amine à Genève cadre et coordonne. Emily à Alger agit sur place."
+      "texte": "Une équipe en Europe, une en Algérie : nous coordonnons votre projet en direct."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "nom": "retour-definitif-3-points",
+  "nom": "retour-definitif-passeport-ccr-voiture",
   "date": "2026-10-29T19:00",
   "objectif": "Attirer",
   "pilier": "P1",
@@ -9,39 +9,31 @@
   "options": {
     "ambiance": "olive"
   },
-  "cadre": "Liste complète (3 points annoncés, 3 points tenus)",
-  "levier": "Franchise (délais réels)",
+  "cadre": "Démarche pas à pas (3 démarches annoncées, 3 tenues ; le CCR sur 2 slides)",
+  "levier": "Autorité (règles vérifiées et datées)",
   "cta": "Appel découverte (lien en bio)",
-  "sources": "Manuel opérationnel Pack 10 (note de vérification, étape 5 véhicule, points de friction) et Pack 4 étape 6 (4 conditions cumulatives du CCR, aucune procuration) ; infographie Pack 10 (passeport biométrique 2 à 3 mois hors saison, 4 à 6 mois de mai à août, jusqu'à 8 mois selon le consulat) ; rétroplanning Pack 10",
+  "sources": "Passeport : consulat général d'Algérie à Paris, renouvellement en ligne sur la plateforme des documents biométriques du ministère de l'Intérieur depuis juin 2026 (pilote) ; extension annoncée le 08/09/2026 par le secrétaire d'État chargé de la communauté nationale à l'étranger (Algerie360 15/09/2026, ObservAlgérie 25/07 et 13/09/2026). CCR : pages officielles des consulats généraux d'Algérie à Strasbourg et Genève (mfa.gov.dz), consultées le 14/10/2026 : plus de 19 ans, immatriculation consulaire à titre principal, séjour ininterrompu régulier de plus de 3 ans, aucun CCR antérieur (ni soi ni conjoint), présence obligatoire au dédouanement, procurations irrecevables ; franchise plafonnée à 10 000 000 DA véhicule compris. Voiture : loi n° 25-17 du 14/12/2025 portant loi de finances 2026, art. 127 modifiant l'art. 202 du code des douanes (JO n° 88 du 31/12/2025) : neuve ou moins de 5 ans à l'entrée, essence, hybride ou électrique, 1 800 cm3 au plus ; recommandation d'attendre l'accord du CCR avant l'achat (consulats de Nantes et Paris, cités par Algerie360 22/09/2026). Écartés car non confirmés : délais du passeport en mois, incessibilité de 5 ans, dépôt et retrait du CCR en personne.",
   "photos": [
-    "banque/site/pack-retour-definitif-1600.webp",
-    "banque/site/pack-residence-1600.webp",
-    "banque/site/pourquoi-arcades-santa-cruz-1600.webp"
+    "banque/drive/aeroport-attente-depart.jpg",
+    "banque/site/pack-residence-1600.webp"
   ],
   "slides": [
     {
       "gabarit": "pleine-photo",
-      "photo": "banque/site/pack-retour-definitif-1600.webp",
+      "photo": "banque/drive/aeroport-attente-depart.jpg",
       "focus": [
         0.5,
-        0.35
+        0.8
       ],
-      "surtitre": "Retour définitif",
-      "titre": "Rentrer en Algérie ?",
-      "titre2": "3 points à régler\navant de partir.",
-      "texte": "Passeport, CCR, véhicule : l'ordre compte."
+      "titre": "Vous rentrez vivre\nen Algérie ?",
+      "titre2": "3 démarches\navant de partir.",
+      "texte": "Le passeport, le CCR (certificat de changement de résidence) et la voiture, dans cet ordre."
     },
     {
-      "surtitre": "01 · Le passeport biométrique",
-      "titre": "À lancer en tout premier",
-      "texte": "C'est lui qui fixe le calendrier : 2 à 3 mois hors saison, 4 à 6 mois de mai à août, jusqu'à 8 mois selon le consulat.",
-      "accent": "Délais indicatifs."
-    },
-    {
-      "surtitre": "02 · Le CCR",
-      "titre": "Jamais automatique",
-      "texte": "Quatre conditions cumulatives : plus de 19 ans, inscrit au consulat depuis 3 ans, 3 ans de séjour ininterrompu à l'étranger, aucun CCR déjà obtenu.",
-      "accent": "Dépôt et retrait en personne."
+      "surtitre": "01 · Le passeport",
+      "titre": "Vérifiez-le en premier",
+      "texte": "Il doit être valide pour déposer votre demande de CCR. Nouveau : depuis juin 2026, le consulat de Paris propose le renouvellement en ligne.",
+      "accent": "D'autres consulats doivent suivre. Ailleurs, la demande se fait encore au consulat."
     },
     {
       "gabarit": "pleine-photo",
@@ -50,27 +42,31 @@
         0.5,
         0.3
       ],
-      "surtitre": "03 · Le véhicule",
-      "titre": "L'accord du consulat,",
-      "titre2": "puis l'achat.",
-      "texte": "Acheter avant l'accord préalable est l'erreur la plus coûteuse. Le véhicule importé reste ensuite incessible 5 ans."
+      "surtitre": "02 · Le CCR",
+      "titre": "Certificat de changement",
+      "titre2": "de résidence.",
+      "texte": "Délivré par votre consulat, il vous permet de rapatrier vos affaires et une voiture sans payer de droits de douane, jusqu'à un plafond de valeur."
     },
     {
-      "gabarit": "pleine-photo",
-      "photo": "banque/site/pourquoi-arcades-santa-cruz-1600.webp",
-      "focus": [
-        0.5,
-        0.5
-      ],
-      "surtitre": "Et ensuite",
-      "titre": "Tout le reste avance",
-      "titre2": "en parallèle.",
-      "texte": "Logement, banque, santé, école : un rétroplanning daté, partagé avec vous."
+      "surtitre": "02 · Le CCR : les conditions",
+      "titre": "4 conditions à remplir",
+      "texte": "• Avoir plus de 19 ans\n• Être inscrit à votre consulat\n• Vivre à l'étranger depuis plus de 3 ans, sans interruption\n• N'avoir jamais obtenu de CCR, ni vous ni votre conjoint",
+      "accent": "Au passage en douane, votre présence est obligatoire."
+    },
+    {
+      "options": {
+        "ambiance": "marine"
+      },
+      "surtitre": "03 · La voiture",
+      "titre": "Attendez l'accord du CCR,",
+      "titre2": "puis achetez-la.",
+      "texte": "Depuis la loi de finances 2026, elle peut être neuve ou avoir moins de 5 ans à son entrée en Algérie : essence, hybride ou électrique, 1 800 cm³ au plus.",
+      "accent": "Si le CCR est refusé, une voiture déjà achetée n'a pas droit à l'exonération."
     },
     {
       "role": "cta",
-      "titre": "Votre retour, piloté depuis le premier jour",
-      "texte": "C'est exactement ce que couvre le Pack Retour Définitif : un seul interlocuteur pour tous les chantiers.",
+      "titre": "Votre retour, préparé dans le bon ordre",
+      "texte": "C'est exactement ce que couvre le Pack Retour Définitif : toutes les démarches de votre retour, avec un seul interlocuteur.",
       "action": "Appel découverte gratuit · lien en bio"
     }
   ]

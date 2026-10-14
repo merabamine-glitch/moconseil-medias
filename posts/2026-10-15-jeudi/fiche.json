@@ -1,5 +1,5 @@
 {
-  "nom": "virement-circuit-bancaire-algerie",
+  "nom": "preparer-envoi-argent-avant-signature",
   "date": "2026-10-15T19:00",
   "objectif": "Prouver",
   "pilier": "P2",
@@ -7,20 +7,25 @@
   "format": "photo unique",
   "gabarit": "pleine-photo",
   "options": {},
-  "cadre": "Erreur nommée",
+  "cadre": "Erreur nommée (lancer le transfert après avoir signé)",
   "levier": "Aversion à la perte",
   "cta": "Enregistrer le post et réserver l'appel découverte",
-  "sources": "Rétroplanning Pack 8 (ouverture des comptes S2-4, dossier KYC origine des fonds S4-5, virement test puis principal à partir de S5) ; manuel opérationnel Pack 8 (compte en devises ouvert depuis l'Europe via BEA France ou BNP Paribas El Djazair) ; piège du virement lancé après la signature d'un engagement immobilier",
-  "photos": ["banque/amine/dossier-bancaire-documents.jpg"],
+  "sources": "Rétroplanning Pack 8 (compte en devises S2-4, dossier d'origine des fonds S4-5, virement test puis principal dès S5) ; durée d'un virement international : quelques jours (circuit SWIFT). Aucun délai administratif externe chiffré.",
+  "photos": [
+    "banque/amine/dossier-bancaire-documents.jpg"
+  ],
   "slides": [
     {
       "photo": "banque/amine/dossier-bancaire-documents.jpg",
-      "focus": [0.5, 0.58],
-      "surtitre": "Compte bancaire · ce qui prend du temps",
-      "titre": "Le virement est rapide.",
-      "titre2": "Le circuit, beaucoup moins.",
-      "texte": "Compte en devises, origine des fonds, virement test.",
-      "accent": "Préparez-le avant d'en avoir besoin, pas quand l'échéance tombe."
+      "focus": [
+        0.5,
+        0.58
+      ],
+      "surtitre": "Vous achetez un bien en Algérie depuis l'étranger ?",
+      "titre": "Préparez l'envoi\nde l'argent",
+      "titre2": "avant de signer.",
+      "texte": "Le virement part en quelques jours. Ouvrir un compte en devises et réunir les justificatifs demandés prend plusieurs semaines.",
+      "accent": "Sinon, l'argent arrive après la date de paiement."
     }
   ]
 }
