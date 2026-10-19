@@ -6,7 +6,7 @@ Usage :
     python3 outils/mo_visuels.py rendre <fiche.json> <dossier_sortie>
 
 La fiche JSON décrit un post (format, gabarit, slides, photos). Le script
-produit des PNG 1080 × 1350 (feed) ou un MP4 1080 × 1920 (vidéo).
+produit des JPEG 1080 × 1350 (feed) ou un MP4 1080 × 1920 (vidéo).
 Toute la charte (couleurs, polices, marges) est définie ici : ne pas la
 modifier sans l'accord d'Amine (voir claude/STRATEGIE_EDITORIALE_RESEAUX).
 """
@@ -760,8 +760,9 @@ def rendre(fiche, dossier):
         # poursuivre sur un autre gabarit.
         g = GABARITS.get(s.get("gabarit"), g_post)
         img = g(s, i, n, {**opts_post, **s.get("options", {})}).convert("RGB")
-        out = os.path.join(dossier, f"{fiche.get('nom', 'post')}-{i:02d}.png")
-        img.save(out, optimize=True)
+        # JPEG obligatoire : TikTok (photo Business) refuse le PNG (constaté le 15/10/2026).
+        out = os.path.join(dossier, f"{fiche.get('nom', 'post')}-{i:02d}.jpg")
+        img.save(out, "JPEG", quality=92, subsampling=0, optimize=True)
         images.append(img)
         sorties.append(out)
     if n > 1:
