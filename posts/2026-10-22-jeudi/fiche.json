@@ -1,5 +1,5 @@
 {
-  "nom": "certificat-negatif-3-mois-v2",
+  "nom": "certificat-negatif-recent",
   "date": "2026-10-22T19:00",
   "objectif": "Prouver",
   "pilier": "P2",
@@ -10,7 +10,7 @@
   "cadre": "Erreur nommée",
   "levier": "Aversion à la perte",
   "cta": "Enregistrer + appel découverte",
-  "sources": "Manuel opérationnel, Pack 6 étape 4 ; rétroplanning Pack Achat Immobilier étape 8",
+  "sources": "Manuel opérationnel, Pack 6 étape 4 ; rétroplanning Pack Achat Immobilier étape 8 ; durée de validité retirée le 20/10/2026 (fiche I-01, non vérifiée)",
   "photos": [
     "banque/site/pack-patrimoine-immobilier-1600.webp"
   ],
@@ -43,10 +43,10 @@
     },
     {
       "texte": [
-        "Il n'est valable",
-        "que 3 mois."
+        "Exigez un certificat récent,",
+        "vérifié par votre notaire."
       ],
-      "duree": 2.8
+      "duree": 3.2
     },
     {
       "texte": [
