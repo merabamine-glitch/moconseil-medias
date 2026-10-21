@@ -62,5 +62,68 @@
       ],
       "duree": 3.6
     }
-  ]
+  ],
+  "video": "certificat-negatif-date-v3.mp4",
+  "version_3": {
+    "date": "2026-10-21",
+    "decision": "Vidéo refaite à la demande d'Amine dans la direction artistique de la vidéo de présentation v2 : photos réelles, typographie éditoriale, sans voix, musique lo-fi originale et bruitages intégrés.",
+    "duree_s": 25.5,
+    "photos": [
+      "banque/site/hero-2-front-de-mer-1600.webp",
+      "banque/site/pack-patrimoine-immobilier-1600.webp (flou, fond)",
+      "banque/site/pack-suivi-comptabilite-1600.webp",
+      "banque/site/pack-residence-1600.webp"
+    ],
+    "plans": [
+      {
+        "t": "0-4,5",
+        "texte": [
+          "Achat immobilier en Algérie",
+          "Avant d’acheter, vérifiez la date de ce document."
+        ]
+      },
+      {
+        "t": "4,5-8,25",
+        "texte": [
+          "Le certificat négatif,",
+          "délivré par la conservation foncière."
+        ]
+      },
+      {
+        "t": "8,25-12,75",
+        "texte": [
+          "Il atteste l’absence de :",
+          "Hypothèque — aucune",
+          "Saisie — aucune",
+          "Mesure conservatoire — aucune",
+          "Et surtout, sa date."
+        ]
+      },
+      {
+        "t": "12,75-16,5",
+        "texte": [
+          "Exigez un certificat récent,",
+          "vérifié par votre notaire."
+        ]
+      },
+      {
+        "t": "16,5-20,25",
+        "texte": [
+          "« Tout est en règle, faites-moi confiance. » (barré)",
+          "La parole du vendeur ou de l’agence ne le remplace pas."
+        ]
+      },
+      {
+        "t": "20,25-25,5",
+        "texte": [
+          "Pack Achat Immobilier",
+          "Vérification écrite du titre, avec votre notaire.",
+          "Appel découverte · lien en bio",
+          "Enregistrez cette vidéo pour votre futur achat"
+        ]
+      }
+    ],
+    "son": "Musique originale composée pour la vidéo (lo-fi, 80 BPM, libre de droits) et bruitages ; musique Instagram « Reflection » retirée du post pour éviter deux musiques superposées.",
+    "cahier_des_charges": "claude/VIDEO_CERTIFICAT_22-10_CAHIER_DES_CHARGES.md (projet Claude)"
+  }
 }
