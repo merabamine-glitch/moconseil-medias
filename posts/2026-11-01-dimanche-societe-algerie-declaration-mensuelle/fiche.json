@@ -1,0 +1,27 @@
+{
+  "nom": "societe-algerie-declaration-mensuelle",
+  "date": "2026-11-01T11:00",
+  "objectif": "Prouver",
+  "pilier": "P5",
+  "pack": "Pack Suivi de Société",
+  "format": "visuel-texte",
+  "gabarit": "question",
+  "ambiance": "terre",
+  "cadre": "La question qu'on nous pose",
+  "levier": "Autorité (échéance officielle citée)",
+  "cta": "Enregistrer + appel découverte",
+  "sources": "DGI, formulaire et notice de la déclaration mensuelle série G n°50 (mfdgi.gov.dz, DECLARATION_G_N50_2017.pdf), lu le 21/10/2026 : dépôt dans les vingt premiers jours du mois qui suit ; dépôt trimestriel possible l'année suivante si les droits annuels sont inférieurs à 150 000 DA. Catalogue Pack 3 et rétroplanning Pack 3 pour le périmètre du pack.",
+  "photos": [],
+  "options": {
+    "ambiance": "terre"
+  },
+  "slides": [
+    {
+      "surtitre": "Société en Algérie, gérant à l'étranger",
+      "titre": "« Je vis à l'étranger. Qui déclare les impôts de ma société ? »",
+      "titre2": "L'échéance revient chaque mois.",
+      "texte": "La G50, déclaration mensuelle des impôts, se dépose dans les 20 premiers jours du mois suivant.",
+      "accent": "Confiez-en le suivi : appel découverte, lien en bio."
+    }
+  ]
+}

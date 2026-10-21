@@ -1,0 +1,25 @@
+{
+  "nom": "bien-en-algerie-qui-ouvre-au-plombier",
+  "date": "2026-11-05T19:00",
+  "objectif": "Attirer",
+  "pilier": "P3",
+  "pack": "Pack Conciergerie",
+  "format": "video",
+  "gabarit": "video",
+  "ambiance": "mer",
+  "cadre": "Problème puis solution (situation illustrative)",
+  "levier": "Similarité (vécu de la diaspora)",
+  "cta": "Appel découverte",
+  "sources": "Catalogue des packs (Pack 9 Conciergerie : interventions terrain 2/4/8 par mois, paiement des factures locales, relève et numérisation du courrier, contrôle périodique du bien, reporting mensuel avec justificatifs ; travaux et interventions d'artisans à la charge du client) ; contrat annexe Pack Conciergerie ; infographie Pack 9. Aucun fait réglementaire.",
+  "photos": ["banque/site/hero-2-front-de-mer-1600.webp", "banque/site/pack-conciergerie-1600.webp"],
+  "plans": [
+    {"texte": ["Un bien en Algérie,", "vous à l'étranger,", "une fuite d'eau."], "duree": 3.4,
+     "photo": "banque/site/hero-2-front-de-mer-1600.webp", "focus": [0.5, 0.5]},
+    {"texte": ["Qui ouvre la porte", "au plombier ?"], "duree": 3.0},
+    {"texte": ["Un représentant", "sur place se déplace", "et lui ouvre."], "duree": 3.4,
+     "photo": "banque/site/pack-conciergerie-1600.webp", "focus": [0.45, 0.6]},
+    {"texte": ["Il suit l'intervention", "et vous rend compte", "avec justificatifs."], "duree": 3.4},
+    {"texte": ["Factures, courrier,", "contrôle du bien :", "chaque mois."], "duree": 3.2},
+    {"texte": ["Pack Conciergerie", "Appel découverte", "lien en bio"], "duree": 3.6}
+  ]
+}
