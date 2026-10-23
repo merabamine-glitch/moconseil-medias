@@ -1,0 +1,40 @@
+{
+  "nom": "presentation-mo-conseil",
+  "date": "2026-10-27T19:00",
+  "objectif": "Attirer",
+  "pilier": "P4",
+  "pack": "Tous les packs (présentation)",
+  "format": "video",
+  "gabarit": "video Remotion (hors générateur)",
+  "ambiance": "photos réelles, trait d'union doré",
+  "cadre": "Présentation : problème, solution, preuve d'organisation, promesse",
+  "levier": "Similarité (vécu de la diaspora)",
+  "cta": "Appel découverte (lien en bio)",
+  "video": "presentation-mo-conseil.mp4",
+  "couverture": "presentation-mo-conseil-couverture.jpg (image à 1,5 s)",
+  "duree_s": 31.5,
+  "voix": "ElevenLabs, voix féminine créée par Amine (Voice Design, modèle v3), texte de Claude",
+  "texte_voix": [
+    "Vous vivez à l'étranger… mais votre projet, lui, est en Algérie.",
+    "Créer une société, acheter un bien, régler une succession, préparer votre retour…",
+    "Sur place, chaque démarche demande du temps, et surtout, quelqu'un de confiance.",
+    "M et O Conseil, c'est ce trait d'union.",
+    "Une équipe en Europe, une équipe en Algérie.",
+    "Dix packs, un seul interlocuteur, et un suivi, à chaque étape.",
+    "Vous restez chez vous, nous gérons le reste.",
+    "M et O Conseil… le trait d'union avec votre Algérie."
+  ],
+  "son": "Voix + musique originale (nappe) + bruitages à -10 dB, intégrés ; -15 LUFS",
+  "photos": [
+    "Avion entre les immeubles (Amine)",
+    "Maqam Echahid (banque site)",
+    "Immeuble, patio, mosquée et drapeau (banque site)",
+    "Fuselage au couchant (Amine)",
+    "Poignée de main au moucharabieh (Amine)",
+    "Mains en maillon (Amine)",
+    "Carte avec épingles (Amine, 23/10/2026)",
+    "10 photos des packs (banque site)"
+  ],
+  "sources": "Catalogue des packs (10 packs, noms exacts) ; cahier des charges claude/VIDEO_PRESENTATION_CAHIER_DES_CHARGES.md ; relais claude/RELAIS_VIDEO_VOIX_ELEVENLABS_23-10-2026.md",
+  "historique": "v2 (21/10, voix Kokoro) ; v3 (23/10, voix ElevenLabs recalée mot à mot) ; v4 (23/10, retouches d'Amine : bruitages réduits, ding supprimé, mains en maillon au trait d'union, carte pour les équipes, « retour définitif », plan final nuit et or) ; v4b (bruitages à -10 dB). Programmée par Amine pour le 27/10/2026 à 19h."
+}
