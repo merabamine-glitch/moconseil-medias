@@ -82,7 +82,6 @@ Selon le besoin :
 3. Réglages de référence : Stability environ 35 à 50 %, Style 20 à 30 %, Speed 1.
 4. Balises de ton (Eleven v3, entre crochets, non lues) : `[warmly]`, `[confident]`, `[reassuring]`, `[smiling]`, `[upbeat]`, `[energetic]`, `[short pause]`. Une par ligne au plus. Trop théâtral : on enlève la balise ; trop plat : on essaie `[excited]`.
 5. Coller tout le script en une fois (un seul fichier) ou une ligne par fichier, puis télécharger le MP3 et l'envoyer dans la conversation.
-5 bis. **Licence (bloquant).** Générer la voix **pendant un abonnement payant actif** (Starter au minimum) et avec un modèle qui n'est pas marqué « alpha » ou « bêta » : une voix générée avec le plan gratuit, ou avec un service en bêta, ne peut pas être utilisée dans une publication commerciale, même après passage à un plan payant (aide ElevenLabs lue le 23/10/2026).
 6. Coût indicatif : environ 1 000 crédits pour 30 s avec quelques essais (le compte affichait 8 779 crédits le 23/10/2026).
 
 ### Étape 3 — Analyse de la voix (Claude)
@@ -179,7 +178,7 @@ Pour les autres jours :
 
 | Poste | Coût indicatif |
 |---|---|
-| ElevenLabs | **Abonnement payant obligatoire** (Starter : 6 $ par mois, ou 5 $ par mois en annuel, 30 000 crédits, tarif relevé le 23/10/2026). Le plan gratuit n'a pas de licence commerciale, et une voix générée hors abonnement payant reste non commerciale même après passage à un plan payant (aide ElevenLabs, « Can I publish the content I generate on the platform? », lue le 23/10/2026). Environ 1 000 crédits pour 30 s avec essais. |
+| ElevenLabs | Environ 1 000 crédits pour 30 s avec essais. |
 | Metricool | Formule gratuite : 20 publications par mois, comptées par réseau (une vidéo sur Instagram, Facebook et TikTok = 3). |
 | Photos | Gratuites (banque du site, photos d'Amine libres de droit). |
 | Musique et bruitages | Gratuits (compositions originales générées par script, libres de droits). |
@@ -211,7 +210,6 @@ Un fichier MP4 1080 × 1920, 25 à 35 s, son intégré (voix, musique, bruitages
 | Promesse trop forte (« vous n'avez rien à faire », résultat qui dépend d'un tiers) | S'en tenir au modèle : « sans que vous ayez à vous déplacer » ; résultat formulé sur ce que nous maîtrisons ; présences exigées expliquées à l'appel découverte. |
 | Fait réglementaire non vérifié dans la voix | Registre de veille ou source officielle ; sinon on retire la phrase. |
 | Quota Metricool dépassé | Vidéos du mardi publiées à la main par Amine ; pour les autres, lire « Quota du mois » avant d'inclure TikTok. |
-| Voix générée avec le plan gratuit ElevenLabs (pas de licence commerciale) | Abonnement payant actif au moment de la génération ; sinon régénérer la voix après abonnement. |
 | Sources perdues en fin de session | Tout le projet vidéo est dans `outils/video/` du dépôt `moconseil-medias`. |
 
 ## 11. Cas particuliers

@@ -17,7 +17,7 @@ Durée : 105 à 121 mots, soit 38 à 44 s de voix et 41 à 47 s de vidéo avec l
 
 ## Comment générer les voix (Amine)
 
-1. ElevenLabs › Text to Speech › ta voix féminine › Eleven v3, mode Naturel, sous **abonnement payant actif** (licence commerciale).
+1. ElevenLabs › Text to Speech › ta voix féminine › Eleven v3, mode Naturel.
 2. Copier le bloc « Texte à coller dans ElevenLabs » en entier, générer, écouter, régénérer si une phrase sonne faux.
 3. Nommer le fichier comme indiqué (`pack-01-creation.mp3`, etc.) et l'envoyer dans la conversation.
 
