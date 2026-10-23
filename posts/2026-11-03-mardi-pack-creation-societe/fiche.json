@@ -12,7 +12,7 @@
   "levier": "Similarité (projet de la diaspora) et réduction de l'effort",
   "cta": "Appel découverte gratuit (lien en bio)",
   "video": "pack-creation-societe.mp4",
-  "couverture": "pack-creation-societe-couverture.jpg (image à 1,5 s)",
+  "couverture": "pack-creation-societe-couverture.jpg (image à 1,97 s)",
   "duree_s": 35.5,
   "voix": "ElevenLabs, voix masculine créée par Amine (Voice Design, modèle v3), script v2 validé le 23/10/2026",
   "texte_voix": [
@@ -24,7 +24,7 @@
     "Vous restez chez vous, nous gérons le reste.",
     "Réservez votre appel découverte gratuit."
   ],
-  "son": "Voix + nappe originale + bruitages à -10 dB, sans ding ; -14 LUFS",
+  "son": "Voix + nappe originale + bruitages à -10 dB, sans ding ; -15,3 LUFS mesuré, synchronisation voix 0 ms",
   "photos": [
     "Immeuble moderne (banque site, pack-creation-immeuble)",
     "Rue d'Europe (Pexels, Liisbet Luup, Drive › 3 - Démarches, 23/10/2026)",
