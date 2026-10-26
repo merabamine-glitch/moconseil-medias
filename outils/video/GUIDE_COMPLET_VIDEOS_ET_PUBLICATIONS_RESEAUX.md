@@ -1,6 +1,6 @@
 # GUIDE COMPLET — Vidéos et publications sur les réseaux sociaux (M&O Conseil)
 
-**Version 2.2 — 26 octobre 2026 (19h).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
+**Version 2.3 — 26 octobre 2026 (19h45).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
 
 Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` ; Drive › RÉSEAUX SOCIAUX (document Word, même lien que l'ancienne recette) ; dépôt GitHub `moconseil-medias`, dossier `outils/video/`.
 
@@ -25,6 +25,10 @@ Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_P
 | 13 | **Premier plan : aucune animation ajoutée** (papiers, plaques, objets qui tombent, étiquettes). L'accroche vient de l'image elle-même : vidéo réelle, mouvement de caméra, texte. Ne s'applique pas aux vidéos déjà publiées ou validées. | Décision d'Amine, 26/10/2026 |
 | 14 | **Légende et textes : objectif unique, l'appel découverte.** Aucune restriction, nuance de formule ou réserve qui freine l'appel (les limites de palier se traitent pendant l'appel). | Décision d'Amine, 26/10/2026 |
 | 15 | Ciel terne ou gris sur une vidéo réelle : l'étalonner en ciel bleuté (masque du ciel, relief des nuages conservé) avant le montage. | Demande d'Amine, 26/10/2026 |
+| 16 | La phrase finale « Réservez votre appel découverte » est **toujours ultra enjouée** (balises `[very excited] [cheerful]` ; prise dédiée raccordée si la prise complète est trop sage). | Décision d'Amine, 26/10/2026 |
+| 17 | Plan signature : **plus jamais le petit trait doré terminé par deux points** sur le trait d'or (`Spark` a `dash=false` par défaut). L'étoile « pop » apparaît **autour du logo** (`LogoBurst`). | Décision d'Amine, 26/10/2026 |
+| 18 | Autour d'une vidéo recadrée : aucune bande grise ou terne ; une bande seulement là où il y a du texte, en pierre (#F4EFE6) avec filet d'or, ou en nuit ; jamais de voile qui assombrit une personne. | Décision d'Amine, 26/10/2026 |
+| 19 | Premier plan : au moins 2 s à l'écran ; au besoin, l'image démarre seule avant la voix (décalage de quelques images). | Décision d'Amine, 26/10/2026 |
 
 ---
 
@@ -318,6 +322,7 @@ Amine (validation, publication du mardi, LinkedIn) ; Metricool ; Drive › Posts
 ## Historique
 - v1.0 (23/10/2026) : recette issue de la vidéo de présentation.
 - v1.1 (23/10/2026) : modèle de script en 6 temps, mardi publié à la main.
+- v2.3 (26/10/2026, 19h45) : règles 16 (fin ultra enjouée), 17 (pas de trait à deux points, étoile autour du logo), 18 (pas de bande grise, pas de voile sur une personne), 19 (premier plan d'au moins 2 s).
 - v2.2 (26/10/2026, 19h) : règles 13 (premier plan sans animation ajoutée), 14 (légende orientée appel uniquement), 15 (ciel bleuté).
 - v2.1 (26/10/2026, 13h) : durée 20 s en moyenne, 30 s au maximum ; voix générées par Claude via le connecteur ElevenLabs (identifiants des voix, une prise par défaut, téléchargement).
 - v2.0 (26/10/2026) : guide complet : durée 15 à 30 s, voix alternées, site et lieu dans chaque publication, direction « cinéma 3D réaliste », bibliothèque des 16 effets, méthode de déconstruction, outils et skills, règles d'or.

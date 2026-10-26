@@ -12,9 +12,9 @@
   "levier": "Similarité (vécu de la diaspora) et réduction de l'effort",
   "cta": "Appel découverte gratuit (lien en bio ou www.moconseildz.com)",
   "video": "pack-conciergerie.mp4",
-  "couverture": "pack-conciergerie-couverture.jpg (image à 1,13 s : Maqam Echahid, « Vos affaires en Algérie… »)",
-  "duree_s": 29.5,
-  "voix": "ElevenLabs, voix « Homme » d'Amine, Eleven v3 avec balises (excited, surprised, sighs, confident, warmly, happy, short pause), deux pauses raccourcies, accélérée x1,12 hauteur conservée : 28,2 s ; 685 crédits ; calage par alignement ElevenLabs (voix/align_p05.json)",
+  "couverture": "pack-conciergerie-couverture.jpg (image à 1,95 s : Maqam Echahid, « Vos affaires en Algérie… »)",
+  "duree_s": 30.0,
+  "voix": "ElevenLabs, voix « Homme » d'Amine, Eleven v3 avec balises (excited, surprised, sighs, confident, warmly, happy, short pause), deux pauses raccourcies, accélérée x1,12 hauteur conservée : 28,2 s ; 685 crédits ; calage par alignement ElevenLabs (voix/align_p05.json) ; phrase finale remplacée par une prise ultra enjouée ([very excited] [cheerful], 59 crédits) ; voix décalée de 14 images pour laisser le Maqam seul au début",
   "texte_voix": [
     "Vous avez des affaires en Algérie… et vous vivez en Europe ?",
     "Une facture, un logement, du courrier, un rendez-vous… à chaque fois, il faut appeler un proche.",
@@ -30,7 +30,7 @@
     "coches synchronisées",
     "compte rendu qui se remplit, justificatifs et tampon doré"
   ],
-  "son": "Voix + nappe originale + bruitages en code à -10 dB, sans ding ; -15,3 LUFS mesuré, crête -1,9 dB, synchronisation voix 0 ms",
+  "son": "Voix + nappe originale + bruitages en code à -10 dB, sans ding ; -15,0 LUFS mesuré, crête -1,9 dB, synchronisation voix 0 ms",
   "photos": [
     "Vidéo d'Amine : Maqam Echahid depuis le Jardin d'Essai, Alger (envoyée le 26/10/2026)",
     "Vidéo fournie par Amine : homme à son bureau en Europe (DeeVid AI, recadrée sous le filigrane, agrandie x2)",
@@ -49,5 +49,5 @@
   "mention_ia": "Jamais cochée (décision d'Amine du 23/10/2026)",
   "points_a_verifier": "Contenu du Pack 9 (catalogue, contrat annexe). Aucun fait réglementaire. Légende orientée appel découverte, sans restriction de formule (consigne d'Amine du 26/10/2026).",
   "sources": "Catalogue des packs (Pack 9), contrat annexe et check-list Pack 9 ; storyboard outils/video/STORYBOARD_P05_CONCIERGERIE.md ; guide v2.1 ; skill createur-videos-reseaux-sociaux",
-  "historique": "v1 (« Qui ouvre au plombier ? », texte animé 20 s) jugée trop centrée sur la conciergerie du logement par Amine (26/10/2026). v2 (26/10/2026) : tout le Pack Conciergerie, vidéos d'Amine aux plans 1 et 2, voix « Homme ». v2b (26/10, 19h10, retours d'Amine) : papiers du premier plan supprimés, ciel bleuté, plan 2 avancé à 1,2 s, bandes du plan 2 en nuit et marine."
+  "historique": "v1 (« Qui ouvre au plombier ? », texte animé 20 s) jugée trop centrée sur la conciergerie du logement par Amine (26/10/2026). v2 (26/10/2026) : tout le Pack Conciergerie, vidéos d'Amine aux plans 1 et 2, voix « Homme ». v2b (26/10, 19h10, retours d'Amine) : papiers du premier plan supprimés, ciel bleuté, plan 2 avancé à 1,2 s, bandes du plan 2 en nuit et marine. v2c (26/10, 19h40) : premier plan allongé (2 s), bande unique en haut couleur pierre avec filet d'or (plus de gris, plus de bande en bas), aucun voile sur l'homme, petit trait à deux points supprimé, étoile autour du logo, fin ultra enjouée."
 }

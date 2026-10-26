@@ -135,7 +135,7 @@ export const Root: React.FC = () => (
     <Composition id="Test3D" component={Test3D} durationInFrames={90} fps={30} width={1080} height={1920} />
     <Composition id="Pack02Suivi" component={Pack02Suivi} durationInFrames={882} fps={30} width={1080} height={1920} />
     <Composition id="Pack02SuiviV2" component={Pack02SuiviV2} durationInFrames={885} fps={30} width={1080} height={1920} />
-    <Composition id="Pack05ConciergerieV2" component={Pack05ConciergerieV2} durationInFrames={885} fps={30} width={1080} height={1920} />
+    <Composition id="Pack05ConciergerieV2" component={Pack05ConciergerieV2} durationInFrames={899} fps={30} width={1080} height={1920} />
     <Composition id="Certificat" component={Certificat} durationInFrames={765} fps={30} width={1080} height={1920} />
   </>
 );

@@ -3,7 +3,7 @@
 # Usage : bash render_p02v2.sh [début fin]  (sans argument : toute la vidéo ; avec : re-rendu des seuls morceaux touchés)
 cd "$(dirname "$0")"
 B=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
-LAST=884
+LAST=898
 A0=${1:-0}; A1=${2:-$LAST}
 mkdir -p out/pp5v2
 for a in $(seq 0 60 $LAST); do

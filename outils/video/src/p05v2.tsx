@@ -6,7 +6,7 @@ import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, OffthreadVideo, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {L_logo_clair} from './assets';
 import * as P from './photos';
-import {Accent, C, clamp, ease, easeIn, Finish, Particles, prog, s, SANS, Spark, useSpring, Word} from './kit';
+import {Accent, C, clamp, ease, easeIn, Finish, LogoBurst, Particles, prog, s, SANS, useSpring, Word} from './kit';
 import {Mask, Photo, Pin} from './scenes4';
 
 const W = 1080;
@@ -54,9 +54,9 @@ const B1: Sc = ({st, dur}) => {
   const t = useT(st);
   const z = interpolate(f, [0, dur], [1.12, 1.0], {...clamp, easing: Easing.bezier(0.2, 0.7, 0.3, 1)});
   // filé horizontal vers l'Europe
-  const whip = interpolate(f, [t(1.16), t(1.16) + 7], [0, 1], {...clamp, easing: Easing.bezier(0.6, 0, 0.9, 0.6)});
+  const whip = interpolate(f, [t(1.58), t(1.58) + 5], [0, 1], {...clamp, easing: Easing.bezier(0.6, 0, 0.9, 0.6)});
   return (
-    <AbsoluteFill style={{background: C.nuit, overflow: 'hidden', transform: `translateX(${-whip * W * 0.9}px)`, filter: `blur(${whip * 26}px)`}}>
+    <AbsoluteFill style={{background: C.nuit, overflow: 'hidden', transform: `translateX(${-whip * W * 0.9}px)`, filter: `blur(${whip * 14}px)`}}>
       <div style={{position: 'absolute', left: 0, top: 0, width: W, height: H, transform: `scale(${z})`, transformOrigin: '50% 40%'}}>
         <OffthreadVideo src={staticFile('video/s5-maqam-jardin.mp4')} muted style={{width: W, height: H, objectFit: 'cover'}} />
       </div>
@@ -64,11 +64,11 @@ const B1: Sc = ({st, dur}) => {
       <AbsoluteFill style={{background: 'linear-gradient(to top, rgba(14,23,38,0.35) 0%, rgba(14,23,38,0) 30%)'}} />
       <div style={{position: 'absolute', top: 250, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
         <div style={{...big, fontSize: 104}}>
-          <Word at={t(0.1)}>Vos </Word>
-          <Word at={t(0.4)}>affaires</Word>
+          <Word at={t(0.0)}>Vos </Word>
+          <Word at={t(0.45)}>affaires</Word>
         </div>
         <div style={{marginTop: 2}}>
-          <Accent at={t(0.66)} size={176} color={C.orClair} stroke="none">
+          <Accent at={t(0.85)} size={176} color={C.orClair} stroke="none">
             en Algérie…
           </Accent>
         </div>
@@ -77,33 +77,35 @@ const B1: Sc = ({st, dur}) => {
   );
 };
 
-/* ===================================================== 2. … et vous vivez en Europe ? Facture, logement, courrier, rendez-vous : il faut appeler un proche */
-const VID = {y: 470, w: W, h: Math.round((1296 * W) / 1144)};
+/* ===================================================== 2. … et vous vivez en Europe ? Facture, logement, courrier, rendez-vous : il faut appeler un proche
+   v2c (26/10, 19h30) : une seule bande, en haut, couleur pierre de la charte (plus de gris), filet d'or ; la vidéo descend jusqu'en bas ;
+   aucun voile sombre sur l'homme. */
+const BAND = 480;
+const VID = {y: BAND, h: H - BAND, w: Math.round(((H - BAND) * 1144) / 1296)};
+const VX = (W - VID.w) / 2;
 const CARDS = [
-  {k: 'facture' as const, l: 'Facture', at: 3.1, x: 300, y: 1150, r: -4},
-  {k: 'logement' as const, l: 'Logement', at: 3.82, x: 790, y: 1255, r: 3.5},
-  {k: 'courrier' as const, l: 'Courrier', at: 4.44, x: 285, y: 1390, r: 2.5},
-  {k: 'rdv' as const, l: 'Rendez-vous', at: 5.02, x: 760, y: 1505, r: -3},
+  {k: 'facture' as const, l: 'Facture', at: 3.1, x: 270, y: 1290, r: -4},
+  {k: 'logement' as const, l: 'Logement', at: 3.82, x: 800, y: 1415, r: 3.5},
+  {k: 'courrier' as const, l: 'Courrier', at: 4.44, x: 260, y: 1570, r: 2.5},
+  {k: 'rdv' as const, l: 'Rendez-vous', at: 5.02, x: 770, y: 1705, r: -3},
 ];
 const B2: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
-  const enter = interpolate(f, [0, 7], [1, 0], {...clamp, easing: Easing.bezier(0.1, 0.6, 0.3, 1)});
-  const z = interpolate(f, [0, dur], [1.0, 1.06], clamp);
+  const enter = interpolate(f, [0, 6], [1, 0], {...clamp, easing: Easing.bezier(0.1, 0.6, 0.3, 1)});
+  const z = interpolate(f, [0, dur], [1.0, 1.05], clamp);
   const swap = prog(f, t(5.74), 8, easeIn);
-  const dim = prog(f, t(6.4), 14);
-  const out = interpolate(f, [t(7.86), t(8.1)], [0, 1], {...clamp, easing: easeIn});
+  const out = interpolate(f, [t(7.9), t(8.12)], [0, 1], {...clamp, easing: easeIn});
+  const line = prog(f, 3, 12, inOut);
   return (
-    <AbsoluteFill style={{background: C.nuit, transform: `translateX(${enter * W * 0.9}px)`, filter: `blur(${enter * 26 + out * 18}px)`, opacity: 1 - out}}>
-      {/* bandes haut et bas : nuit et marine, halo or (charte), plus de fond gris */}
-      <AbsoluteFill style={{background: `linear-gradient(180deg, ${C.nuit} 0%, ${C.marine} 22%, ${C.marine} 78%, ${C.nuit} 100%)`}} />
-      <AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 14% at 50% 12%, rgba(201,162,75,0.28) 0%, rgba(201,162,75,0) 100%), radial-gradient(ellipse 70% 10% at 50% 94%, rgba(201,162,75,0.22) 0%, rgba(201,162,75,0) 100%)'}} />
-      <div style={{position: 'absolute', left: 0, top: VID.y, width: VID.w, height: VID.h, overflow: 'hidden', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0px, #000 90px, #000 calc(100% - 140px), rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0px, #000 90px, #000 calc(100% - 140px), rgba(0,0,0,0) 100%)'}}>
-        <div style={{width: '100%', height: '100%', transform: `scale(${z})`, transformOrigin: '50% 30%'}}>
+    <AbsoluteFill style={{background: C.pierre, transform: `translateX(${enter * W * 0.9}px)`, filter: `blur(${enter * 14 + out * 14}px)`, opacity: 1 - out}}>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 80% 22% at 50% 12%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%)'}} />
+      <div style={{position: 'absolute', left: VX, top: VID.y, width: VID.w, height: VID.h, overflow: 'hidden'}}>
+        <div style={{width: '100%', height: '100%', transform: `scale(${z})`, transformOrigin: '50% 25%'}}>
           <OffthreadVideo src={staticFile('video/s5-bureau-europe.mp4')} muted style={{width: VID.w, height: VID.h, objectFit: 'cover'}} />
         </div>
-        <AbsoluteFill style={{background: `rgba(14,23,38,${0.35 * dim})`}} />
       </div>
+      <div style={{position: 'absolute', left: (W - W * line) / 2, top: BAND - 3, width: W * line, height: 6, background: `linear-gradient(90deg, ${C.orFonce}, #F6E3AE 50%, ${C.orFonce})`}} />
       {/* les affaires nommées tombent sur le bureau, sur chaque mot */}
       {CARDS.map((c, i) => {
         const a = t(c.at) - 2;
@@ -112,38 +114,38 @@ const B2: Sc = ({st, dur}) => {
         const side = i % 2 ? 1 : -1;
         return (
           <div key={i} style={{position: 'absolute', left: c.x + side * (1 - p) * 500, top: c.y - (1 - p) * 120, transform: `translate(-50%,-50%) rotate(${c.r + (1 - p) * side * 25}deg) scale(${0.9 + 0.1 * p})`, opacity: Math.min(1, p * 2)}}>
-            <div style={{display: 'flex', alignItems: 'center', gap: 22, padding: '20px 36px 20px 24px', borderRadius: 10, background: 'linear-gradient(180deg, #FCFAF5 0%, #F4EFE6 100%)', borderLeft: `9px solid ${C.or}`, boxShadow: '0 22px 50px rgba(14,23,38,0.55)', whiteSpace: 'nowrap'}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 22, padding: '20px 36px 20px 24px', borderRadius: 10, background: 'linear-gradient(180deg, #FCFAF5 0%, #F4EFE6 100%)', borderLeft: `9px solid ${C.or}`, boxShadow: '0 22px 50px rgba(14,23,38,0.5)', whiteSpace: 'nowrap'}}>
               <Ico k={c.k} size={64} />
               <span style={{fontFamily: SANS, fontWeight: 800, fontSize: 56, color: C.marine, letterSpacing: -1}}>{c.l}</span>
             </div>
           </div>
         );
       })}
-      {/* texte du haut : Europe, puis « il faut appeler un proche » */}
-      <div style={{position: 'absolute', top: 205, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW, opacity: 1 - swap, transform: `translateY(${-swap * 30}px)`}}>
-        <div style={{...big, fontSize: 92}}>
+      {/* texte de la bande : Europe, puis « il faut appeler un proche » */}
+      <div style={{position: 'absolute', top: 175, width: '100%', textAlign: 'center', color: C.marine, opacity: 1 - swap, transform: `translateY(${-swap * 30}px)`}}>
+        <div style={{...big, fontSize: 96}}>
           <Word at={t(1.71)}>et </Word>
           <Word at={t(1.74)}>vous </Word>
           <Word at={t(1.9)}>vivez</Word>
         </div>
         <div style={{marginTop: 2}}>
-          <Accent at={t(2.25)} size={150} color={C.orClair} stroke="none">
+          <Accent at={t(2.25)} size={156} color={OR_TEXTE} stroke="none">
             en Europe ?
           </Accent>
         </div>
       </div>
       {swap > 0 && (
-        <div style={{position: 'absolute', top: 190, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
-          <div style={{...eyebrow, color: C.orClair, fontSize: 32}}>
+        <div style={{position: 'absolute', top: 150, width: '100%', textAlign: 'center', color: C.marine}}>
+          <div style={{...eyebrow, color: OR_TEXTE, fontSize: 32}}>
             <Word at={t(5.8)}>À chaque fois,</Word>
           </div>
-          <div style={{...big, fontSize: 88, marginTop: 12}}>
+          <div style={{...big, fontSize: 90, marginTop: 12}}>
             <Word at={t(6.43)}>il </Word>
             <Word at={t(6.53)}>faut </Word>
             <Word at={t(6.73)}>appeler</Word>
           </div>
-          <div style={{marginTop: 2}}>
-            <Accent at={t(6.98)} size={150} color={C.orClair} stroke="none">
+          <div style={{marginTop: 0}}>
+            <Accent at={t(6.98)} size={150} color={OR_TEXTE} stroke="none">
               un proche.
             </Accent>
           </div>
@@ -170,8 +172,8 @@ const B3: Sc = ({st, dur}) => {
       <AbsoluteFill style={{background: 'rgba(14,23,38,0.62)'}} />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse 80% 45% at 50% 50%, rgba(14,23,38,0) 0%, rgba(14,23,38,0.45) 100%)'}} />
       <GoldLine y={HALF - 3} glow={glow} w={W * prog(f, 2, 14, inOut)} />
-      <Spark at={t(11.3)} x={W / 2} y={HALF} scale={0.9} out={t(11.9)} />
-      <Particles at={t(11.3)} dur={s(0.7)} cx={W / 2} cy={HALF} mode="out" n={90} spread={420} seed="c3" boxW={500} boxH={20} />
+      <LogoBurst at={t(11.3) + 8} x={W / 2} y={1205} rx={360} ry={175} />
+      <Particles at={t(11.3) + 6} dur={s(0.8)} cx={W / 2} cy={1200} mode="out" n={80} spread={460} seed="c3" boxW={560} boxH={200} />
       <div style={{position: 'absolute', top: 400, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
         <Mask at={0} out={t(9.42)} d={1} style={{overflow: 'visible'}}>
           <div style={{...big, fontSize: 92}}>
@@ -208,7 +210,7 @@ const B3: Sc = ({st, dur}) => {
           <Img src={L_logo_clair} style={{width: 600, display: 'block'}} />
         </div>
       </div>
-      <div style={{position: 'absolute', top: 1440, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 36, color: C.blanc, opacity: sub, transform: `translateY(${(1 - sub) * 16}px)`, filter: shadowW}}>
+      <div style={{position: 'absolute', top: 1478, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 36, color: C.blanc, opacity: sub, transform: `translateY(${(1 - sub) * 16}px)`, filter: shadowW}}>
         Une équipe en Europe, une équipe en Algérie
       </div>
       <Label text="Algérie" y={1630} op={lab} />
@@ -511,10 +513,11 @@ const B7: Sc = ({st, dur}) => {
 };
 
 /* ===================================================== montage */
+export const OFF = 14; // images de Maqam avant le début de la voix
 export const P05V2_DUREE = 29.5;
 const PLAN: [number, number, Sc][] = [
-  [0, 1.45, B1],
-  [1.2, 8.12, B2],
+  [0, 1.8, B1],
+  [1.58, 8.12, B2],
   [7.9, 12.7, B3],
   [12.45, 20.0, B4],
   [19.6, 24.3, B5],
@@ -524,11 +527,15 @@ const PLAN: [number, number, Sc][] = [
 
 export const Pack05ConciergerieV2: React.FC = () => (
   <AbsoluteFill style={{background: C.nuit}}>
-    {PLAN.map(([a, b, Comp], i) => (
-      <Sequence key={i} from={s(a)} durationInFrames={s(b) - s(a)}>
-        <Comp st={a} dur={s(b) - s(a)} />
-      </Sequence>
-    ))}
+    {PLAN.map(([a, b, Comp], i) => {
+      const from = i === 0 ? 0 : s(a) + OFF;
+      const to = s(b) + OFF;
+      return (
+        <Sequence key={i} from={from} durationInFrames={to - from}>
+          <Comp st={i === 0 ? -OFF / 30 : a} dur={to - from} />
+        </Sequence>
+      );
+    })}
     <Finish />
   </AbsoluteFill>
 );

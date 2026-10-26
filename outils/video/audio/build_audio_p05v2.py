@@ -6,14 +6,16 @@ import numpy as np, soundfile as sf
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SR = 48000
-T = 29.5
+OFF = 14 / 30  # v2c : 14 images de Maqam seul avant la voix
+T = 899 / 30
 N = int(T * SR)
 wav = ROOT / 'out' / 'voix48_p05v2.wav'
 (ROOT / 'out').mkdir(exist_ok=True)
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(ROOT / 'voix' / 'pack-05-conciergerie.mp3'), '-ar', str(SR), '-ac', '1', str(wav)], check=True)
 v, _ = sf.read(str(wav), dtype='float32')
 voice = np.zeros(N, np.float32)
-voice[:min(len(v), N)] = v[:N]
+o = int(OFF * SR)
+voice[o:o + min(len(v), N - o)] = v[:N - o]
 voice *= 0.5 / np.abs(voice).max()
 rng = np.random.default_rng(11)
 
@@ -39,14 +41,14 @@ for c in range(8):
         pad[s0:s1] += 0.035 * env * w
 beat = 60 / 96
 pulse = np.zeros(N, np.float32)
-b = 1.2
-while b < 24.0:
+b = 1.58 + OFF
+while b < 24.0 + OFF:
     i = int(b * SR); L = int(0.25 * SR); tt = np.arange(L) / SR
     pulse[i:i + L] += (0.11 * np.sin(2 * np.pi * (55 + 90 * np.exp(-tt * 30)) * tt) * np.exp(-tt * 14))[:N - i]
     b += beat
 hats = np.zeros(N, np.float32)
-b = 1.2 + beat / 2
-while b < 24.0:
+b = 1.58 + OFF + beat / 2
+while b < 24.0 + OFF:
     i = int(b * SR); L = int(0.05 * SR)
     nz = np.diff(np.concatenate([[0], rng.standard_normal(L) * np.exp(-np.arange(L) / SR * 80)]))
     hats[i:i + L] += (0.018 * nz)[:N - i]
@@ -105,7 +107,7 @@ def paper(t0, g=0.22):
 
 
 ev = [whoosh(0.0, 0.5, True, 0.1)]                                              # plan 1 : aucune animation ajoutée
-ev += [whoosh(1.12, 0.45, True, 0.22)]                                          # filé vers l'Europe
+ev += [whoosh(1.5, 0.4, True, 0.2)]                                          # filé vers l'Europe
 for a in [3.1, 3.82, 4.44, 5.02]:
     ev.append(paper(a + 0.24, 0.2))                                             # cartes nommées sur le bureau
 ev += [whoosh(5.7, 0.4, False, 0.07), whoosh(7.84, 0.45, True, 0.12), rise(8.0, 0.5),
@@ -118,6 +120,7 @@ for a in [21.31, 21.55, 21.78, 22.02]:
 for a in [22.59, 22.82, 23.05]:
     ev.append(paper(a + 0.25, 0.15))                                            # justificatifs
 ev += [stamp(23.62, 0.42), whoosh(23.9, 0.5, True, 0.12), whoosh(26.55, 0.7, True, 0.16), pop(27.35, 880, 0.07)]
+ev = [(i + int(OFF * SR), sig) for i, sig in ev]  # tout est décalé avec la voix
 sfx = np.zeros(N, np.float32)
 for i, sig in ev:
     if i < 0:

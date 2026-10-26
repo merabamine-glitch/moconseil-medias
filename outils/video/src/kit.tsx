@@ -162,12 +162,13 @@ export const DarkStage: React.FC<{glow?: number; glowX?: number; glowY?: number;
 );
 
 /** Étincelle « trait d'union » : un trait d'or qui se dessine avec halo et rayons. */
-export const Spark: React.FC<{at: number; x: number; y: number; scale?: number; out?: number}> = ({
+export const Spark: React.FC<{at: number; x: number; y: number; scale?: number; out?: number; dash?: boolean}> = ({
   at,
   x,
   y,
   scale = 1,
   out,
+  dash = false,
 }) => {
   const f = useCurrentFrame();
   const p = prog(f, at, 18);
@@ -217,9 +218,13 @@ export const Spark: React.FC<{at: number; x: number; y: number; scale?: number; 
             />
           );
         })}
-        <rect x={-120 * p} y={-9} width={240 * p} height={18} rx={9} fill="url(#dash)" />
-        <circle cx={-128 * p} cy={0} r={14 * p} fill="#F6E3AE" />
-        <circle cx={128 * p} cy={0} r={14 * p} fill="#F6E3AE" />
+        {dash && (
+          <>
+            <rect x={-120 * p} y={-9} width={240 * p} height={18} rx={9} fill="url(#dash)" />
+            <circle cx={-128 * p} cy={0} r={14 * p} fill="#F6E3AE" />
+            <circle cx={128 * p} cy={0} r={14 * p} fill="#F6E3AE" />
+          </>
+        )}
       </svg>
     </div>
   );
@@ -315,5 +320,26 @@ export const Finish: React.FC = () => {
       />
 
     </AbsoluteFill>
+  );
+};
+
+/** Étoile « pop » autour du logo : rayons d'or en ellipse qui jaillissent puis s'effacent (sans trait ni points). */
+export const LogoBurst: React.FC<{at: number; x: number; y: number; rx?: number; ry?: number; n?: number}> = ({at, x, y, rx = 340, ry = 190, n = 16}) => {
+  const f = useCurrentFrame();
+  const grow = prog(f, at, 10, Easing.bezier(0.2, 0.9, 0.3, 1));
+  const fade = 1 - prog(f, at + 14, 16);
+  if (f < at || fade <= 0) return null;
+  return (
+    <svg width={rx * 2 + 300} height={ry * 2 + 300} viewBox={`${-rx - 150} ${-ry - 150} ${rx * 2 + 300} ${ry * 2 + 300}`} style={{position: 'absolute', left: x - rx - 150, top: y - ry - 150, overflow: 'visible', opacity: fade}}>
+      {Array.from({length: n}).map((_, i) => {
+        const a = (i / n) * Math.PI * 2 + 0.2;
+        const c = Math.cos(a), sn = Math.sin(a);
+        const r0 = 1 + 0.06 * random('lb' + i);
+        const len = (45 + 50 * random('ll' + i)) * grow;
+        const x1 = c * rx * r0, y1 = sn * ry * r0;
+        const k = len / Math.hypot(c * rx, sn * ry);
+        return <line key={i} x1={x1} y1={y1} x2={x1 + c * rx * k} y2={y1 + sn * ry * k} stroke="#E9CF8E" strokeOpacity={0.85} strokeWidth={6} strokeLinecap="round" />;
+      })}
+    </svg>
   );
 };
