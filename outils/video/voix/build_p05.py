@@ -23,21 +23,30 @@ out = [{'w': x['text'], 's': round(newt(x['start']), 3), 'e': round(newt(x['end'
 json.dump(out, open(D / 'align_p05.json', 'w'), ensure_ascii=False, indent=0)
 for x in out: print(f"{x['s']:6.2f} {x['e']:6.2f} {x['w']}")
 
-# v2c (26/10, 19h30) : la phrase finale est remplacée par une prise « ultra enjouée » (règle d'Amine pour toutes les vidéos),
-# raccordée à 26,90 s, niveau ramené à 1,4 fois celui de la phrase d'origine.
+# v2d (26/10, 19h50) : fin ultra enjouée dans la MÊME prise que « Pendant que vous restez chez vous… nous gérons le reste. »
+# (pack-05-fin-v3.mp3, même voix et même timbre que le reste). Raccord dans le silence avant « Pendant » (24,07 s),
+# prise insérée à vitesse naturelle, « Réservez » recalé à 26,97 s comme avant (aucun changement d'images).
 import numpy as np, soundfile as sf
-def _load(p, sr=44100):
-    a = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(p), '-ac', '1', '-ar', str(sr), '-f', 'f32le', '-'], capture_output=True).stdout
-    return np.frombuffer(a, np.float32).copy()
 SR = 44100
-base = _load(D / 'pack-05-conciergerie.mp3'); cta = _load(D / 'pack-05-cta-enjoue.mp3')
-old = base[int(26.9 * SR):]
-nz = np.where(np.abs(cta) > 0.01)[0]; cta = cta[max(0, nz[0] - int(0.03 * SR)): nz[-1] + int(0.12 * SR)]
+def _load(p):
+    a = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(p), '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True).stdout
+    return np.frombuffer(a, np.float32).copy()
+base = _load(D / 'pack-05-conciergerie.mp3'); fin = _load(D / 'pack-05-fin-v3.mp3')
 rms = lambda x: np.sqrt((x[np.abs(x) > 0.02] ** 2).mean())
-cta *= 1.4 * rms(old) / rms(cta)
-fade = np.linspace(0, 1, int(0.01 * SR)); cta[:len(fade)] *= fade
-out = np.concatenate([base[:int(26.9 * SR)], np.zeros(int(0.05 * SR), np.float32), cta])
-sf.write(str(D / 'tmp_v2c.wav'), out, SR)
-subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(D / 'tmp_v2c.wav'), '-b:a', '192k', str(D / 'pack-05-conciergerie.mp3')], check=True)
-(D / 'tmp_v2c.wav').unlink()
-print('fin enjouée raccordée : durée', round(len(out) / SR, 2), 's ; « Réservez » à', round(26.95 + 0.03, 2), 's')
+SPLICE_BASE, SPLICE_FIN = 24.07, 4.89          # début dans le silence avant « Pendant » (base finale / prise)
+RES_FIN, RES_TARGET = 7.55, 26.97               # « Réservez » dans la prise / dans la vidéo
+fin_seg = fin[int(SPLICE_FIN * SR):]
+fin_seg *= rms(base[int(22 * SR):int(23.6 * SR)]) / rms(fin[int(0.0 * SR):int(4.4 * SR)])   # même niveau que la phrase d'avant
+res_at = SPLICE_BASE + (RES_FIN - SPLICE_FIN)
+extra = max(0.0, RES_TARGET - res_at)
+k = int((7.25 - SPLICE_FIN + 0.12) * SR)        # milieu du silence entre « reste. » et « Réservez »
+fin_seg = np.concatenate([fin_seg[:k], np.zeros(int(extra * SR), np.float32), fin_seg[k:]])
+xf = int(0.03 * SR)
+head = base[:int(SPLICE_BASE * SR)].copy()
+fin_seg[:xf] *= np.linspace(0, 1, xf); head[-xf:] *= np.linspace(1, 0, xf)
+head[-xf:] += 0  # fondu sortant dans le silence
+out = np.concatenate([head, fin_seg])
+sf.write(str(D / 'tmp_v2d.wav'), out, SR)
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(D / 'tmp_v2d.wav'), '-b:a', '192k', str(D / 'pack-05-conciergerie.mp3')], check=True)
+(D / 'tmp_v2d.wav').unlink()
+print('v2d : durée', round(len(out) / SR, 2), 's ; pause ajoutée', round(extra, 2), 's')
