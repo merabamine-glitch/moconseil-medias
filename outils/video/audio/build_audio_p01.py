@@ -79,6 +79,14 @@ def rise(t0,d=0.7,g=0.035):
     i=int(t0*SR); L=int(d*SR); tt=np.arange(L)/SR
     f=600+700*tt/d
     return i,(g*np.sin(2*np.pi*np.cumsum(f)/SR)*np.sin(np.pi*tt/d)).astype(np.float32)
+def stamp(t0,g=0.42):
+    i=int(t0*SR); L=int(0.5*SR); tt=np.arange(L)/SR
+    body=np.sin(2*np.pi*(62+70*np.exp(-tt*28))*tt)*np.exp(-tt*16)
+    nz=rng.standard_normal(L); y=0; out=np.zeros(L)
+    for n in range(L): y=y+0.25*(nz[n]-y); out[n]=y
+    click=out*np.exp(-tt*55)*1.6
+    thud=np.sin(2*np.pi*140*tt)*np.exp(-tt*38)*0.5
+    return i,(g*(body+click+thud)/2.2).astype(np.float32)
 events=[whoosh(2.0,0.45,True,0.22),whoosh(3.3,0.45,False,0.14)]
 for tc in [4.93,5.38,6.03,7.21]: events.append(pop(tc,820,0.07))
 events+=[whoosh(7.52,0.5,False,0.10),rise(8.8,0.45),whoosh(8.9,0.45,True,0.15),boom(11.71,0.2),
@@ -86,7 +94,7 @@ events+=[whoosh(7.52,0.5,False,0.10),rise(8.8,0.45),whoosh(8.9,0.45,True,0.15),b
          whoosh(15.08,0.45,True,0.16),whoosh(15.45,0.45,False,0.08)]
 for tc in [17.8,19.0,20.45,22.2]: events.append(pop(tc+0.13,1500,0.07))
 for tw in [18.33,19.9,21.66]: events.append(whoosh(tw-0.18,0.36,True,0.09))
-events+=[whoosh(23.2,0.5,False,0.08),whoosh(24.85,0.5,True,0.16),boom(27.52,0.26),
+events+=[stamp(20.12),whoosh(20.14,0.6,False,0.05),whoosh(23.2,0.5,False,0.08),whoosh(24.85,0.5,True,0.16),boom(27.52,0.26),
          whoosh(29.08,0.45,True,0.14),whoosh(31.2,0.7,True,0.18),pop(31.95,880,0.09)]
 for i,s in events: sfx[i:i+len(s)]+=s[:N-i]
 sfx*=0.316  # v6 : bruitages à -10 dB = moitié moins forts à l oreille (demande d Amine)

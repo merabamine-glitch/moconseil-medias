@@ -295,10 +295,95 @@ const A5: Sc = ({st, dur}) => {
 
 /* ===================================================== 6. Le pack : ce que nous faisons */
 const WIN = {x: 70, y: 400, w: 940, h: 640};
+/** Tampon « Société immatriculée · Algérie » frappé sur une feuille, avec un léger nuage de poussière (v2, 26/10/2026). */
+const PaperSeal: React.FC<{at: number; fw: number; fh: number; zoom: number}> = ({at, fw, fh, zoom}) => {
+  const f = useCurrentFrame();
+  const hit = at + 5;
+  const p = interpolate(f, [at, hit], [0, 1], {...clamp, easing: Easing.bezier(0.5, 0, 0.9, 0.5)});
+  const settle = f >= hit ? 1 - 0.035 * Math.exp(-(f - hit) / 3) * Math.cos((f - hit) / 1.6) : 1;
+  const sc = (1.75 - 0.75 * p) * settle;
+  const shake = f >= hit && f < hit + 6 ? (random('ps' + f) - 0.5) * 9 * (1 - (f - hit) / 6) : 0;
+  const shadow = 1 - p;
+  const r = 128;
+  const txt = 'SOCIÉTÉ IMMATRICULÉE · ALGÉRIE · ';
+  const ink = 'url(#inkg)';
+  const inkTxt = '#7E5E1A';
+  const cx = fw / 2;
+  const cy = fh / 2;
+  const puff = interpolate(f, [hit, hit + 26], [0, 1], {...clamp, easing: Easing.bezier(0.15, 0.7, 0.3, 1)});
+  const puffOp = f < hit ? 0 : interpolate(f, [hit, hit + 3, hit + 26], [0, 1, 0], clamp);
+  return (
+    <div style={{position: 'absolute', left: 0, top: 0, width: fw, height: fh, overflow: 'hidden', transform: `translate(${shake}px, ${shake * 0.6}px) scale(${zoom})`}}>
+      {/* feuille */}
+      <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 45%, #F7F2E8 0%, #EFE7D7 60%, #E2D6BE 100%)'}} />
+      <div style={{position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(to bottom, rgba(27,42,65,0) 0px, rgba(27,42,65,0) 45px, rgba(27,42,65,0.06) 46px)', opacity: 0.8}} />
+      <svg width={fw} height={fh} style={{position: 'absolute', left: 0, top: 0, opacity: 0.09}}>
+        <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves={2} seed={4} /></filter>
+        <rect width={fw} height={fh} filter="url(#grain)" />
+      </svg>
+      {/* fumée très légère */}
+      {Array.from({length: 18}).map((_, i) => {
+        const a = (i / 18) * Math.PI * 2 + random('pa' + i) * 0.4;
+        const d = 175 + 90 * puff * (0.6 + 0.6 * random('pd' + i));
+        const size = 70 + 90 * puff * (0.6 + 0.8 * random('ps' + i));
+        return (
+          <div
+            key={i}
+            style={{
+              position: 'absolute', left: cx + Math.cos(a) * d - size / 2, top: cy + Math.sin(a) * d * 0.8 - size / 2 - 10 * puff,
+              width: size, height: size, borderRadius: size, background: 'rgba(140,128,110,0.55)',
+              opacity: 0.32 * puffOp * (0.6 + 0.4 * random('po' + i)), filter: 'blur(16px)',
+            }}
+          />
+        );
+      })}
+      {Array.from({length: 14}).map((_, i) => {
+        const a = random('da' + i) * Math.PI * 2;
+        const d = 140 + 160 * puff * (0.5 + random('dd' + i));
+        return (
+          <div key={'d' + i} style={{position: 'absolute', left: cx + Math.cos(a) * d, top: cy + Math.sin(a) * d * 0.8, width: 4, height: 4, borderRadius: 4, background: 'rgba(120,105,80,0.8)', opacity: 0.6 * puffOp}} />
+        );
+      })}
+      {/* ombre du tampon qui descend */}
+      {f >= at && f < hit && (
+        <div style={{position: 'absolute', left: cx - 150 * sc, top: cy - 150 * sc + 30, width: 300 * sc, height: 300 * sc, borderRadius: 999, background: 'rgba(14,23,38,0.25)', filter: 'blur(30px)', opacity: shadow}} />
+      )}
+      {f >= at && (
+        <div style={{position: 'absolute', left: cx, top: cy, transform: `translate(-50%,-50%) scale(${sc * 1.32}) rotate(-8deg)`, opacity: Math.min(1, p * 1.5)}}>
+          <svg width={320} height={320} viewBox="-160 -160 320 320" style={{overflow: 'visible'}}>
+            <defs>
+              <path id="psc" d={`M 0 0 m -${r - 26} 0 a ${r - 26} ${r - 26} 0 1 1 ${2 * (r - 26)} 0 a ${r - 26} ${r - 26} 0 1 1 -${2 * (r - 26)} 0`} />
+              <linearGradient id="inkg" x1="-130" y1="-130" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stopColor="#C9A24B" />
+                <stop offset="0.5" stopColor="#9C7726" />
+                <stop offset="1" stopColor="#7E5E1A" />
+              </linearGradient>
+              <filter id="ink" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={2} seed={7} result="n" />
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.3 1.95" result="m" />
+                <feComposite in="SourceGraphic" in2="m" operator="in" result="c" />
+                <feDisplacementMap in="c" in2="n" scale={2.2} />
+              </filter>
+            </defs>
+            <g filter="url(#ink)" opacity={0.97}>
+              <circle r={r} fill="none" stroke={ink} strokeWidth={9} />
+              <circle r={r - 52} fill="none" stroke={ink} strokeWidth={3.5} />
+              <text fill={inkTxt} fontFamily="Manrope" fontWeight={800} fontSize={21} letterSpacing={3}>
+                <textPath href="#psc" startOffset="0">{txt}</textPath>
+              </text>
+              <path d="M-34 4l22 22 46-52" fill="none" stroke={ink} strokeWidth={12} strokeLinecap="round" strokeLinejoin="round" />
+            </g>
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const SHOTS = [
   {at: 15.18, src: P.P_stylo, w: 901, h: 1600, ox: 0.5, oy: 0.3},
   {at: 18.33, src: P.P_dossier, w: 1333, h: 2000, ox: 0.5, oy: 0.45},
-  {at: 19.9, src: P.P_entreprendre, w: 720, h: 900, ox: 0.5, oy: 0.82},
+  {at: 19.9, src: '', w: 0, h: 0, ox: 0.5, oy: 0.5, seal: true}, // v2 (26/10) : tampon frappé sur papier, demande d'Amine
   {at: 21.66, src: P.P_bancaire, w: 1067, h: 1600, ox: 0.3, oy: 0.78},
 ];
 const CHECKS = [
@@ -344,7 +429,11 @@ const A6: Sc = ({st, dur}) => {
           const z = i === 0 ? interpolate(f, [0, t(18.33)], [1.12, 1.0], clamp) : interpolate(f, [a, a + 12, a + 60], [1.18, 1.06, 1.0], {...clamp, easing: ease});
           return (
             <div key={i} style={{position: 'absolute', inset: 0, clipPath: `inset(${(1 - wp) * 100}% 0 0 0)`}}>
-              <Photo src={sh.src} w={sh.w} h={sh.h} fw={box.w} fh={box.h} ox={sh.ox} oy={sh.oy} zoom={z} />
+              {(sh as any).seal ? (
+                <PaperSeal at={t(19.95)} fw={box.w} fh={box.h} zoom={z} />
+              ) : (
+                <Photo src={sh.src} w={sh.w} h={sh.h} fw={box.w} fh={box.h} ox={sh.ox} oy={sh.oy} zoom={z} />
+              )}
             </div>
           );
         })}
