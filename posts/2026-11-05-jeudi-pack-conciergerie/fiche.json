@@ -1,0 +1,53 @@
+{
+  "nom": "pack-conciergerie",
+  "date": "2026-11-05T19:00",
+  "publication": "Metricool (brouillon, validé par Amine), Instagram Reel, Facebook Reel, TikTok ; LinkedIn à la main",
+  "lieu": "Alger",
+  "objectif": "Attirer",
+  "pilier": "P3",
+  "pack": "Pack Conciergerie",
+  "format": "video",
+  "gabarit": "vidéo Remotion (série « Un pack en 30 secondes », vidéo 5), v2 refaite le 26/10/2026 (v1 trop centrée sur le logement)",
+  "cadre": "Modèle en 6 temps",
+  "levier": "Similarité (vécu de la diaspora) et réduction de l'effort",
+  "cta": "Appel découverte gratuit (lien en bio ou www.moconseildz.com)",
+  "video": "pack-conciergerie.mp4",
+  "couverture": "pack-conciergerie-couverture.jpg (image à 1,13 s : Maqam Echahid, « Vos affaires en Algérie… »)",
+  "duree_s": 29.5,
+  "voix": "ElevenLabs, voix « Homme » d'Amine, Eleven v3 avec balises (excited, surprised, sighs, confident, warmly, happy, short pause), deux pauses raccourcies, accélérée x1,12 hauteur conservée : 28,2 s ; 685 crédits ; calage par alignement ElevenLabs (voix/align_p05.json)",
+  "texte_voix": [
+    "Vous avez des affaires en Algérie… et vous vivez en Europe ?",
+    "Une facture, un logement, du courrier, un rendez-vous… à chaque fois, il faut appeler un proche.",
+    "Être votre représentant sur place, c'est exactement ce que nous faisons chez M et O Conseil !",
+    "Avec le pack… Conciergerie ! Nous réglons vos factures, relevons votre courrier et veillons sur votre logement, sans que vous ayez à vous déplacer.",
+    "Chaque mois, ce que vous obtenez, c'est un compte rendu précis, avec tous les justificatifs.",
+    "Pendant que vous restez chez vous… nous gérons le reste. Réservez votre appel découverte !"
+  ],
+  "effets": [
+    "ciel étalonné en bleu sur la vidéo du Maqam (premier plan sans animation ajoutée)",
+    "filé rapide vers l'Europe",
+    "étiquettes Facture, Logement, Courrier, Rendez-vous posées sur la vidéo",
+    "coches synchronisées",
+    "compte rendu qui se remplit, justificatifs et tampon doré"
+  ],
+  "son": "Voix + nappe originale + bruitages en code à -10 dB, sans ding ; -15,3 LUFS mesuré, crête -1,9 dB, synchronisation voix 0 ms",
+  "photos": [
+    "Vidéo d'Amine : Maqam Echahid depuis le Jardin d'Essai, Alger (envoyée le 26/10/2026)",
+    "Vidéo fournie par Amine : homme à son bureau en Europe (DeeVid AI, recadrée sous le filigrane, agrandie x2)",
+    "Mains en maillon (Amine)",
+    "Stylo sur budget (Pexels, Kindel Media)",
+    "Papiers et calculatrice (Pexels, Mikhail Nilov)",
+    "Clé de maison (Pexels, RDNE)",
+    "Classeurs (Pexels, Mikhail Nilov)",
+    "Bureau à la maison (Pexels, Teona Swift)"
+  ],
+  "legende": "🇩🇿 Vous avez des affaires en Algérie et vous vivez en Europe ?\n\nUne facture à régler, un logement à surveiller, du courrier qui s'accumule, un rendez-vous à la mairie… À chaque fois, il faut appeler un proche, attendre, relancer.\n\nAvec le Pack Conciergerie, votre représentant M&O Conseil s'en occupe sur place :\n1️⃣ vos factures locales réglées\n2️⃣ votre courrier relevé et numérisé\n3️⃣ votre logement contrôlé régulièrement\n4️⃣ vos rendez-vous administratifs assurés\n\nChaque mois, vous recevez un compte rendu précis, avec tous les justificatifs.\n\n✨ Pendant que vous restez chez vous, nous gérons le reste.\n\n👉 Réservez votre appel découverte gratuit, lien en bio ou sur www.moconseildz.com\n\n#DiasporaAlgérienne #Algérie #Conciergerie #BienEnAlgérie #MOConseil",
+  "premier_commentaire": "Aujourd'hui, qui s'occupe de vos affaires en Algérie quand vous n'y êtes pas : un proche, un voisin, personne ?",
+  "titre_tiktok": "Vos affaires en Algérie, vous en Europe : qui s'en occupe ?",
+  "texte_alternatif": "Vidéo M&O Conseil, Pack Conciergerie, 30 secondes, avec voix off masculine. Le Maqam Echahid vu depuis le Jardin d'Essai d'Alger, sous un ciel bleu, avec ses jets d'eau : « Vos affaires en Algérie… » Un homme à son bureau en Europe, la tête dans la main, devant des piles de papiers : « et vous vivez en Europe ? » Quatre étiquettes se posent sur son bureau : Facture, Logement, Courrier, Rendez-vous ; « À chaque fois, il faut appeler un proche. » Des mains en maillon, un trait d'or et le logo M&O Conseil : « Être votre représentant sur place, c'est exactement ce que nous faisons chez M et O Conseil », avec « Une équipe en Europe, une équipe en Algérie ». Le Pack Conciergerie : des mains tiennent une clé, quatre coches : factures réglées, courrier relevé et numérisé, logement contrôlé, rendez-vous assurés ; puis « Sans vous déplacer ». Un compte rendu mensuel se remplit, trois justificatifs glissent dessous (facture acquittée, courrier scanné, photo du bien) et un tampon doré « Justificatifs joints » se pose : « Chaque mois, un compte rendu précis. » Un bureau lumineux à la maison : « Pendant que vous restez chez vous… nous gérons le reste. » Fin sur fond bleu nuit : logo, Pack Conciergerie, bouton « Réserver un appel découverte », moconseildz.com.",
+  "texte_linkedin": "Gérer ses affaires en Algérie depuis l'Europe, c'est rarement une grande démarche. C'est une succession de petites choses : une facture à régler, un logement à contrôler, du courrier à récupérer, un rendez-vous à la mairie. Et pour chacune, il faut trouver quelqu'un sur place.\n\nLe Pack Conciergerie de M&O Conseil vous donne un représentant de confiance en Algérie. Il règle vos factures locales, relève et numérise votre courrier, contrôle votre logement et vous représente à vos rendez-vous administratifs.\n\nChaque mois, vous recevez un compte rendu précis, avec tous les justificatifs. Vous gardez la main sur tout, sans faire le déplacement.\n\nVous avez un bien ou des démarches à suivre en Algérie ? Réservez votre appel découverte gratuit sur moconseildz.com\n\n#Algérie #DiasporaAlgérienne #Conciergerie #Immobilier",
+  "mention_ia": "Jamais cochée (décision d'Amine du 23/10/2026)",
+  "points_a_verifier": "Contenu du Pack 9 (catalogue, contrat annexe). Aucun fait réglementaire. Légende orientée appel découverte, sans restriction de formule (consigne d'Amine du 26/10/2026).",
+  "sources": "Catalogue des packs (Pack 9), contrat annexe et check-list Pack 9 ; storyboard outils/video/STORYBOARD_P05_CONCIERGERIE.md ; guide v2.1 ; skill createur-videos-reseaux-sociaux",
+  "historique": "v1 (« Qui ouvre au plombier ? », texte animé 20 s) jugée trop centrée sur la conciergerie du logement par Amine (26/10/2026). v2 (26/10/2026) : tout le Pack Conciergerie, vidéos d'Amine aux plans 1 et 2, voix « Homme ». v2b (26/10, 19h10, retours d'Amine) : papiers du premier plan supprimés, ciel bleuté, plan 2 avancé à 1,2 s, bandes du plan 2 en nuit et marine."
+}

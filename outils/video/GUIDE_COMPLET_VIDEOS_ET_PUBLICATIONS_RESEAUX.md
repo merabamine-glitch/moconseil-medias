@@ -1,6 +1,6 @@
 # GUIDE COMPLET — Vidéos et publications sur les réseaux sociaux (M&O Conseil)
 
-**Version 2.1 — 26 octobre 2026 (13h).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
+**Version 2.2 — 26 octobre 2026 (19h).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
 
 Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` ; Drive › RÉSEAUX SOCIAUX (document Word, même lien que l'ancienne recette) ; dépôt GitHub `moconseil-medias`, dossier `outils/video/`.
 
@@ -22,6 +22,9 @@ Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_P
 | 10 | Un élément qu'Amine a vu et aimé ne disparaît pas sans son accord. | 23/10/2026 |
 | 11 | Tout fait réglementaire dit ou écrit est vérifié (veille réglementaire ou source officielle de moins de 90 jours). | Procédure de publication |
 | 12 | Aucun faux témoignage, faux commentaire, faux chiffre ou faux document officiel. | Déontologie |
+| 13 | **Premier plan : aucune animation ajoutée** (papiers, plaques, objets qui tombent, étiquettes). L'accroche vient de l'image elle-même : vidéo réelle, mouvement de caméra, texte. Ne s'applique pas aux vidéos déjà publiées ou validées. | Décision d'Amine, 26/10/2026 |
+| 14 | **Légende et textes : objectif unique, l'appel découverte.** Aucune restriction, nuance de formule ou réserve qui freine l'appel (les limites de palier se traitent pendant l'appel). | Décision d'Amine, 26/10/2026 |
+| 15 | Ciel terne ou gris sur une vidéo réelle : l'étalonner en ciel bleuté (masque du ciel, relief des nuages conservé) avant le montage. | Demande d'Amine, 26/10/2026 |
 
 ---
 
@@ -144,7 +147,7 @@ Pour imiter une vidéo de référence : la décomposer avec ce tableau (temps, c
 6. Une image ne revient pas deux fois dans une vidéo, sauf rappel voulu (ex. : tampon au registre du commerce puis au résultat, demande d'Amine du 26/10).
 
 ### Étape 6 — Direction artistique « cinéma 3D réaliste »
-- **Accroche (0 à 3 s)** : une action spectaculaire en même temps que la question de la voix et le texte (règle des 3 secondes). On varie l'action d'une vidéo à l'autre et on mesure la rétention : avion qui décolle, globe 3D qui tourne jusqu'à Alger avec un vol en trait d'or, tampon qui frappe, porte qui s'ouvre, clé qui tourne, dossier qui se referme.
+- **Accroche (0 à 3 s)** : une image forte en même temps que la question de la voix et le texte (règle des 3 secondes) : vidéo réelle d'Alger (plans d'Amine), mouvement de caméra (recul, poussée), coupe nette vers le plan suivant. **Aucune animation ajoutée sur le premier plan** (règle 13). On varie l'image d'une vidéo à l'autre et on mesure la rétention.
 - **Vraie 3D** (Three.js) : globe terrestre, objets en volume, caméra qui orbite ; lumière principale chaude, contre-jour doré.
 - **Relief 2,5D** : photo découpée en plans (premier plan, sujet, fond) qui bougent à des vitesses différentes ; objet détouré qui sort de son cadre ou traverse l'image (comme l'avion).
 - **Rythme selon le pack** : dynamique (un plan toutes les 1 à 2 s) pour Création, Suivi, Compte Bancaire, Achat ; posé (2 à 3 s) pour Succession, Nationalité, Retour, Scolarisation, Logement, Conciergerie.
@@ -315,5 +318,6 @@ Amine (validation, publication du mardi, LinkedIn) ; Metricool ; Drive › Posts
 ## Historique
 - v1.0 (23/10/2026) : recette issue de la vidéo de présentation.
 - v1.1 (23/10/2026) : modèle de script en 6 temps, mardi publié à la main.
+- v2.2 (26/10/2026, 19h) : règles 13 (premier plan sans animation ajoutée), 14 (légende orientée appel uniquement), 15 (ciel bleuté).
 - v2.1 (26/10/2026, 13h) : durée 20 s en moyenne, 30 s au maximum ; voix générées par Claude via le connecteur ElevenLabs (identifiants des voix, une prise par défaut, téléchargement).
 - v2.0 (26/10/2026) : guide complet : durée 15 à 30 s, voix alternées, site et lieu dans chaque publication, direction « cinéma 3D réaliste », bibliothèque des 16 effets, méthode de déconstruction, outils et skills, règles d'or.
