@@ -1,6 +1,6 @@
 # GUIDE COMPLET — Vidéos et publications sur les réseaux sociaux (M&O Conseil)
 
-**Version 2.3 — 26 octobre 2026 (19h45).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
+**Version 2.4 — 26 octobre 2026 (20h15).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
 
 Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` ; Drive › RÉSEAUX SOCIAUX (document Word, même lien que l'ancienne recette) ; dépôt GitHub `moconseil-medias`, dossier `outils/video/`.
 
@@ -29,6 +29,7 @@ Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_P
 | 17 | Plan signature : **plus jamais le petit trait doré terminé par deux points** sur le trait d'or (`Spark` a `dash=false` par défaut). L'étoile « pop » apparaît **autour du logo** (`LogoBurst`). | Décision d'Amine, 26/10/2026 |
 | 18 | Autour d'une vidéo recadrée : aucune bande grise ou terne ; une bande seulement là où il y a du texte, en pierre (#F4EFE6) avec filet d'or, ou en nuit ; jamais de voile qui assombrit une personne. | Décision d'Amine, 26/10/2026 |
 | 19 | Premier plan : au moins 2 s à l'écran ; au besoin, l'image démarre seule avant la voix (décalage de quelques images). | Décision d'Amine, 26/10/2026 |
+| 20 | Voix : pour chaque genre (« Homme », « Femme »), les mêmes réglages, le même timbre et la même tonalité dans toutes les vidéos, ceux des premières vidéos validées (timing, surprise, engouement, enjouement) ; jamais triste une fois et joyeux la fois suivante. Tout le texte est généré en une seule prise, fin enjouée comprise ; **jamais une phrase générée seule puis raccordée** (le timbre change). Les voix sont comparées aux vidéos validées avant envoi. | Décision d'Amine, 26/10/2026 |
 
 ---
 
@@ -50,6 +51,7 @@ Produire des vidéos verticales de 15 à 30 secondes et des publications qui :
 | ElevenLabs | Voix off « Homme » et « Femme » d'Amine (Voice Design, modèle Eleven v3) ; bruitages ponctuels (bibliothèque). | Compte d'Amine ; connecteur claude.ai si activé |
 | Remotion 4 (React) | Moteur de montage par code : scènes, animations, transitions, rendu MP4. | `outils/video/` du dépôt |
 | Three.js + @remotion/three | Vraie 3D : globe, objets en relief, caméra 3D. Validé le 26/10/2026 (rendu WebGL logiciel). | idem |
+| HyperFrames (HeyGen) | Plugin ajouté par Amine le 26/10/2026. Vidéo en HTML : compositions éditables, projets hébergés et rendu dans le cloud HeyGen (outils `compose` et `render_video` du plugin), ou compositions locales via les skills HyperFrames. **Complément de Remotion, pas un remplacement** : Remotion reste le moteur de référence des vidéos validées. À tester sur un plan test de 3 s (netteté à 100 %, charte, voix inchangée) avant tout usage en production ; aucune vidéo publiée ne passe par HyperFrames sans accord d'Amine. | Plugin claude.ai ; fichiers dans `moconseil-medias` |
 | ffmpeg, Python (numpy, librosa, soundfile) | Analyse de la voix, mixage, normalisation, contrôle de synchronisation. | Espace de travail Claude |
 | Kokoro (voix locale) | Référence d'alignement mot à mot uniquement, jamais publiée. | idem |
 | Metricool (marque 7184987) | Programmation Instagram, Facebook, TikTok (sauf mardi). Formule gratuite : 20 publications par mois. | Connecteur Metricool |
@@ -320,6 +322,7 @@ Amine (validation, publication du mardi, LinkedIn) ; Metricool ; Drive › Posts
 - Dépôts : `merabamine-glitch/moconseil-medias` (public), `moconseil-depot` (privé).
 
 ## Historique
+- v2.4 (26/10/2026, 20h15) : règle 20 (voix identiques pour chaque genre, prise unique, jamais de phrase raccordée) ; plugin HyperFrames noté dans les outils.
 - v1.0 (23/10/2026) : recette issue de la vidéo de présentation.
 - v1.1 (23/10/2026) : modèle de script en 6 temps, mardi publié à la main.
 - v2.3 (26/10/2026, 19h45) : règles 16 (fin ultra enjouée), 17 (pas de trait à deux points, étoile autour du logo), 18 (pas de bande grise, pas de voile sur une personne), 19 (premier plan d'au moins 2 s).
