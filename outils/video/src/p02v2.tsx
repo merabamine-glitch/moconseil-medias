@@ -2,7 +2,7 @@
 // Voix « Femme » ElevenLabs, prise 1 (27,48 s). Temps en secondes absolues de la voix (voix/align_p02.json).
 // Storyboard : STORYBOARD_P02_V2.md. Photos réelles en haute définition uniquement, charte stricte.
 import React from 'react';
-import {AbsoluteFill, Easing, Img, interpolate, random, Sequence, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Easing, Img, interpolate, OffthreadVideo, random, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {L_logo_clair} from './assets';
 import * as P from './photos';
 import {Accent, C, clamp, ease, easeIn, Finish, Particles, prog, s, SANS, SERIF, Spark, useSpring, Word} from './kit';
@@ -39,7 +39,46 @@ const Label: React.FC<{text: string; y: number; op: number; dark?: boolean}> = (
   </div>
 );
 
-/* ===================================================== 1 + 2. Accroche : l'Algérie, puis l'écran se coupe vers l'Europe */
+/** Plaque de laiton « Siège social · Alger » : arrive vers la caméra, se pose, reflet (objet du plan 1, v3 du 26/10). */
+const Plaque: React.FC<{at: number; x: number; y: number}> = ({at, x, y}) => {
+  const f = useCurrentFrame();
+  const p = interpolate(f, [at - 10, at], [0, 1], {...clamp, easing: Easing.bezier(0.5, 0, 0.85, 0.55)});
+  if (f < at - 10) return null;
+  const settle = f >= at ? 1 - 0.045 * Math.exp(-(f - at) / 3.2) * Math.cos((f - at) / 1.5) : 1;
+  const sc = (2.1 - 1.1 * p) * settle;
+  const rx = 58 * (1 - p);
+  const shine = interpolate(f, [at + 14, at + 34], [-40, 150], clamp);
+  const screw = (l: number, t: number) => (
+    <div style={{position: 'absolute', left: l, top: t, width: 20, height: 20, borderRadius: 20, background: 'radial-gradient(circle at 35% 30%, #F6E3AE 0%, #C9A24B 45%, #7E5E1A 100%)', boxShadow: 'inset 0 -1px 2px rgba(0,0,0,0.45), 0 1px 1px rgba(255,240,200,0.6)'}}>
+      <div style={{position: 'absolute', left: 4, top: 9, width: 12, height: 2, background: 'rgba(90,64,14,0.85)', transform: 'rotate(-35deg)'}} />
+    </div>
+  );
+  const engr: React.CSSProperties = {color: '#5E4511', textShadow: '0 1.5px 0 rgba(255,244,210,0.75), 0 -1px 0 rgba(60,40,5,0.4)'};
+  return (
+    <div style={{position: 'absolute', left: x, top: y, transform: 'translate(-50%,-50%)', perspective: 1200}}>
+      {/* ombre portée */}
+      <div style={{position: 'absolute', left: 30, right: 30, top: 200, height: 90, borderRadius: 90, background: 'rgba(14,23,38,0.55)', filter: `blur(${18 + 30 * (1 - p)}px)`, opacity: 0.8 * p, transform: `scale(${sc})`}} />
+      <div
+        style={{
+          position: 'relative', width: 600, height: 250, borderRadius: 10, overflow: 'hidden',
+          transform: `scale(${sc}) rotateX(${rx}deg)`, opacity: Math.min(1, p * 2), filter: `blur(${(1 - p) * 9}px)`,
+          background: 'linear-gradient(135deg, #8E6B22 0%, #C9A24B 16%, #F2DDA2 33%, #C9A24B 50%, #A8822F 66%, #E9CF8E 84%, #9C7726 100%)',
+          boxShadow: 'inset 0 2px 0 rgba(255,246,220,0.7), inset 0 -3px 0 rgba(60,40,5,0.35), 0 34px 70px rgba(0,0,0,0.55)',
+        }}
+      >
+        <div style={{position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0.035) 2px, rgba(0,0,0,0) 3px)'}} />
+        <div style={{position: 'absolute', inset: 16, border: '2px solid rgba(110,82,20,0.55)', borderRadius: 4, boxShadow: '0 1px 0 rgba(255,244,210,0.5)'}} />
+        {screw(26, 26)}{screw(554, 26)}{screw(26, 204)}{screw(554, 204)}
+        <div style={{position: 'absolute', top: 46, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 10, ...engr}}>SIÈGE SOCIAL</div>
+        <div style={{position: 'absolute', top: 92, left: 200, width: 200, height: 2, background: 'rgba(94,69,17,0.6)', boxShadow: '0 1px 0 rgba(255,244,210,0.6)'}} />
+        <div style={{position: 'absolute', top: 96, width: '100%', textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontWeight: 700, fontSize: 104, lineHeight: 1.05, ...engr}}>Alger</div>
+        <div style={{position: 'absolute', top: 0, bottom: 0, left: `${shine}%`, width: '24%', background: 'linear-gradient(100deg, rgba(255,250,235,0) 0%, rgba(255,250,235,0.65) 50%, rgba(255,250,235,0) 100%)', mixBlendMode: 'screen'}} />
+      </div>
+    </div>
+  );
+};
+
+/* ===================================================== 1 + 2. Accroche : Alger (vidéo d'Amine) et la plaque du siège social, puis la tour Eiffel */
 const B1: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
@@ -47,10 +86,8 @@ const B1: Sc = ({st, dur}) => {
   const pull = interpolate(f, [0, 22], [0, 1], {...clamp, easing: Easing.bezier(0.16, 1, 0.3, 1)});
   const z = 1.45 - 0.39 * pull + interpolate(f, [22, t(2.15)], [0, 0.03], clamp);
   const rot = -3 * (1 - pull);
-  const sweep = interpolate(f, [2, 20], [-40, 140], clamp);
   // coupe à « et vous »
   const sp = interpolate(f, [t(2.12), t(2.12) + 11], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.2, 1)});
-  const top = HALF * sp; // haut de la moitié Algérie
   const line = prog(f, t(2.12) + 6, 10, inOut);
   const lab = prog(f, t(2.6), 10);
   const txt1 = 1 - prog(f, t(2.05), 7, easeIn);
@@ -58,40 +95,45 @@ const B1: Sc = ({st, dur}) => {
   const out = interpolate(f, [t(3.52), t(3.78)], [0, 1], {...clamp, easing: easeIn});
   return (
     <AbsoluteFill style={{background: C.nuit, overflow: 'hidden', transform: `scale(${1 + out * 2.2})`, transformOrigin: `50% ${HALF}px`, filter: `blur(${out * 14}px)`}}>
-      {/* Algérie : plein cadre, puis moitié basse */}
-      <div style={{position: 'absolute', left: 0, top, width: W, height: H - top, overflow: 'hidden'}}>
-        <div style={{position: 'absolute', left: 0, top: -top * 0.76, width: W, height: H}}>
-          <Photo src={P.P_s2_algerie_pont} w={1600} h={2133} zoom={z} rot={rot} ox={0.5} oy={0.5} />
-          <AbsoluteFill style={{background: `linear-gradient(to bottom, rgba(244,239,230,${0.85 * txt1}) 0%, rgba(244,239,230,${0.55 * txt1}) 26%, rgba(244,239,230,0) 44%)`}} />
-          <div style={{position: 'absolute', top: 0, bottom: 0, left: `${sweep}%`, width: '30%', background: 'linear-gradient(100deg, rgba(255,240,210,0) 0%, rgba(255,240,210,0.35) 50%, rgba(255,240,210,0) 100%)'}} />
-        </div>
-        <AbsoluteFill style={{background: `linear-gradient(to top, rgba(14,23,38,${0.55 * sp}) 0%, rgba(14,23,38,0) 40%)`}} />
-      </div>
+      {/* Algérie : vidéo d'Amine (Djamaâ El Djazaïr, Alger), 4K ramenée à 1566 × 2784 et ralentie à 0,85 : recul sans agrandissement */}
+      {f < s(2.55) && (
+        <AbsoluteFill style={{overflow: 'hidden'}}>
+          <div style={{position: 'absolute', left: 0, top: 0, width: W, height: H, transform: `scale(${z}) rotate(${rot}deg)`}}>
+            <OffthreadVideo src={staticFile('video/s2-alger-djamaa.mp4')} muted style={{width: W, height: H, objectFit: 'cover'}} />
+          </div>
+          <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(14,23,38,0.5) 0%, rgba(14,23,38,0.22) 30%, rgba(14,23,38,0) 46%)'}} />
+          <div style={{opacity: txt1}}>
+            <Plaque at={t(0.62)} x={W / 2 + 40} y={1390} />
+          </div>
+        </AbsoluteFill>
+      )}
       {/* Europe : la tour Eiffel entière (pointe visible) tombe en plein cadre — v2b, demande d'Amine du 26/10 */}
       {sp > 0 && (
         <div style={{position: 'absolute', inset: 0, overflow: 'hidden', transform: `translateY(${-(1 - sp) * H}px)`, filter: `blur(${(1 - sp) * 18}px)`}}>
           <AbsoluteFill style={{background: C.pierre}} />
-          <div style={{position: 'absolute', inset: 0, WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 290px, rgba(0,0,0,1) 560px)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 290px, rgba(0,0,0,1) 560px)'}}>
-            <Photo src={P.P_s2_europe_paris} w={1600} h={2400} ox={0.5} oy={0} dy={330} zoom={1.0 + 0.05 * prog(f, t(2.12), s(1.6))} />
+          <div style={{position: 'absolute', inset: 0, WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 380px, rgba(0,0,0,1) 650px)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 380px, rgba(0,0,0,1) 650px)'}}>
+            <Photo src={P.P_s2_europe_paris} w={1600} h={2400} ox={0.5} oy={0} dy={420} zoom={1.0 + 0.05 * prog(f, t(2.12), s(1.6))} />
           </div>
           <AbsoluteFill style={{background: 'linear-gradient(to top, rgba(14,23,38,0.45) 0%, rgba(14,23,38,0) 30%)'}} />
         </div>
       )}
       {/* texte 1 */}
-      <div style={{position: 'absolute', top: 250, width: '100%', textAlign: 'center', color: C.marine, opacity: txt1}}>
+      <div style={{position: 'absolute', top: 236, right: 64, textAlign: 'right', color: C.blanc, opacity: txt1, filter: shadowW}}>
         <div style={{...big, fontSize: 100}}>
           <Word at={t(0.11)}>Votre </Word>
           <Word at={t(0.5)}>société</Word>
         </div>
-        <div style={{marginTop: 10}}>
-          <Word at={t(1.13)} style={{...big, fontSize: 100}}>est en </Word>
-          <Accent at={t(1.5)} size={170} color={OR_TEXTE} stroke="none">
+        <div style={{...big, fontSize: 100, marginTop: 4}}>
+          <Word at={t(1.13)}>est en</Word>
+        </div>
+        <div style={{marginTop: 2, marginRight: -6}}>
+          <Accent at={t(1.42)} size={176} color={C.orClair} stroke="none">
             Algérie…
           </Accent>
         </div>
       </div>
       {/* texte 2 */}
-      <div style={{position: 'absolute', top: 150, width: '100%', textAlign: 'center', color: C.marine}}>
+      <div style={{position: 'absolute', top: 228, width: '100%', textAlign: 'center', color: C.marine}}>
         <div style={{...big, fontSize: 92}}>
           <Word at={t(2.15)}>et </Word>
           <Word at={t(2.31)}>vous </Word>
@@ -146,25 +188,41 @@ const B3: Sc = ({st, dur}) => {
           </Accent>
         </div>
       </div>
-      <div style={{position: 'absolute', top: 1010, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24}}>
-        {CHIPS.map((c, i) => {
-          const p = prog(f, t(c.at), 10);
-          const sp = useSpring(t(c.at), 13, 180);
-          return (
+      {/* feuilles qui tombent une à une et s'empilent (objets en mouvement, v3) */}
+      {CHIPS.map((c, i) => {
+        const land = t(c.at) + 2;
+        const p = interpolate(f, [land - 11, land], [0, 1], {...clamp, easing: Easing.bezier(0.55, 0, 0.9, 0.45)});
+        if (f < land - 11) return null;
+        const settle = f >= land ? 0.035 * Math.exp(-(f - land) / 2.6) * Math.cos((f - land) / 1.3) : 0;
+        const yEnd = 1040 + i * 124;
+        const xEnd = W / 2 + [-34, 30, -18, 40][i];
+        const rEnd = [-4.5, 3.2, -2.2, 5][i];
+        const side = i % 2 ? 1 : -1; // lancées depuis les côtés : jamais sur le titre
+        const x = xEnd + side * (1 - p) * 1150;
+        const y = yEnd - Math.sin(Math.PI * (1 - p) * 0.5) * 220 * (1 - p);
+        const r = rEnd + (1 - p) * [-34, 30, -26, 36][i];
+        const sc = (1.18 - 0.18 * p) * (1 - settle);
+        return (
+          <div key={i} style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) rotate(${r}deg) scale(${sc})`}}>
             <div
-              key={i}
               style={{
-                opacity: Math.min(1, p * 1.5), transform: `translateX(${(i % 2 ? 1 : -1) * (1 - sp) * 110}px) rotate(${(i % 2 ? 1 : -1) * 1.2}deg)`,
-                display: 'flex', alignItems: 'baseline', gap: 24, background: 'rgba(244,239,230,0.97)', minWidth: 560,
-                borderLeft: `8px solid ${C.or}`, padding: '22px 44px 22px 32px', borderRadius: 14, boxShadow: '0 18px 44px rgba(14,23,38,0.4)',
+                position: 'relative', width: 660, height: 156, borderRadius: 6, overflow: 'hidden',
+                background: 'linear-gradient(180deg, #FCFAF5 0%, #F4EFE6 100%)',
+                boxShadow: `0 ${8 + 22 * (1 - p)}px ${18 + 40 * (1 - p)}px rgba(14,23,38,${0.32 + 0.1 * p}), inset 0 0 0 1px rgba(27,42,65,0.06)`,
               }}
             >
-              <span style={{fontFamily: SANS, fontWeight: 800, fontSize: 54, color: OR_TEXTE, letterSpacing: 1}}>{c.code}</span>
-              <span style={{fontFamily: SANS, fontWeight: 700, fontSize: 48, color: C.marine, letterSpacing: -0.5}}>{c.l}</span>
+              <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: 10, background: C.or}} />
+              <div style={{position: 'absolute', right: 0, top: 0, width: 34, height: 34, background: 'linear-gradient(225deg, rgba(14,23,38,0) 50%, #E3D9C6 50%)', boxShadow: '-2px 2px 4px rgba(14,23,38,0.12)'}} />
+              <div style={{position: 'absolute', left: 42, right: 120, top: 120, height: 3, borderRadius: 3, background: 'rgba(27,42,65,0.10)'}} />
+              <div style={{position: 'absolute', left: 42, right: 260, top: 132, height: 3, borderRadius: 3, background: 'rgba(27,42,65,0.08)'}} />
+              <div style={{position: 'absolute', left: 42, top: 26, display: 'flex', alignItems: 'baseline', gap: 24, whiteSpace: 'nowrap'}}>
+                <span style={{fontFamily: SANS, fontWeight: 800, fontSize: 58, color: OR_TEXTE, letterSpacing: 1}}>{c.code}</span>
+                <span style={{fontFamily: SANS, fontWeight: 700, fontSize: 50, color: C.marine, letterSpacing: -0.5}}>{c.l}</span>
+              </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </AbsoluteFill>
   );
 };
@@ -209,11 +267,12 @@ const B4: Sc = ({st, dur}) => {
               <line x1={4} y1={28} x2={66} y2={28} stroke={C.or} strokeWidth={5} />
               <line x1={20} y1={3} x2={20} y2={17} stroke={C.or} strokeWidth={5} strokeLinecap="round" />
               <line x1={50} y1={3} x2={50} y2={17} stroke={C.or} strokeWidth={5} strokeLinecap="round" />
-              <text x={35} y={60} textAnchor="middle" fontFamily="Manrope" fontWeight={800} fontSize={26} fill={C.marine}>20</text>
+              <circle cx={22} cy={45} r={4} fill={C.or} /><circle cx={35} cy={45} r={4} fill={C.or} /><circle cx={48} cy={45} r={4} fill={C.or} />
+              <circle cx={22} cy={58} r={4} fill={C.or} /><circle cx={35} cy={58} r={4} fill={C.marine} />
             </svg>
             <div>
               <div style={{...eyebrow, fontSize: 24, color: OR_TEXTE, letterSpacing: 5}}>Chaque mois</div>
-              <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 58, color: C.marine, letterSpacing: -1, lineHeight: 1.1}}>avant le 20</div>
+              <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 58, color: C.marine, letterSpacing: -1, lineHeight: 1.1}}>une date limite</div>
             </div>
           </div>
         </div>
@@ -408,9 +467,8 @@ const B7: Sc = ({st, dur}) => {
   const z = interpolate(f, [0, dur], [1.04, 1.13], clamp);
   const hit = t(22.42) + 5;
   const shake = f >= hit && f < hit + 6 ? (random('q7' + f) - 0.5) * 10 * (1 - (f - hit) / 6) : 0;
-  const out = interpolate(f, [t(22.95), t(23.25)], [0, 1], {...clamp, easing: inOut});
   return (
-    <AbsoluteFill style={{transform: `translateX(${enter * W}px)`, clipPath: `inset(0 0 ${out * 100}% 0)`, background: C.pierre}}>
+    <AbsoluteFill style={{transform: `translateX(${enter * W}px)`, background: C.pierre}}>
       <AbsoluteFill style={{transform: `translate(${shake}px, ${shake * 0.6}px)`}}>
         <Photo src={P.P_s2_classeurs} w={1600} h={2400} zoom={z} ox={0.5} oy={0.6} />
       </AbsoluteFill>
@@ -461,7 +519,7 @@ const B8: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
   const topIn = interpolate(f, [0, 11], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.2, 1)});
-  const botIn = interpolate(f, [t(23.45), t(23.45) + 11], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.2, 1)});
+  const botIn = interpolate(f, [t(23.05), t(23.05) + 11], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.2, 1)});
   const line = prog(f, 6, 12, inOut);
   const k = interpolate(f, [0, dur], [0, 1], clamp);
   const lab = prog(f, 10, 10);
@@ -469,8 +527,8 @@ const B8: Sc = ({st, dur}) => {
     <AbsoluteFill>
       <div style={{position: 'absolute', left: 0, top: 0, width: W, height: HALF, overflow: 'hidden', clipPath: `inset(0 0 ${(1 - topIn) * 100}% 0)`}}>
         <Photo src={P.P_s2_chez_vous} w={1600} h={2400} fw={W} fh={HALF} ox={0.5} oy={0.38} zoom={1.1 - 0.05 * k} />
-        <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(244,239,230,0.96) 0%, rgba(244,239,230,0.9) 30%, rgba(244,239,230,0.35) 52%, rgba(244,239,230,0) 70%)'}} />
-        <div style={{position: 'absolute', top: 130, width: '100%', textAlign: 'center', color: C.marine}}>
+        <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(244,239,230,0.96) 0%, rgba(244,239,230,0.92) 42%, rgba(244,239,230,0.4) 62%, rgba(244,239,230,0) 78%)'}} />
+        <div style={{position: 'absolute', top: 228, width: '100%', textAlign: 'center', color: C.marine}}>
           <div style={{...big, fontSize: 96}}>
             <Word at={t(23.19)}>Vous </Word>
             <Word at={t(23.42)}>restez</Word>
@@ -571,8 +629,8 @@ const PLAN: [number, number, Sc][] = [
   [3.62, 6.22, B3],
   [5.93, 8.62, B4],
   [8.5, 12.7, B5],
-  [12.6, 19.5, B6],
-  [19.18, 23.27, B7],
+  [12.4, 19.5, B6],
+  [19.18, 23.47, B7],
   [22.95, 25.8, B8],
   [25.55, P02V2_DUREE, B9],
 ];
