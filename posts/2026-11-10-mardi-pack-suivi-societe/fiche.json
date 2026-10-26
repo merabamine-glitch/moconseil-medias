@@ -13,7 +13,7 @@
   "levier": "Aversion à la perte (l'échéance manquée), sans dramatiser",
   "cta": "Appel découverte gratuit (lien en bio ou www.moconseildz.com)",
   "video": "pack-suivi-societe.mp4",
-  "couverture": "pack-suivi-societe-couverture.jpg",
+  "couverture": "pack-suivi-societe-couverture.jpg (image à 1,95 s)",
   "duree_s": 29.4,
   "voix": "ElevenLabs, voix « Femme » d'Amine, Eleven v3, générée par Claude via le connecteur le 26/10/2026 (prise 1 sur 2, 27,5 s ; 1 056 crédits pour les deux prises)",
   "texte_voix": [
@@ -32,7 +32,7 @@
     "cartes 3D flottantes (ui world)",
     "avant / après (À déposer puis Déposée)"
   ],
-  "son": "Voix + nappe originale + bruitages en code à -10 dB, sans ding",
+  "son": "Voix + nappe originale + bruitages en code à -10 dB, sans ding ; -15,1 LUFS mesuré, synchronisation voix 0 ms",
   "photos": [
     "Mains en maillon (Amine)",
     "Texture de la Terre (NASA Blue Marble, domaine public)"
