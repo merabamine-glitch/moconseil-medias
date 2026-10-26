@@ -14,6 +14,8 @@ import {Test3D} from './test3d';
 import {Pack02Suivi} from './p02';
 import {Pack02SuiviV2} from './p02v2';
 import {Pack05ConciergerieV2} from './p05v2';
+import {ValiseTest} from './valise_test';
+import {Pack10RetourDefinitif} from './p10';
 
 const fonts: [string, string, string, string][] = [
   ['Cormorant', 'cormorant-garamond-latin-600-normal.woff2', '600', 'normal'],
@@ -137,5 +139,7 @@ export const Root: React.FC = () => (
     <Composition id="Pack02SuiviV2" component={Pack02SuiviV2} durationInFrames={885} fps={30} width={1080} height={1920} />
     <Composition id="Pack05ConciergerieV2" component={Pack05ConciergerieV2} durationInFrames={899} fps={30} width={1080} height={1920} />
     <Composition id="Certificat" component={Certificat} durationInFrames={765} fps={30} width={1080} height={1920} />
-  </>
+        <Composition id="ValiseTest" component={ValiseTest} durationInFrames={60} fps={30} width={1080} height={1920} />
+          <Composition id="Pack10RetourDefinitif" component={Pack10RetourDefinitif} durationInFrames={450} fps={30} width={1080} height={1920} />
+    </>
 );
