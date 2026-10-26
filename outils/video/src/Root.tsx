@@ -11,6 +11,7 @@ import * as V4 from './scenes4';
 import {Wp} from './warp';
 import {Pack01Creation} from './p01';
 import {Test3D} from './test3d';
+import {Pack02Suivi} from './p02';
 
 const fonts: [string, string, string, string][] = [
   ['Cormorant', 'cormorant-garamond-latin-600-normal.woff2', '600', 'normal'],
@@ -130,6 +131,7 @@ export const Root: React.FC = () => (
     <Composition id="PresentationV4B" component={PresentationV4B} durationInFrames={945} fps={30} width={1080} height={1920} />
     <Composition id="Pack01Creation" component={Pack01Creation} durationInFrames={1065} fps={30} width={1080} height={1920} />
     <Composition id="Test3D" component={Test3D} durationInFrames={90} fps={30} width={1080} height={1920} />
+    <Composition id="Pack02Suivi" component={Pack02Suivi} durationInFrames={882} fps={30} width={1080} height={1920} />
     <Composition id="Certificat" component={Certificat} durationInFrames={765} fps={30} width={1080} height={1920} />
   </>
 );

@@ -1,6 +1,6 @@
 # GUIDE COMPLET — Vidéos et publications sur les réseaux sociaux (M&O Conseil)
 
-**Version 2.0 — 26 octobre 2026.** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
+**Version 2.1 — 26 octobre 2026 (13h).** Remplace la « Recette vidéos réseaux » (v1.1). Ce guide est la référence unique pour toute vidéo et toute publication (Instagram, Facebook, TikTok, LinkedIn). Claude le relit avant chaque production et applique le skill « createur-videos-reseaux-sociaux ».
 
 Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` ; Drive › RÉSEAUX SOCIAUX (document Word, même lien que l'ancienne recette) ; dépôt GitHub `moconseil-medias`, dossier `outils/video/`.
 
@@ -12,7 +12,7 @@ Copies tenues à jour ensemble : projet Claude `claude/GUIDE_COMPLET_VIDEOS_ET_P
 |---|---|---|
 | 1 | La mention « contenu généré par IA » n'est **jamais** cochée, sur aucun réseau. | Décision d'Amine, 23/10/2026 |
 | 2 | Quand Amine demande une action, elle est exécutée. Un risque se signale en une ligne, sans suspendre ni annuler. | 23/10/2026 |
-| 3 | Durée d'une vidéo : **15 à 30 secondes**, carte de fin comprise. | 26/10/2026 |
+| 3 | Durée d'une vidéo : **20 secondes en moyenne, 30 secondes au maximum**, carte de fin comprise (le taux de rétention est calculé sur la durée totale). | 26/10/2026 |
 | 4 | Script en **6 temps** : accroche, problème, nous comme solution, le pack, ce que vous obtenez, promesse et appel. | 23/10/2026 |
 | 5 | Voix ElevenLabs d'Amine, **alternée** : une vidéo « Homme », la suivante « Femme ». | 26/10/2026 |
 | 6 | Chaque légende se termine par « lien en bio ou sur www.moconseildz.com » et chaque publication porte un **lieu : Alger**. | 26/10/2026 |
@@ -120,8 +120,14 @@ Pour imiter une vidéo de référence : la décomposer avec ce tableau (temps, c
 ### Étape 3 — Voix (ElevenLabs)
 - **Voix** : « Homme » et « Femme » (Mes voix, compte d'Amine), alternées. Modèle **Eleven v3**, mode Naturel. Réglages de référence (noms des fichiers d'Amine) : Speed 100 %, Stability 50 %, Similarity 75 %. Voix « Femme » : Speed 1,05 si la vidéo dépasse 30 s.
 - **Balises** (une par ligne, non lues) : `[warmly]`, `[confident]`, `[smiling]`, `[upbeat]`, `[reassuring]`, `[short pause]`. Trop théâtral : retirer la balise.
-- **Mode automatique (cible)** : si le connecteur ElevenLabs de claude.ai permet la synthèse vocale, Claude lit d'abord les crédits restants, génère avec la bonne voix, télécharge, écoute (durée, pauses), et recommence au plus deux fois. Réserve de sécurité : ne jamais descendre sous 3 000 crédits sans l'accord d'Amine.
-- **Mode manuel (actuel)** : Amine colle le texte du script, génère, télécharge et envoie le MP3 nommé `pack-NN-sujet.mp3`.
+- **Mode automatique (en service depuis le 26/10/2026)** : connecteur ElevenLabs de claude.ai. Voix « Femme » `DIP3DjEqbauGU9CKo8WB` et « Homme » `smkDZIwty9tTDIcycYFo` (outil `creative_list_voices`), modèle `eleven_v3`.
+  1. `creative_create_flow` (un flux par vidéo, nommé « M&O Conseil · Vidéo NN · Pack … »).
+  2. `creative_generate_speech` avec `estimate_only: true` : lire le coût (environ 530 crédits par prise de 28 s).
+  3. Génération : **une seule prise** par défaut (`generations_count: 1`) pour tenir le budget ; deux prises seulement pour une vidéo importante.
+  4. `creative_get_flow_run_status` jusqu'à `all_completed`, puis choix de la prise la plus courte et la plus naturelle.
+  5. Téléchargement : l'espace de travail de Claude ne joint pas `storage.googleapis.com`. Claude passe par le navigateur intégré de l'ordinateur d'Amine (une autorisation à accepter par fichier). Pour supprimer cette étape : claude.ai › Paramètres › Capacités › autoriser le domaine `storage.googleapis.com`.
+- **Budget** : 10 000 crédits par mois. Réserve de sécurité : ne jamais descendre sous 3 000 crédits sans l'accord d'Amine. Les prises restent disponibles dans le flux ElevenLabs (« Flows »).
+- **Mode manuel (secours)** : Amine colle le texte du script, génère, télécharge et envoie le MP3 nommé `pack-NN-sujet.mp3`.
 - Autres fonctions ElevenLabs (bruitages, musique) : uniquement pour constituer une **bibliothèque de bruitages réutilisables** générée une fois (tampon, avion, porte, clé, papier, clic), après estimation des crédits.
 
 ### Étape 4 — Analyse et calage de la voix (Claude)
@@ -309,4 +315,5 @@ Amine (validation, publication du mardi, LinkedIn) ; Metricool ; Drive › Posts
 ## Historique
 - v1.0 (23/10/2026) : recette issue de la vidéo de présentation.
 - v1.1 (23/10/2026) : modèle de script en 6 temps, mardi publié à la main.
+- v2.1 (26/10/2026, 13h) : durée 20 s en moyenne, 30 s au maximum ; voix générées par Claude via le connecteur ElevenLabs (identifiants des voix, une prise par défaut, téléchargement).
 - v2.0 (26/10/2026) : guide complet : durée 15 à 30 s, voix alternées, site et lieu dans chaque publication, direction « cinéma 3D réaliste », bibliothèque des 16 effets, méthode de déconstruction, outils et skills, règles d'or.

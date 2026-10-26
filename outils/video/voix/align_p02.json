@@ -1,0 +1,405 @@
+[
+ {
+  "chunk": "Votre société est en Algérie",
+  "start": 0.11,
+  "end": 1.83,
+  "words": [
+   [
+    "Votre",
+    0.11
+   ],
+   [
+    "société",
+    0.5
+   ],
+   [
+    "est",
+    1.13
+   ],
+   [
+    "en",
+    1.44
+   ],
+   [
+    "Algérie",
+    1.38
+   ]
+  ]
+ },
+ {
+  "chunk": "et vous vivez en Europe ?",
+  "start": 2.15,
+  "end": 3.25,
+  "words": [
+   [
+    "et",
+    2.15
+   ],
+   [
+    "vous",
+    2.31
+   ],
+   [
+    "vivez",
+    2.41
+   ],
+   [
+    "en",
+    2.67
+   ],
+   [
+    "Europe",
+    2.73
+   ],
+   [
+    "?",
+    3.25
+   ]
+  ]
+ },
+ {
+  "chunk": "Chaque mois, des déclarations à déposer",
+  "start": 3.76,
+  "end": 5.87,
+  "words": [
+   [
+    "Chaque",
+    3.76
+   ],
+   [
+    "mois,",
+    4.01
+   ],
+   [
+    "des",
+    4.52
+   ],
+   [
+    "déclarations",
+    4.61
+   ],
+   [
+    "à",
+    5.39
+   ],
+   [
+    "déposer",
+    5.39
+   ]
+  ]
+ },
+ {
+  "chunk": "et personne sur place pour tenir les délais.",
+  "start": 6.1,
+  "end": 8.08,
+  "words": [
+   [
+    "et",
+    6.1
+   ],
+   [
+    "personne",
+    6.26
+   ],
+   [
+    "sur",
+    6.67
+   ],
+   [
+    "place",
+    6.85
+   ],
+   [
+    "pour",
+    7.29
+   ],
+   [
+    "tenir",
+    7.31
+   ],
+   [
+    "les",
+    7.71
+   ],
+   [
+    "délais.",
+    7.8
+   ]
+  ]
+ },
+ {
+  "chunk": "Tenir ces délais,",
+  "start": 8.67,
+  "end": 9.49,
+  "words": [
+   [
+    "Tenir",
+    8.67
+   ],
+   [
+    "ces",
+    8.98
+   ],
+   [
+    "délais,",
+    9.16
+   ]
+  ]
+ },
+ {
+  "chunk": "c'est exactement ce que fait M et O Conseil.",
+  "start": 9.82,
+  "end": 12.21,
+  "words": [
+   [
+    "c'est",
+    9.82
+   ],
+   [
+    "exactement",
+    10.32
+   ],
+   [
+    "ce",
+    10.67
+   ],
+   [
+    "que",
+    10.81
+   ],
+   [
+    "fait",
+    10.98
+   ],
+   [
+    "M",
+    11.2
+   ],
+   [
+    "et",
+    11.44
+   ],
+   [
+    "O",
+    11.58
+   ],
+   [
+    "Conseil.",
+    11.71
+   ]
+  ]
+ },
+ {
+  "chunk": "Avec le Pack Suivi de Société,",
+  "start": 12.67,
+  "end": 14.34,
+  "words": [
+   [
+    "Avec",
+    12.67
+   ],
+   [
+    "le",
+    12.87
+   ],
+   [
+    "Pack",
+    13.09
+   ],
+   [
+    "Suivi",
+    13.35
+   ],
+   [
+    "de",
+    13.64
+   ],
+   [
+    "Société,",
+    13.76
+   ]
+  ]
+ },
+ {
+  "chunk": "notre expert-comptable dépose vos déclarations,",
+  "start": 14.66,
+  "end": 17.21,
+  "words": [
+   [
+    "notre",
+    14.66
+   ],
+   [
+    "expert-comptable",
+    15.03
+   ],
+   [
+    "dépose",
+    15.89
+   ],
+   [
+    "vos",
+    16.3
+   ],
+   [
+    "déclarations,",
+    16.36
+   ]
+  ]
+ },
+ {
+  "chunk": "sans que vous ayez à vous déplacer.",
+  "start": 17.49,
+  "end": 19.08,
+  "words": [
+   [
+    "sans",
+    17.49
+   ],
+   [
+    "que",
+    17.78
+   ],
+   [
+    "vous",
+    17.87
+   ],
+   [
+    "ayez",
+    18.0
+   ],
+   [
+    "à",
+    18.24
+   ],
+   [
+    "vous",
+    18.43
+   ],
+   [
+    "déplacer.",
+    18.56
+   ]
+  ]
+ },
+ {
+  "chunk": "Chaque mois, ce que vous obtenez,",
+  "start": 19.63,
+  "end": 21.34,
+  "words": [
+   [
+    "Chaque",
+    19.63
+   ],
+   [
+    "mois,",
+    20.06
+   ],
+   [
+    "ce",
+    20.23
+   ],
+   [
+    "que",
+    20.54
+   ],
+   [
+    "vous",
+    20.62
+   ],
+   [
+    "obtenez,",
+    20.83
+   ]
+  ]
+ },
+ {
+  "chunk": "c'est une société à jour.",
+  "start": 21.58,
+  "end": 22.81,
+  "words": [
+   [
+    "c'est",
+    21.58
+   ],
+   [
+    "une",
+    21.71
+   ],
+   [
+    "société",
+    21.88
+   ],
+   [
+    "à",
+    22.34
+   ],
+   [
+    "jour.",
+    22.49
+   ]
+  ]
+ },
+ {
+  "chunk": "Vous restez chez vous, nous gérons le reste.",
+  "start": 23.19,
+  "end": 25.28,
+  "words": [
+   [
+    "Vous",
+    23.19
+   ],
+   [
+    "restez",
+    24.18
+   ],
+   [
+    "chez",
+    23.68
+   ],
+   [
+    "vous,",
+    23.88
+   ],
+   [
+    "nous",
+    24.13
+   ],
+   [
+    "gérons",
+    24.13
+   ],
+   [
+    "le",
+    24.7
+   ],
+   [
+    "reste.",
+    24.91
+   ]
+  ]
+ },
+ {
+  "chunk": "Réservez votre appel découverte.",
+  "start": 25.72,
+  "end": 27.36,
+  "words": [
+   [
+    "Réservez",
+    25.72
+   ],
+   [
+    "votre",
+    26.23
+   ],
+   [
+    "appel",
+    26.53
+   ],
+   [
+    "découverte.",
+    26.74
+   ]
+  ]
+ }
+]
