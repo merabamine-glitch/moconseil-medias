@@ -19,6 +19,6 @@ rm -f out/pp2v2/list.txt
 for a in $(seq 0 60 $LAST); do echo "file 'p$(printf %04d $a).mp4'" >> out/pp2v2/list.txt; done
 ffmpeg -loglevel error -y -f concat -safe 0 -i out/pp2v2/list.txt -c copy out/p02v2-muette.mp4
 python3 audio/build_audio_p02v2.py
-ffmpeg -loglevel error -y -i out/p02v2-muette.mp4 -i out/p02v2-bande-son.wav -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k -ar 48000 -shortest -movflags +faststart out/pack-suivi-societe.mp4
+ffmpeg -loglevel error -y -i out/p02v2-muette.mp4 -i out/p02v2-bande-son.wav -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-2:LRA=11 -c:a aac -b:a 192k -ar 48000 -shortest -movflags +faststart out/pack-suivi-societe.mp4
 ffprobe -v error -show_entries format=duration -of csv=p=0 out/pack-suivi-societe.mp4
 echo FIN

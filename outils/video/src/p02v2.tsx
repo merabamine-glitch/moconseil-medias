@@ -7,6 +7,7 @@ import {L_logo_clair} from './assets';
 import * as P from './photos';
 import {Accent, C, clamp, ease, easeIn, Finish, Particles, prog, s, SANS, SERIF, Spark, useSpring, Word} from './kit';
 import {Mask, Photo, Pin} from './scenes4';
+import {WARP_OLD, WARP_NEW} from './warp_p02v2';
 
 const W = 1080;
 const H = 1920;
@@ -18,7 +19,17 @@ const eyebrow: React.CSSProperties = {fontFamily: SANS, fontWeight: 700, fontSiz
 const shadowW = 'drop-shadow(0 4px 18px rgba(0,0,0,0.55))';
 
 type Sc = React.FC<{st: number; dur: number}>;
-const useT = (st: number) => (x: number) => s(x - st);
+// Recalage sur la voix v2 (26/10, 17h30) : les temps écrits dans ce fichier sont ceux de la première voix ;
+// Wp les convertit, mot par mot, vers la nouvelle voix (voix/warp_p02v2.json → src/warp_p02v2.ts).
+export const Wp = (x: number) => {
+  const o = WARP_OLD, n = WARP_NEW;
+  if (x <= o[0]) return n[0] + (x - o[0]);
+  for (let i = 1; i < o.length; i++) if (x <= o[i]) return n[i - 1] + ((x - o[i - 1]) * (n[i] - n[i - 1])) / (o[i] - o[i - 1]);
+  return n[n.length - 1] + (x - o[o.length - 1]);
+};
+const useT = (st: number) => (x: number) => s(Wp(x) - Wp(st));
+/** temps exprimés directement dans la nouvelle voix (mots nouveaux du plan 5) */
+const useTn = (st: number) => (x: number) => s(x - Wp(st));
 
 const GoldLine: React.FC<{y: number; w?: number; glow?: number}> = ({y, w = W, glow = 1}) => (
   <div
@@ -39,45 +50,6 @@ const Label: React.FC<{text: string; y: number; op: number; dark?: boolean}> = (
   </div>
 );
 
-/** Plaque de laiton « Siège social · Alger » : arrive vers la caméra, se pose, reflet (objet du plan 1, v3 du 26/10). */
-const Plaque: React.FC<{at: number; x: number; y: number}> = ({at, x, y}) => {
-  const f = useCurrentFrame();
-  const p = interpolate(f, [at - 10, at], [0, 1], {...clamp, easing: Easing.bezier(0.5, 0, 0.85, 0.55)});
-  if (f < at - 10) return null;
-  const settle = f >= at ? 1 - 0.045 * Math.exp(-(f - at) / 3.2) * Math.cos((f - at) / 1.5) : 1;
-  const sc = (2.1 - 1.1 * p) * settle;
-  const rx = 58 * (1 - p);
-  const shine = interpolate(f, [at + 14, at + 34], [-40, 150], clamp);
-  const screw = (l: number, t: number) => (
-    <div style={{position: 'absolute', left: l, top: t, width: 20, height: 20, borderRadius: 20, background: 'radial-gradient(circle at 35% 30%, #F6E3AE 0%, #C9A24B 45%, #7E5E1A 100%)', boxShadow: 'inset 0 -1px 2px rgba(0,0,0,0.45), 0 1px 1px rgba(255,240,200,0.6)'}}>
-      <div style={{position: 'absolute', left: 4, top: 9, width: 12, height: 2, background: 'rgba(90,64,14,0.85)', transform: 'rotate(-35deg)'}} />
-    </div>
-  );
-  const engr: React.CSSProperties = {color: '#5E4511', textShadow: '0 1.5px 0 rgba(255,244,210,0.75), 0 -1px 0 rgba(60,40,5,0.4)'};
-  return (
-    <div style={{position: 'absolute', left: x, top: y, transform: 'translate(-50%,-50%)', perspective: 1200}}>
-      {/* ombre portée */}
-      <div style={{position: 'absolute', left: 30, right: 30, top: 200, height: 90, borderRadius: 90, background: 'rgba(14,23,38,0.55)', filter: `blur(${18 + 30 * (1 - p)}px)`, opacity: 0.8 * p, transform: `scale(${sc})`}} />
-      <div
-        style={{
-          position: 'relative', width: 600, height: 250, borderRadius: 10, overflow: 'hidden',
-          transform: `scale(${sc}) rotateX(${rx}deg)`, opacity: Math.min(1, p * 2), filter: `blur(${(1 - p) * 9}px)`,
-          background: 'linear-gradient(135deg, #8E6B22 0%, #C9A24B 16%, #F2DDA2 33%, #C9A24B 50%, #A8822F 66%, #E9CF8E 84%, #9C7726 100%)',
-          boxShadow: 'inset 0 2px 0 rgba(255,246,220,0.7), inset 0 -3px 0 rgba(60,40,5,0.35), 0 34px 70px rgba(0,0,0,0.55)',
-        }}
-      >
-        <div style={{position: 'absolute', inset: 0, backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0.035) 2px, rgba(0,0,0,0) 3px)'}} />
-        <div style={{position: 'absolute', inset: 16, border: '2px solid rgba(110,82,20,0.55)', borderRadius: 4, boxShadow: '0 1px 0 rgba(255,244,210,0.5)'}} />
-        {screw(26, 26)}{screw(554, 26)}{screw(26, 204)}{screw(554, 204)}
-        <div style={{position: 'absolute', top: 46, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 800, fontSize: 30, letterSpacing: 10, ...engr}}>SIÈGE SOCIAL</div>
-        <div style={{position: 'absolute', top: 92, left: 200, width: 200, height: 2, background: 'rgba(94,69,17,0.6)', boxShadow: '0 1px 0 rgba(255,244,210,0.6)'}} />
-        <div style={{position: 'absolute', top: 96, width: '100%', textAlign: 'center', fontFamily: SERIF, fontStyle: 'italic', fontWeight: 700, fontSize: 104, lineHeight: 1.05, ...engr}}>Alger</div>
-        <div style={{position: 'absolute', top: 0, bottom: 0, left: `${shine}%`, width: '24%', background: 'linear-gradient(100deg, rgba(255,250,235,0) 0%, rgba(255,250,235,0.65) 50%, rgba(255,250,235,0) 100%)', mixBlendMode: 'screen'}} />
-      </div>
-    </div>
-  );
-};
-
 /* ===================================================== 1 + 2. Accroche : Alger (vidéo d'Amine) et la plaque du siège social, puis la tour Eiffel */
 const B1: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
@@ -88,23 +60,18 @@ const B1: Sc = ({st, dur}) => {
   const rot = -3 * (1 - pull);
   // coupe à « et vous »
   const sp = interpolate(f, [t(2.12), t(2.12) + 11], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.2, 1)});
-  const line = prog(f, t(2.12) + 6, 10, inOut);
-  const lab = prog(f, t(2.6), 10);
   const txt1 = 1 - prog(f, t(2.05), 7, easeIn);
   // sortie : zoom traversant dans le trait d'or
   const out = interpolate(f, [t(3.52), t(3.78)], [0, 1], {...clamp, easing: easeIn});
   return (
     <AbsoluteFill style={{background: C.nuit, overflow: 'hidden', transform: `scale(${1 + out * 2.2})`, transformOrigin: `50% ${HALF}px`, filter: `blur(${out * 14}px)`}}>
-      {/* Algérie : vidéo d'Amine (Djamaâ El Djazaïr, Alger), 4K ramenée à 1566 × 2784 et ralentie à 0,85 : recul sans agrandissement */}
-      {f < s(2.55) && (
+      {/* Algérie : vidéo d'Amine (Djamaâ El Djazaïr, Alger), 4K ramenée à 1566 × 2784 et ralentie à 0,78 : recul sans agrandissement */}
+      {f < s(2.72) && (
         <AbsoluteFill style={{overflow: 'hidden'}}>
           <div style={{position: 'absolute', left: 0, top: 0, width: W, height: H, transform: `scale(${z}) rotate(${rot}deg)`}}>
             <OffthreadVideo src={staticFile('video/s2-alger-djamaa.mp4')} muted style={{width: W, height: H, objectFit: 'cover'}} />
           </div>
           <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(14,23,38,0.5) 0%, rgba(14,23,38,0.22) 30%, rgba(14,23,38,0) 46%)'}} />
-          <div style={{opacity: txt1}}>
-            <Plaque at={t(0.62)} x={W / 2 + 40} y={1390} />
-          </div>
         </AbsoluteFill>
       )}
       {/* Europe : la tour Eiffel entière (pointe visible) tombe en plein cadre — v2b, demande d'Amine du 26/10 */}
@@ -118,7 +85,7 @@ const B1: Sc = ({st, dur}) => {
         </div>
       )}
       {/* texte 1 */}
-      <div style={{position: 'absolute', top: 236, right: 64, textAlign: 'right', color: C.blanc, opacity: txt1, filter: shadowW}}>
+      <div style={{position: 'absolute', top: 440, right: 64, textAlign: 'right', color: C.blanc, opacity: txt1, filter: shadowW}}>
         <div style={{...big, fontSize: 100}}>
           <Word at={t(0.11)}>Votre </Word>
           <Word at={t(0.5)}>société</Word>
@@ -145,14 +112,6 @@ const B1: Sc = ({st, dur}) => {
           </Accent>
         </div>
       </div>
-      {line > 0 && <GoldLine y={HALF} w={W * line} />}
-      {(() => {
-        const c = interpolate(f, [t(2.55), t(3.45)], [-0.1, 1.1], clamp);
-        return c > -0.1 && c < 1.1 ? <div style={{position: 'absolute', left: c * W - 90, top: HALF - 9, width: 180, height: 18, borderRadius: 18, background: 'radial-gradient(ellipse at center, rgba(255,246,220,1) 0%, rgba(246,227,174,0.8) 35%, rgba(201,162,75,0) 75%)', filter: 'blur(1px)'}} /> : null;
-      })()}
-      <Spark at={t(2.2)} x={W / 2} y={HALF} scale={0.8} out={t(2.8)} />
-      <Label text="Europe" y={HALF - 92} op={lab} />
-      <Label text="Algérie" y={HALF + 44} op={lab} />
     </AbsoluteFill>
   );
 };
@@ -169,7 +128,7 @@ const B3: Sc = ({st, dur}) => {
   const t = useT(st);
   const open = interpolate(f, [0, 9], [0, 1], {...clamp, easing: Easing.bezier(0.2, 0.8, 0.3, 1)});
   const z = interpolate(f, [0, dur], [1.12, 1.03], {...clamp, easing: ease});
-  const push = interpolate(f, [t(5.93), t(6.2)], [0, 1], {...clamp, easing: inOut});
+  const push = interpolate(f, [t(5.93), t(5.93) + 9], [0, 1], {...clamp, easing: inOut});
   return (
     <AbsoluteFill style={{clipPath: `inset(${(1 - open) * 50}% 0 ${(1 - open) * 50}% 0)`, transform: `translateX(${-push * W}px)`, background: C.pierre}}>
       <Photo src={P.P_s2_piles} w={1600} h={2400} zoom={z} ox={0.35} oy={0.5} filter="saturate(0.78) contrast(1.03)" />
@@ -286,6 +245,7 @@ const B4: Sc = ({st, dur}) => {
 const B5: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
+  const tn = useTn(st);
   const photoIn = prog(f, 1, 12, ease);
   const reveal = prog(f, t(11.2), 22, Easing.bezier(0.6, 0, 0.2, 1));
   const lab = prog(f, t(11.6), 12);
@@ -316,15 +276,17 @@ const B5: Sc = ({st, dur}) => {
           </div>
         </Mask>
       </div>
-      <div style={{position: 'absolute', top: 620, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
+      <div style={{position: 'absolute', top: 600, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
         <div style={{...big, fontSize: 78}}>
-          <Word at={t(9.82)}>c’est </Word>
-          <Word at={t(10.32)}>exactement</Word>
+          <Word at={tn(9.86)}>c’est </Word>
+          <Word at={tn(10.24)}>exactement</Word>
         </div>
-        <div style={{...big, fontSize: 78, marginTop: 4}}>
-          <Word at={t(10.67)}>ce </Word>
-          <Word at={t(10.81)}>que </Word>
-          <Word at={t(10.98)}>fait</Word>
+        <div style={{...big, fontSize: 64, marginTop: 6, letterSpacing: -2}}>
+          <Word at={tn(10.96)}>ce </Word>
+          <Word at={tn(11.1)}>que </Word>
+          <Word at={tn(11.24)}>nous </Word>
+          <Word at={tn(11.38)}>faisons </Word>
+          <Word at={tn(11.69)}>chez</Word>
         </div>
       </div>
       <Label text="Europe" y={250} op={lab} />
@@ -638,8 +600,8 @@ const PLAN: [number, number, Sc][] = [
 export const Pack02SuiviV2: React.FC = () => (
   <AbsoluteFill style={{background: C.nuit}}>
     {PLAN.map(([a, b, Comp], i) => (
-      <Sequence key={i} from={s(a)} durationInFrames={s(b) - s(a)}>
-        <Comp st={a} dur={s(b) - s(a)} />
+      <Sequence key={i} from={s(Wp(a))} durationInFrames={s(Wp(b)) - s(Wp(a))}>
+        <Comp st={a} dur={s(Wp(b)) - s(Wp(a))} />
       </Sequence>
     ))}
     <Finish />
