@@ -67,11 +67,14 @@ const B1: Sc = ({st, dur}) => {
         </div>
         <AbsoluteFill style={{background: `linear-gradient(to top, rgba(14,23,38,${0.55 * sp}) 0%, rgba(14,23,38,0) 40%)`}} />
       </div>
-      {/* Europe : tombe dans la moitié haute */}
+      {/* Europe : la tour Eiffel entière (pointe visible) tombe en plein cadre — v2b, demande d'Amine du 26/10 */}
       {sp > 0 && (
-        <div style={{position: 'absolute', left: 0, top: 0, width: W, height: HALF, overflow: 'hidden', transform: `translateY(${-(1 - sp) * HALF}px)`, filter: `blur(${(1 - sp) * 18}px)`}}>
-          <Photo src={P.P_s2_europe_paris} w={1600} h={2400} fw={W} fh={HALF} ox={0.5} oy={0.32} zoom={1.12 - 0.06 * prog(f, t(2.12), s(1.6))} />
-          <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(14,23,38,0.7) 0%, rgba(14,23,38,0.25) 45%, rgba(14,23,38,0) 70%)'}} />
+        <div style={{position: 'absolute', inset: 0, overflow: 'hidden', transform: `translateY(${-(1 - sp) * H}px)`, filter: `blur(${(1 - sp) * 18}px)`}}>
+          <AbsoluteFill style={{background: C.pierre}} />
+          <div style={{position: 'absolute', inset: 0, WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 290px, rgba(0,0,0,1) 560px)', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 290px, rgba(0,0,0,1) 560px)'}}>
+            <Photo src={P.P_s2_europe_paris} w={1600} h={2400} ox={0.5} oy={0} dy={330} zoom={1.0 + 0.05 * prog(f, t(2.12), s(1.6))} />
+          </div>
+          <AbsoluteFill style={{background: 'linear-gradient(to top, rgba(14,23,38,0.45) 0%, rgba(14,23,38,0) 30%)'}} />
         </div>
       )}
       {/* texte 1 */}
@@ -88,19 +91,23 @@ const B1: Sc = ({st, dur}) => {
         </div>
       </div>
       {/* texte 2 */}
-      <div style={{position: 'absolute', top: 210, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
+      <div style={{position: 'absolute', top: 150, width: '100%', textAlign: 'center', color: C.marine}}>
         <div style={{...big, fontSize: 92}}>
           <Word at={t(2.15)}>et </Word>
           <Word at={t(2.31)}>vous </Word>
           <Word at={t(2.41)}>vivez</Word>
         </div>
         <div style={{marginTop: 6}}>
-          <Accent at={t(2.67)} size={160} color={C.orClair} stroke="none">
+          <Accent at={t(2.67)} size={150} color={OR_TEXTE} stroke="none">
             en Europe ?
           </Accent>
         </div>
       </div>
       {line > 0 && <GoldLine y={HALF} w={W * line} />}
+      {(() => {
+        const c = interpolate(f, [t(2.55), t(3.45)], [-0.1, 1.1], clamp);
+        return c > -0.1 && c < 1.1 ? <div style={{position: 'absolute', left: c * W - 90, top: HALF - 9, width: 180, height: 18, borderRadius: 18, background: 'radial-gradient(ellipse at center, rgba(255,246,220,1) 0%, rgba(246,227,174,0.8) 35%, rgba(201,162,75,0) 75%)', filter: 'blur(1px)'}} /> : null;
+      })()}
       <Spark at={t(2.2)} x={W / 2} y={HALF} scale={0.8} out={t(2.8)} />
       <Label text="Europe" y={HALF - 92} op={lab} />
       <Label text="Algérie" y={HALF + 44} op={lab} />
