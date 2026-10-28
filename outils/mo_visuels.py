@@ -225,6 +225,9 @@ BANDES = {
                    titre=C["blanc"], texte=(252, 246, 236), sur=(252, 226, 170), filet=(236, 190, 110)),
     "nuit": dict(haut=(8, 23, 42), milieu=(18, 58, 99), bas=(10, 27, 46),
                  titre=C["blanc"], texte=(246, 242, 234), sur=(238, 201, 122), filet=C["or"]),
+    # Beige dégradé (décision d'Amine, 28/10/2026) : texte sombre, logo en couleur
+    "beige": dict(haut=(226, 211, 183), milieu=(243, 234, 214), bas=(219, 202, 170),
+                  titre=C["marine"], texte=C["encre"], sur=(150, 74, 40), filet=C["or"], logo="couleur", etendue=1.3),
 }
 
 def rideau(photo, variante):
@@ -234,7 +237,7 @@ def rideau(photo, variante):
     a = np.asarray(photo).astype(np.float32) / 255.0
     x = np.linspace(0, 1, w)[None, :]
     y = np.linspace(0, 1, h)[:, None]
-    t = np.clip((x - 0.34) / (0.96 - 0.34), 0, 1)
+    t = np.clip((x - 0.34) / (b.get("etendue", 0.96) - 0.34), 0, 1)
     voile = 0.97 * 0.5 * (1 + np.cos(np.pi * t))
     voile = voile + np.clip((y - 0.60) / 0.40, 0, 1) ** 1.5 * 0.62
     voile = voile + np.clip((0.16 - y) / 0.16, 0, 1) ** 1.6 * 0.30
@@ -609,7 +612,7 @@ def g_bande(s, i, n, opts):
     var = opts.get("bande", "nuit")
     b = BANDES[var]
     if s.get("role") == "cta":
-        img, d, A = toile("nuit" if var == "nuit" else "terre"); cta_final(img, d, A, s); return img
+        img, d, A = toile({"nuit": "nuit", "beige": "sable"}.get(var, "terre")); cta_final(img, d, A, s); return img
     ph = recadrer(ouvrir_photo(s["photo"]), W, H, *s.get("focus", (0.6, 0.5)))
     img = rideau(traitement_charte(ph), var).convert("RGBA")
     d = ImageDraw.Draw(img)
@@ -621,7 +624,7 @@ def g_bande(s, i, n, opts):
             y += 28
         y, _ = bloc(dc, M, y, s["titre"], "titre", 66, b["titre"], lmax, 1.16, 4, 48, maj=True)
         if s.get("titre2"):
-            y, _ = bloc(dc, M, y + 10, s["titre2"], "titre", 66, b["sur"], lmax, 1.16, 4, 48, maj=True)
+            y, _ = bloc(dc, M, y + 10, s["titre2"], "titre", 66, b["sur"], lmax, 1.16, 2 if var == "beige" else 4, 48, maj=True)
         filet(dc, M, y + 20, 110, b["filet"], 3)
         y += 24
         if s.get("texte"):
@@ -633,7 +636,7 @@ def g_bande(s, i, n, opts):
     d.line([(W - M - 100, 84), (W - M, 84)], fill=b["filet"], width=2)
     compteur(d, i, n, b["texte"], droite=W - M - 120, y=70)
     if i == 1:
-        logo(img, M, H - SUR - 120, 190, "clair")
+        logo(img, M, H - SUR - 120, 190, b.get("logo", "clair"))
         if n > 1:
             swipe(d, b["sur"])
     else:

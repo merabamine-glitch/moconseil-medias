@@ -1,0 +1,52 @@
+{
+  "nom": "logement-installation-3-points",
+  "date": "2026-11-10T19:00",
+  "objectif": "Attirer",
+  "pilier": "P1",
+  "pack": "Pack Logement et Installation",
+  "format": "carrousel",
+  "gabarit": "etapes",
+  "options": {
+    "ambiance": "sable"
+  },
+  "cadre": "Démarche pas à pas : 3 points pour un logement prêt à l'arrivée (bail, certificat de résidence, compteurs)",
+  "levier": "Réduction de l'effort (arriver dans un logement prêt)",
+  "cta": "Appel découverte (lien en bio)",
+  "sources": "Catalogue Pack 4 et contrat annexe (bail négocié et authentifié devant notaire, honoraires inclus ; certificat de résidence ; compteurs eau, électricité, gaz ; avance de loyer jusqu'à 12 mois à prévoir) ; manuel opérationnel Pack 4 étapes 3, 4 et 7 (état des lieux annexé au bail ; certificat de résidence 1 an et fiche 3 mois ; certificat redemandé pour les compteurs) ; rétroplanning Pack 4. Aucune règle légale citée comme obligation : pratique de terrain de M&O Conseil.",
+  "photos": [
+    "outils/video/public/img/s5-cles.jpg"
+  ],
+  "slides": [
+    {
+      "gabarit": "pleine-photo",
+      "photo": "outils/video/public/img/s5-cles.jpg",
+      "focus": [
+        0.5,
+        1.0
+      ],
+      "titre": "Vous vous installez\nen Algérie ?",
+      "titre2": "Un logement prêt\nà votre arrivée.",
+      "texte": "3 points à régler, dans cet ordre : le bail, le certificat de résidence, les compteurs."
+    },
+    {
+      "numero": 1,
+      "total": 3,
+      "titre": "Le bail, authentifié",
+      "texte": "Négocié, puis authentifié devant notaire, avec l'état des lieux annexé : le logement est décrit noir sur blanc dès l'entrée.",
+      "accent": "Avance de loyer : jusqu'à 12 mois peuvent être demandés. Mieux vaut le savoir avant les visites."
+    },
+    {
+      "numero": 2,
+      "total": 3,
+      "titre": "Certificat de résidence, puis compteurs",
+      "texte": "Demandez à l'APC le certificat de résidence, valable 1 an, plutôt que la fiche de 3 mois : il est redemandé pour ouvrir l'eau, l'électricité et le gaz.",
+      "accent": "Prévoyez aussi les dépôts de garantie des compteurs."
+    },
+    {
+      "role": "cta",
+      "titre": "Votre logement, prêt avant votre arrivée",
+      "texte": "C'est ce que couvre le Pack Logement et Installation : bail authentifié, certificat de résidence et compteurs. Délais indicatifs.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}

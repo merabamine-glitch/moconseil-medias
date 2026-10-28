@@ -7,7 +7,7 @@
   "format": "photo unique",
   "gabarit": "bande",
   "options": {
-    "bande": "nuit"
+    "bande": "beige"
   },
   "cadre": "Prise de contact avec la communauté : chaque projet a une ville",
   "levier": "Similarité (le lien de la diaspora avec sa ville d'origine)",
@@ -30,7 +30,7 @@
       ],
       "surtitre": "Faisons connaissance",
       "titre": "Votre projet\nen Algérie,",
-      "titre2": "c'est dans\nquelle ville ?",
+      "titre2": "dans quelle ville,\ndans quel quartier ?",
       "texte": "Alger, Oran, Constantine, Béjaïa, Tlemcen… Dites-le-nous en commentaire.",
       "accent": "Une maison de famille, une société,\nun retour : chaque projet a son adresse."
     }
