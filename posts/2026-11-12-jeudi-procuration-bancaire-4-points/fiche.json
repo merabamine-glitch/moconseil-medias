@@ -1,0 +1,82 @@
+{
+  "nom": "procuration-bancaire-4-points",
+  "date": "2026-11-12T19:00",
+  "objectif": "Prouver",
+  "pilier": "P2",
+  "pack": "Pack Compte Bancaire",
+  "format": "carrousel",
+  "gabarit": "etapes",
+  "options": {
+    "ambiance": "pierre"
+  },
+  "cadre": "Liste complète : 4 points, tenus exactement",
+  "levier": "Autorité (précision du modèle de procuration)",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui ouvrent un compte bancaire en Algérie par procuration",
+    "quoi": "Les 4 points qu'une procuration bancaire doit écrire noir sur blanc",
+    "que_faire": "Enregistrer le post, réserver l'appel découverte"
+  },
+  "sources": "Modèle de procuration spéciale Pack 8 (démarches bancaires) de M&O Conseil : identité du mandant et des mandataires, démarches listées, exclusion de toute opération de débit, coordonnées de contact du mandant, durée de 12 mois révocable. Manuel opérationnel, Pack 8 étape 2 : ouverture par mandataire « si la banque l'accepte ». Catalogue Pack 8. Aucune règle bancaire ou réglementaire présentée comme obligation légale.",
+  "photos": [
+    "banque/site/nos-packs-hero-1600.webp",
+    "banque/drive/alger-grande-poste-nb.jpg",
+    "banque/site/contact-telephone-1600.webp"
+  ],
+  "slides": [
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/nos-packs-hero-1600.webp",
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "titre": "Vous ouvrez un compte\nen Algérie par procuration ?",
+      "titre2": "4 points à écrire\nnoir sur blanc.",
+      "texte": "Une procuration trop vague laisse place à l'interprétation. Voici ce que nous y écrivons."
+    },
+    {
+      "numero": 1,
+      "total": 4,
+      "titre": "Qui agit, et pour qui",
+      "texte": "Votre identité complète, telle qu'elle figure sur votre pièce d'identité, et le nom de chaque personne autorisée à agir pour vous.",
+      "accent": "Chaque nom correspond exactement aux pièces d'identité."
+    },
+    {
+      "numero": 2,
+      "total": 4,
+      "photo": "banque/drive/alger-grande-poste-nb.jpg",
+      "focus": [
+        0.5,
+        0.35
+      ],
+      "titre": "Chaque démarche, nommée",
+      "texte": "Ouvrir un compte en devises, et si besoin en dinars. Déposer le dossier et les justificatifs d'origine des fonds. Retirer le RIB (relevé d'identité bancaire) et la carte."
+    },
+    {
+      "numero": 3,
+      "total": 4,
+      "titre": "Les limites, écrites aussi",
+      "texte": "Le mandat s'arrête à l'ouverture du compte. Retraits, virements sortants, emprunts et clôture restent réservés à vous seul.",
+      "accent": "Votre argent ne bouge que sur votre ordre."
+    },
+    {
+      "numero": 4,
+      "total": 4,
+      "photo": "banque/site/contact-telephone-1600.webp",
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "titre": "Vos accès restent à vous",
+      "texte": "Votre téléphone et votre e-mail sont enregistrés comme contacts du compte : codes et alertes de sécurité vous arrivent directement.",
+      "accent": "Durée : 12 mois, révocable à tout moment."
+    },
+    {
+      "role": "cta",
+      "titre": "Votre compte en Algérie, ouvert dans les règles",
+      "texte": "C'est exactement ce que couvre le Pack Compte Bancaire : le dossier, la procuration si votre banque l'accepte, et le suivi jusqu'à l'ouverture.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}

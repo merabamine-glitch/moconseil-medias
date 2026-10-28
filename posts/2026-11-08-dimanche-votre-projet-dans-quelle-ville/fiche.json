@@ -1,0 +1,38 @@
+{
+  "nom": "votre-projet-dans-quelle-ville",
+  "date": "2026-11-08T11:00",
+  "objectif": "Humaniser",
+  "pilier": "P4",
+  "pack": "Pack Achat Immobilier",
+  "format": "photo unique",
+  "gabarit": "bande",
+  "options": {
+    "bande": "nuit"
+  },
+  "cadre": "Prise de contact avec la communauté : chaque projet a une ville",
+  "levier": "Similarité (le lien de la diaspora avec sa ville d'origine)",
+  "cta": "Question ouverte en commentaire",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui ont un projet en Algérie",
+    "quoi": "Dire dans quelle ville se trouve leur projet",
+    "que_faire": "Répondre en commentaire"
+  },
+  "sources": "Aucun fait réglementaire. Pont vers le Pack Achat Immobilier : catalogue des packs et contrat annexe Pack 6 (recherche, vérification du titre, coordination de l'acte chez le notaire). Photo : Pexels, Sidali (licence Pexels), Drive › Banque photos › 1 - Algérie.",
+  "photos": [
+    "banque/drive/alger-baie-immeubles.jpg"
+  ],
+  "slides": [
+    {
+      "photo": "banque/drive/alger-baie-immeubles.jpg",
+      "focus": [
+        0.62,
+        0.5
+      ],
+      "surtitre": "Faisons connaissance",
+      "titre": "Votre projet\nen Algérie,",
+      "titre2": "c'est dans\nquelle ville ?",
+      "texte": "Alger, Oran, Constantine, Béjaïa, Tlemcen… Dites-le-nous en commentaire.",
+      "accent": "Une maison de famille, une société,\nun retour : chaque projet a son adresse."
+    }
+  ]
+}
