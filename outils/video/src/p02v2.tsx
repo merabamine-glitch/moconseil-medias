@@ -28,7 +28,7 @@ export const Wp = (x: number) => {
   return n[n.length - 1] + (x - o[o.length - 1]);
 };
 const useT = (st: number) => (x: number) => s(Wp(x) - Wp(st));
-/** temps exprimés directement dans la nouvelle voix (mots nouveaux du plan 5) */
+/** temps exprimés directement dans la nouvelle voix (mots nouveaux du plan 5) — voix v3 du 03/11/2026 */
 const useTn = (st: number) => (x: number) => s(x - Wp(st));
 
 const GoldLine: React.FC<{y: number; w?: number; glow?: number}> = ({y, w = W, glow = 1}) => (
@@ -278,15 +278,15 @@ const B5: Sc = ({st, dur}) => {
       </div>
       <div style={{position: 'absolute', top: 600, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
         <div style={{...big, fontSize: 78}}>
-          <Word at={tn(9.86)}>c’est </Word>
-          <Word at={tn(10.24)}>exactement</Word>
+          <Word at={tn(10.5)}>c’est </Word>
+          <Word at={tn(10.66)}>exactement</Word>
         </div>
         <div style={{...big, fontSize: 64, marginTop: 6, letterSpacing: -2}}>
-          <Word at={tn(10.96)}>ce </Word>
-          <Word at={tn(11.1)}>que </Word>
-          <Word at={tn(11.24)}>nous </Word>
-          <Word at={tn(11.38)}>faisons </Word>
-          <Word at={tn(11.69)}>chez</Word>
+          <Word at={tn(11.67)}>ce </Word>
+          <Word at={tn(11.8)}>que </Word>
+          <Word at={tn(11.95)}>nous </Word>
+          <Word at={tn(12.1)}>faisons </Word>
+          <Word at={tn(12.4)}>chez</Word>
         </div>
       </div>
       <Label text="Europe" y={250} op={lab} />

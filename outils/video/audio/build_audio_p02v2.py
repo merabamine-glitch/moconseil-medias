@@ -1,4 +1,4 @@
-"""Bande son de la vidéo 2 « Pack Suivi de Société » v2 (26/10/2026).
+"""[03/11/2026 : voix v3, prise d'Amine, sans accélération] Bande son de la vidéo 2 « Pack Suivi de Société » v2 (26/10/2026).
 Voix v2 (ElevenLabs, voix « Femme », Eleven v3, balises d'intonation, accélérée de 10 % hauteur conservée) calée à 0 s, nappe originale en code, bruitages en code à -10 dB, aucun « ding ».
 Sortie : out/p02v2-bande-son.wav (48 kHz). La normalisation à -14 LUFS se fait au multiplexage (render_p02v2.sh)."""
 import pathlib, subprocess
@@ -10,7 +10,7 @@ T = 29.5
 N = int(T * SR)
 wav = ROOT / 'out' / 'voix48_p02v2.wav'
 (ROOT / 'out').mkdir(exist_ok=True)
-subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(ROOT / 'voix' / 'pack-02-suivi-v2.mp3'), '-ar', str(SR), '-ac', '1', str(wav)], check=True)
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(ROOT / 'voix' / 'pack-02-suivi-v3.mp3'), '-ar', str(SR), '-ac', '1', str(wav)], check=True)
 v, _ = sf.read(str(wav), dtype='float32')
 voice = np.zeros(N, np.float32)
 voice[:min(len(v), N)] = v[:N]

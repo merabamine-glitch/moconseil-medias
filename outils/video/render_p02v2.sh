@@ -2,7 +2,7 @@
 # Rendu de la vidéo 2 « Pack Suivi de Société » v2 par morceaux de 60 images, puis son et normalisation à -14 LUFS.
 # Usage : bash render_p02v2.sh [début fin]  (sans argument : toute la vidéo ; avec : re-rendu des seuls morceaux touchés)
 cd "$(dirname "$0")"
-B=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
+B=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 LAST=884
 A0=${1:-0}; A1=${2:-$LAST}
 mkdir -p out/pp2v2
