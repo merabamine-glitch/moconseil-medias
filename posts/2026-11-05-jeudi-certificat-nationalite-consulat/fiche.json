@@ -20,7 +20,9 @@
   "sources": "Veille réglementaire, fiche N-01 (vérifiée le 03/11/2026 pour le principe et le circuit) : consulat général d'Algérie à Bruxelles (cgbrussels.mfa.gov.dz) et ambassade à Bruxelles, reprise du communiqué du ministère de la Justice ; consulat général de San Francisco, page « Nationality certificate » (cgsanfrancisco.mfa.gov.dz), circuit et pièces. Aucun délai, aucun nom de plateforme, aucune condition d'éligibilité non confirmée.",
   "photos": [
     "banque/drive/archives-dossiers-etagere.jpg",
-    "banque/drive/mains-qui-se-tendent.jpg"
+    "banque/drive/mains-qui-se-tendent.jpg",
+    "banque/site/ressources-livres-1600.webp",
+    "banque/drive/poignee-de-main-costumes.jpg"
   ],
   "slides": [
     {
@@ -74,7 +76,7 @@
       "numero": 3,
       "total": 4,
       "titre": "Les pièces à préparer",
-      "texte": "Voici la liste publiée par un consulat. Vérifiez celle du vôtre avant de déposer.",
+      "texte": "La liste publiée par un consulat. Vérifiez celle du vôtre.",
       "infographie": {
         "type": "pieces",
         "items": [
@@ -99,7 +101,12 @@
             "texte": "Votre pièce d'identité"
           }
         ]
-      }
+      },
+      "photo": "banque/site/ressources-livres-1600.webp",
+      "focus": [
+        0.5,
+        0.5
+      ]
     },
     {
       "numero": 4,
@@ -126,9 +133,14 @@
     },
     {
       "role": "cta",
-      "titre": "Enregistrez ce post pour le jour où vous en aurez besoin",
-      "texte": "Conditions et pièces exactes : à vérifier auprès de votre consulat. Partagez-le à un proche concerné.",
-      "action": "Une question ? Écrivez-la en commentaire"
+      "photo": "banque/drive/poignee-de-main-costumes.jpg",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "titre": "Besoin d'aide pour votre dossier ?",
+      "texte": "Nous vérifions vos actes et préparons le dossier avec vous, sans déplacement en Algérie.",
+      "action": "Appel découverte gratuit · moconseildz.com"
     }
   ]
 }

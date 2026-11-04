@@ -336,7 +336,15 @@ def cta_final(img, d, A, s):
         dc.rounded_rectangle([M, y, M + tw + 70, y + 82], radius=41, fill=A["accent"])
         dc.text((M + 35, y + 20), action, font=f, fill=A["fond"] if A["fond"] != C["blanc"] else C["marine"])
         return y + 82
-    poser(img, dessin, 140, H - 360)
+    y_haut = 140
+    if s.get("photo"):
+        # bandeau photo optionnel en haut de la dernière slide (règle du 04/11/2026 : un visuel sur chaque slide)
+        hb = 400
+        ph = traitement_charte(recadrer(ouvrir_photo(s["photo"]), W, hb, *s.get("focus", (0.5, 0.5))))
+        img.paste(ph.convert("RGBA"), (0, 0))
+        d.rectangle([0, hb - 5, W, hb], fill=A["accent"])
+        y_haut = hb + 50
+    poser(img, dessin, y_haut, H - 330)
     lh = logo(img, M, H - 300, 250, A["logo"])
     d.text((M, H - 300 + lh + 22), typo("Le trait d’union avec votre Algérie"), font=police("titre_ital", 30), fill=A["texte"])
 
@@ -540,7 +548,7 @@ def g_etapes(s, i, n, opts):
     # donc parfaitement lisible (procédure §4 I).
     hb = 0
     if s.get("photo"):
-        hb = 430
+        hb = 300 if s.get("infographie") else 430
         ph = traitement_charte(recadrer(ouvrir_photo(s["photo"]), W, hb, *s.get("focus", (0.5, 0.5))))
         a = np.asarray(ph).astype(np.float32) / 255.0
         yy = np.linspace(0, 1, hb)[:, None, None]
@@ -552,7 +560,10 @@ def g_etapes(s, i, n, opts):
         a = a * (1 - voile) + (np.array([10, 20, 32]) / 255.0) * voile
         img.paste(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)), (0, 0))
         d.rectangle([0, hb - 5, W, hb], fill=A["accent"])
-        d.text((M - 10, 60), num, font=police("titre", 300), fill=C["or_clair"])
+        if s.get("infographie"):
+            d.text((M - 6, 50), num, font=police("titre", 190), fill=C["or_clair"])
+        else:
+            d.text((M - 10, 60), num, font=police("titre", 300), fill=C["or_clair"])
     elif s.get("infographie"):
         d.text((M - 6, 50), num, font=police("titre", 190), fill=A["accent"])
     else:
