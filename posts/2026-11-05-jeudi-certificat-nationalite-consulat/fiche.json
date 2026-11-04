@@ -1,0 +1,60 @@
+{
+  "nom": "certificat-nationalite-consulat",
+  "date": "2026-11-05T19:00",
+  "objectif": "Éduquer",
+  "pilier": "P2",
+  "pack": "Pack Reconnaissance de Nationalité (mention discrète)",
+  "format": "carrousel",
+  "gabarit": "etapes",
+  "options": {"ambiance": "pierre"},
+  "cadre": "Pédagogie réglementaire : ce qui existe, le circuit, les pièces, l'erreur à éviter",
+  "levier": "Réciprocité (information utile et vérifiée, sans vente)",
+  "cta": "Enregistrer et partager le post ; appel découverte en mention discrète",
+  "premier_regard": {
+    "a_qui": "Algériens et binationaux établis à l'étranger qui ont besoin d'un certificat de nationalité",
+    "quoi": "Le certificat peut être demandé via le consulat, sans se rendre en Algérie : circuit, pièces, erreur à éviter",
+    "que_faire": "Enregistrer le post, le partager, vérifier auprès de son consulat"
+  },
+  "sources": "Veille réglementaire, fiche N-01 (vérifiée le 03/11/2026 pour le principe et le circuit) : consulat général d'Algérie à Bruxelles (cgbrussels.mfa.gov.dz) et ambassade à Bruxelles, reprise du communiqué du ministère de la Justice ; consulat général de San Francisco, page « Nationality certificate » (cgsanfrancisco.mfa.gov.dz), circuit et pièces. Aucun délai, aucun nom de plateforme, aucune condition d'éligibilité non confirmée.",
+  "photos": ["banque/site/pack-nationalite-drapeau-1600.webp"],
+  "slides": [
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/pack-nationalite-drapeau-1600.webp",
+      "focus": [0.5, 0.4],
+      "titre": "Certificat de nationalité\nalgérienne :",
+      "titre2": "il se demande aussi\ndepuis l'étranger.",
+      "texte": "Via votre consulat, sans vous rendre en Algérie. Voici comment vous y préparer."
+    },
+    {
+      "numero": 1, "total": 4,
+      "titre": "Ce qui existe",
+      "texte": "Le ministère de la Justice permet aux Algériens établis à l'étranger d'obtenir leur certificat de nationalité auprès de la représentation consulaire la plus proche.",
+      "accent": "Le certificat est signé électroniquement."
+    },
+    {
+      "numero": 2, "total": 4,
+      "titre": "Le circuit, en 3 temps",
+      "texte": "La demande est déposée en ligne, sur la plateforme du ministère de la Justice. Le tribunal compétent en Algérie l'instruit. Le consulat vous remet ensuite le certificat signé.",
+      "accent": "Pas de déplacement en Algérie."
+    },
+    {
+      "numero": 3, "total": 4,
+      "titre": "Les pièces à préparer",
+      "texte": "Formulaire de demande, votre acte de naissance, le certificat de nationalité de votre père ou de votre mère, les actes de naissance de ce parent et de vos grands-pères, votre pièce d'identité.",
+      "accent": "Liste publiée par un consulat : vérifiez celle du vôtre."
+    },
+    {
+      "numero": 4, "total": 4,
+      "titre": "L'erreur à éviter",
+      "texte": "Déposer sans vérifier que vos actes concordent : orthographe des noms, dates, filiation. Le tribunal peut exiger la rectification de vos actes d'état civil avant de délivrer le certificat.",
+      "accent": "Comparez vos actes et ceux de vos parents avant de déposer."
+    },
+    {
+      "role": "cta",
+      "titre": "Enregistrez ce post pour le jour où vous en aurez besoin",
+      "texte": "Conditions et pièces exactes : à vérifier auprès de votre consulat. Partagez-le à un proche concerné.",
+      "action": "Une question ? Écrivez-la en commentaire"
+    }
+  ]
+}
