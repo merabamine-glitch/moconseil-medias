@@ -8,7 +8,7 @@ description: "Créer de A à Z une vidéo ou une publication réseaux sociaux de
 Utilise ce skill pour toute vidéo, Reel, carrousel, visuel ou texte destiné aux réseaux de M&O Conseil, et pour toute retouche d'une publication existante.
 
 ## 0. Avant tout
-1. Lis le guide de référence dans le projet Claude : `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` (copie : dépôt `merabamine-glitch/moconseil-medias`, `outils/video/`). Il prime sur ce résumé, **sauf la porte qualité (§2), qui prime sur tout**.
+1. Lis le guide de référence (version 2.3 ou plus récente) dans le projet Claude : `claude/GUIDE_COMPLET_VIDEOS_ET_PUBLICATIONS_RESEAUX.md` (copie : dépôt `merabamine-glitch/moconseil-medias`, `outils/video/`). Il prime sur ce résumé, **sauf la porte qualité (§2), qui prime sur tout**.
 2. Lis aussi : `claude/PROCEDURE_PUBLICATIONS_RESEAUX.md` (textes, Calendrier, Metricool), `claude/SCRIPTS_VIDEO_SERIE_PACKS_30S.md` (scripts en cours), `claude/REFERENCES_INSPIRATION_VIDEO.md` (références d'Amine) et la dernière fiche `claude/RELAIS_VIDEO_*.md`.
 3. Charge **et applique** les skills :
    - Script et accroche : `social-media-skills:short-form-video-script`, `social-media-skills:hook-writer`, `social-media-skills:scripting-and-storyboarding`, `marketing-skills:copywriting`.
@@ -24,7 +24,7 @@ Utilise ce skill pour toute vidéo, Reel, carrousel, visuel ou texte destiné au
 - Ne jamais cocher la mention « contenu généré par IA » (`isAiGenerated: false`, `isAigc: false`, `isAiGeneratedContent: false`).
 - Quand Amine demande une action : l'exécuter ; signaler un risque en une ligne sans suspendre.
 - Vidéo : formats 15 s, 20 s ou 30 s (carte de fin comprise), alternés d'une vidéo à l'autre.
-- Script en 6 temps : accroche (question), problème (finit sur l'idée reprise), « [reprise], c'est exactement ce que fait M et O Conseil. », « Avec le Pack [nom], nous [2-3 actions], sans que vous ayez à vous déplacer. », « À la fin, ce que vous obtenez, c'est [résultat maîtrisé]. », « Vous restez chez vous, nous gérons le reste. Réservez votre appel découverte. »
+- Script en 6 temps : accroche (question), problème (finit sur l'idée reprise), « [reprise], c'est exactement ce que nous faisons chez M et O Conseil ! », « Avec le Pack [nom], nous [2-3 actions], sans que vous ayez à vous déplacer. », « À la fin, ce que vous obtenez, c'est [résultat maîtrisé]. », « Vous restez chez vous, nous gérons le reste. Réservez votre appel découverte ! »
 - Voix ElevenLabs d'Amine « Homme » et « Femme », alternées d'une vidéo à l'autre (Eleven v3, Stability 50 %, Similarity 75 %, Speed 100 %).
 - Légende : se termine par « lien en bio ou sur www.moconseildz.com » ; lieu de chaque publication : Alger.
 - Mardi : publication à la main par Amine (jamais Metricool) ; livrer vidéo, couverture et `legende.txt` la veille ou le matin, créer deux rappels (lundi 18h, mardi 18h15).
@@ -32,6 +32,17 @@ Utilise ce skill pour toute vidéo, Reel, carrousel, visuel ou texte destiné au
 - Images : photos réelles ou objets et ambiances générés ; jamais de lieu réel ni de personne générés ; personnes filmées : mains et silhouettes, sans visage.
 - Aucun faux témoignage, faux commentaire, faux chiffre, faux document officiel. Faits réglementaires vérifiés.
 - Ne jamais retirer un élément qu'Amine a vu et aimé sans le lui demander.
+- **Premier plan : aucune animation ajoutée** (papiers, plaques, objets qui tombent, étiquettes). L'accroche vient de l'image elle-même : vidéo réelle d'Alger, mouvement de caméra, texte. Au moins 2 s à l'écran (au besoin, image seule avant la voix).
+- **Légende et textes : un seul objectif, l'appel découverte.** Aucune restriction de formule, nuance ou réserve qui freine l'appel ; les limites de palier se traitent pendant l'appel.
+- **Phrase finale « Réservez votre appel découverte » toujours ultra enjouée** (balises `[very excited] [cheerful]` ; prise dédiée raccordée si la prise complète est trop sage).
+- Plan signature : **jamais le petit trait doré terminé par deux points** (`Spark` sans `dash`) ; l'étoile « pop » apparaît autour du logo (`LogoBurst`).
+- Autour d'une vidéo recadrée : aucune bande grise ou terne ; une bande seulement là où il y a du texte (pierre avec filet d'or, ou nuit) ; jamais de voile qui assombrit une personne.
+- Ciel gris ou terne sur une vidéo réelle : l'étalonner en ciel bleuté (masque du ciel, relief des nuages conservé) avant le montage.
+- Vidéo fournie par Amine avec un filigrane : le retirer par recadrage, puis agrandir proprement (FSRCNN x2) si la définition est faible.
+- **Photo de couverture jamais réutilisée** (règle du 04/11/2026) : la première image d'un post ou d'une vidéo n'a jamais servi dans un post ou une vidéo déjà publiés ou programmés. Contrôle avant tout rendu : recherche du fichier dans `posts/*/fiche.json`, `outils/video/src` et `banque/REGISTRE.csv`.
+- **Chaque slide intérieure d'un carrousel porte un élément visuel** (règle du 04/11/2026) : bandeau photo, infographie (clé `infographie` du gabarit `etapes` : `circuit`, `pieces`, `comparaison`, `icones`) ou autre élément graphique. Jamais une slide de texte seul.
+- **Si ce n'est pas sûr, aucune durée** (règle du 04/11/2026) : aucune durée de validité, avance ou délai sans source officielle ou fiche de veille « Vérifiée ».
+- **Équilibre éditorial** (demande du 04/11/2026) : privilégier les posts utiles (réglementation expliquée, erreurs à éviter, démarches pas à pas) aux posts de vente ; dans un post éducatif, aucune vente dans les slides, appel découverte seulement en fin de légende.
 
 ## 2. Porte qualité (bloquante — prime sur tout)
 **Bible visuelle** : les deux vidéos validées « parfaites » par Amine — Présentation du 27/10 et Pack Création de Société v2 (03/11). Photos réelles en haute définition, nuit, or, pierre, fenêtre photo, tampon, mains en maillon, trait d'or, carte de fin nuit et or. Toute nouveauté s'ajoute à cette base, ne la remplace jamais. Aucune couleur hors charte.
@@ -60,7 +71,7 @@ Cinq portes, dans l'ordre. Aucun rendu complet avant P3 validée.
 5. **Calage** : alignement mot à mot (`voix/align_p01.py`), précision < 0,1 s.
 6. **Images** : banque du dépôt, Drive › Banque photos (dont les plans filmés à Alger), Pexels ; demander à Amine 1 ou 2 images précises avant l'analyse ; registre `banque/REGISTRE.csv`. Jamais une image agrandie au-delà de sa résolution.
 7. **Images clés** (P2), puis **aperçu 5 s** (P3).
-8. **Animation** : action spectaculaire dès la 1re seconde, variée d'une vidéo à l'autre (tampon qui frappe, porte, clé, avion, carte…), relief 2,5D sur photos réelles, plan signature (mains en maillon, trait d'or, logo, Europe / Algérie), carte de fin nuit et or avec le nom du pack. Rythme : dynamique (Création, Suivi, Banque, Achat) ou posé (les autres).
+8. **Animation** : image forte dès la 1re seconde (vidéo réelle, mouvement de caméra), **sans animation ajoutée sur le premier plan** ; objets animés (tampon, coches, étiquettes) à partir du plan 2, relief 2,5D sur photos réelles, plan signature (mains en maillon, trait d'or, logo avec étoile autour, Europe / Algérie), carte de fin nuit et or avec le nom du pack. Rythme : dynamique (Création, Suivi, Banque, Achat) ou posé (les autres).
 9. **Effets** : 3 à 5 par vidéo parmi les 16 du guide, avec leurs limites.
 10. **Texte à l'écran** : mots clés seulement, au moment exact où la voix les dit ; zones sûres (y 220 à 1600).
 11. **Son** : voix d'origine ; nappe en code ; bruitages en code ou bibliothèque ElevenLabs ; −14 LUFS visé.
