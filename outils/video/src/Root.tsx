@@ -17,6 +17,7 @@ import {Pack05ConciergerieV2} from './p05v2';
 import {Pack05ConciergerieV3, P05V3_FRAMES} from './p05v3';
 import {ChibiPlanche, ChibiDemo} from './chibi';
 import {DuoConciergerie, DUO_FRAMES} from './duo';
+import {Pack07Fredha, P07_FRAMES} from './p07pixar';
 import {ValiseTest} from './valise_test';
 import {Pack10RetourDefinitif} from './p10';
 
@@ -140,6 +141,7 @@ export const Root: React.FC = () => (
     <Composition id="Test3D" component={Test3D} durationInFrames={90} fps={30} width={1080} height={1920} />
     <Composition id="Pack02Suivi" component={Pack02Suivi} durationInFrames={882} fps={30} width={1080} height={1920} />
     <Composition id="Pack02SuiviV2" component={Pack02SuiviV2} durationInFrames={885} fps={30} width={1080} height={1920} />
+    <Composition id="Pack07Fredha" component={Pack07Fredha} durationInFrames={P07_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="DuoConciergerie" component={DuoConciergerie} durationInFrames={DUO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="ChibiPlanche" component={ChibiPlanche} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="ChibiDemo" component={ChibiDemo} durationInFrames={130} fps={30} width={1080} height={1920} />
