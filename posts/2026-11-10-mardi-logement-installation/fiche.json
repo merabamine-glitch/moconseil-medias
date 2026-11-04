@@ -12,17 +12,18 @@
   "cadre": "Démarche pas à pas : 3 points pour un logement prêt à l'arrivée (bail, certificat de résidence, compteurs)",
   "levier": "Réduction de l'effort (arriver dans un logement prêt)",
   "cta": "Appel découverte (lien en bio)",
-  "sources": "Catalogue Pack 4 et contrat annexe (bail négocié et authentifié devant notaire, honoraires inclus ; certificat de résidence ; compteurs eau, électricité, gaz ; avance de loyer jusqu'à 12 mois à prévoir) ; manuel opérationnel Pack 4 étapes 3, 4 et 7 (état des lieux annexé au bail ; certificat de résidence 1 an et fiche 3 mois ; certificat redemandé pour les compteurs) ; rétroplanning Pack 4. Aucune règle légale citée comme obligation : pratique de terrain de M&O Conseil.",
+  "sources": "Catalogue Pack 4 et contrat annexe (bail négocié et authentifié devant notaire, honoraires inclus ; certificat de résidence ; compteurs eau, électricité, gaz ; avance de loyer à prévoir) ; manuel opérationnel Pack 4 étapes 3, 4 et 7 (état des lieux annexé au bail ; certificat redemandé pour les compteurs) ; rétroplanning Pack 4. Aucune règle légale citée comme obligation : pratique de terrain de M&O Conseil. Durées retirées le 04/11/2026 (décision d'Amine : aucune durée sans source officielle).",
   "photos": [
-    "outils/video/public/img/s5-cles.jpg"
+    "banque/drive/cles-suspendues-nb.jpg",
+    "banque/drive/balcons-immeuble-blanc.jpg"
   ],
   "slides": [
     {
       "gabarit": "pleine-photo",
-      "photo": "outils/video/public/img/s5-cles.jpg",
+      "photo": "banque/drive/cles-suspendues-nb.jpg",
       "focus": [
         0.5,
-        1.0
+        0.45
       ],
       "titre": "Vous vous installez\nen Algérie ?",
       "titre2": "Un logement prêt\nà votre arrivée.",
@@ -33,14 +34,36 @@
       "total": 3,
       "titre": "Le bail, authentifié",
       "texte": "Négocié, puis authentifié devant notaire, avec l'état des lieux annexé : le logement est décrit noir sur blanc dès l'entrée.",
-      "accent": "Avance de loyer : jusqu'à 12 mois peuvent être demandés. Mieux vaut le savoir avant les visites."
+      "accent": "Avance de loyer : le montant demandé peut être élevé. Mieux vaut le savoir avant les visites.",
+      "photo": "banque/drive/balcons-immeuble-blanc.jpg",
+      "focus": [
+        0.5,
+        0.5
+      ]
     },
     {
       "numero": 2,
       "total": 3,
       "titre": "Certificat de résidence, puis compteurs",
-      "texte": "Demandez à l'APC le certificat de résidence, valable 1 an, plutôt que la fiche de 3 mois : il est redemandé pour ouvrir l'eau, l'électricité et le gaz.",
-      "accent": "Prévoyez aussi les dépôts de garantie des compteurs."
+      "texte": "Demandez à l'APC votre certificat de résidence : il est redemandé pour ouvrir les compteurs.",
+      "accent": "Prévoyez aussi leurs dépôts de garantie.",
+      "infographie": {
+        "type": "icones",
+        "etapes": [
+          {
+            "icone": "goutte",
+            "texte": "Eau"
+          },
+          {
+            "icone": "eclair",
+            "texte": "Électricité"
+          },
+          {
+            "icone": "flamme",
+            "texte": "Gaz"
+          }
+        ]
+      }
     },
     {
       "role": "cta",

@@ -408,6 +408,107 @@ def g_zellige(s, i, n, opts):
     pied(img, d, A, i, n)
     return img
 
+
+# ---------------------------------------------------------------- infographies (slides intérieures)
+def icone(d, nom, cx, cy, r, coul, ep=5):
+    """Pictogrammes simples, au trait, dans la charte (aucune image générée)."""
+    k = r / 50.0
+    L = lambda *pts: d.line([(cx + x * k, cy + y * k) for x, y in pts], fill=coul, width=ep, joint="curve")
+    R = lambda x0, y0, x1, y1, rad=6: d.rounded_rectangle([cx + x0 * k, cy + y0 * k, cx + x1 * k, cy + y1 * k], radius=rad * k, outline=coul, width=ep)
+    if nom == "ecran":
+        R(-34, -26, 34, 18); L((0, 18), (0, 30)); L((-16, 32), (16, 32)); L((-12, -6), (-2, 4), (14, -12))
+    elif nom == "balance":
+        L((0, -32), (0, 30)); L((-22, 32), (22, 32)); L((-30, -22), (30, -22))
+        for sx in (-30, 30):
+            L((sx, -22), (sx - 12, 4)); L((sx, -22), (sx + 12, 4))
+            d.arc([cx + (sx - 14) * k, cy - 8 * k, cx + (sx + 14) * k, cy + 16 * k], 0, 180, fill=coul, width=ep)
+    elif nom == "batiment":
+        L((-34, -10), (0, -32), (34, -10), (-34, -10)); L((-36, 30), (36, 30)); L((-30, 22), (30, 22))
+        for x in (-22, -8, 8, 22):
+            L((x, -4), (x, 20))
+    elif nom == "document":
+        L((-22, -32), (10, -32), (24, -18), (24, 32), (-22, 32), (-22, -32)); L((10, -32), (10, -18), (24, -18))
+        for y in (-6, 6, 18):
+            L((-12, y), (14, y))
+    elif nom == "carte":
+        R(-34, -22, 34, 22); d.ellipse([cx - 24 * k, cy - 12 * k, cx - 6 * k, cy + 6 * k], outline=coul, width=ep)
+        L((-28, 16), (-2, 16)); L((4, -8), (26, -8)); L((4, 4), (22, 4))
+    elif nom == "goutte":
+        L((0, -32), (-20, 0)); L((0, -32), (20, 0)); d.arc([cx - 22 * k, cy - 18 * k, cx + 22 * k, cy + 28 * k], 0, 180, fill=coul, width=ep)
+        d.arc([cx - 22 * k, cy - 18 * k, cx + 22 * k, cy + 28 * k], 150, 180, fill=coul, width=ep); d.arc([cx - 22 * k, cy - 18 * k, cx + 22 * k, cy + 28 * k], 0, 30, fill=coul, width=ep)
+    elif nom == "eclair":
+        L((8, -32), (-16, 4), (2, 4), (-8, 32), (18, -6), (0, -6), (8, -32))
+    elif nom == "flamme":
+        L((0, -32), (-18, 0), (-16, 18), (0, 30), (16, 18), (18, 0), (8, -10), (4, 4), (0, -32))
+    elif nom == "contrat":
+        L((-22, -32), (22, -32), (22, 32), (-22, 32), (-22, -32))
+        for y in (-18, -6, 6):
+            L((-12, y), (12, y))
+        L((-12, 20), (-2, 14), (6, 22), (14, 16))
+    elif nom == "cle":
+        d.ellipse([cx - 30 * k, cy - 14 * k, cx - 2 * k, cy + 14 * k], outline=coul, width=ep)
+        L((-2, 0), (32, 0)); L((22, 0), (22, 12)); L((30, 0), (30, 10))
+
+def hauteur_infographie(spec):
+    t = spec.get("type")
+    if t == "pieces":
+        return 30 + ((len(spec["items"]) + 1) // 2) * 118
+    if t == "comparaison":
+        return 290
+    return 300  # circuit, icones
+
+def infographie(img, d, A, spec, y0):
+    t = spec.get("type")
+    acc, tit, tx = A["accent"], A["titre"], A["texte"]
+    if t in ("circuit", "icones"):
+        et = spec["etapes"]; n = len(et); r = 78
+        xs = [M + r + (W - 2 * M - 2 * r) * k / max(n - 1, 1) for k in range(n)]
+        cy = y0 + r + 6
+        for k, e in enumerate(et):
+            x = xs[k]
+            d.ellipse([x - r, cy - r, x + r, cy + r], fill=C["blanc"], outline=acc, width=4)
+            icone(d, e["icone"], x, cy, r * 0.62, tit, ep=5)
+            if t == "circuit":
+                f = police("moyen", 24); lab = str(k + 1)
+                d.ellipse([x + r * 0.55, cy - r - 6, x + r * 0.55 + 40, cy - r + 34], fill=acc)
+                d.text((x + r * 0.55 + 20 - f.getlength(lab) / 2, cy - r - 1), lab, font=f, fill=C["blanc"])
+            if t == "circuit" and k < n - 1:
+                xa, xb = x + r + 18, xs[k + 1] - r - 18
+                d.line([(xa, cy), (xb, cy)], fill=acc, width=4)
+                d.polygon([(xb, cy), (xb - 16, cy - 10), (xb - 16, cy + 10)], fill=acc)
+            fl = police("moyen", 26)
+            lignes = couper(typo(e["texte"]), fl, 230)
+            for j, li in enumerate(lignes[:3]):
+                d.text((x - fl.getlength(li) / 2, cy + r + 22 + j * 34), li, font=fl, fill=tit)
+    elif t == "pieces":
+        items = spec["items"]; cw = (W - 2 * M - 24) // 2
+        for k, it in enumerate(items):
+            col, row = k % 2, k // 2
+            x = M + col * (cw + 24); y = y0 + row * 118
+            d.rounded_rectangle([x, y, x + cw, y + 102], radius=14, fill=C["blanc"], outline=C["sable"], width=2)
+            icone(d, it.get("icone", "document"), x + 44, y + 51, 26, tit, ep=4)
+            d.ellipse([x + cw - 46, y + 37, x + cw - 18, y + 65], fill=acc)
+            d.line([(x + cw - 40, y + 51), (x + cw - 34, y + 58), (x + cw - 24, y + 44)], fill=C["blanc"], width=4)
+            fl = police("moyen", 24)
+            lignes = couper(typo(it["texte"]), fl, cw - 140)[:3]
+            hy = y + 51 - len(lignes) * 16
+            for j, li in enumerate(lignes):
+                d.text((x + 84, hy + j * 31), li, font=fl, fill=tit)
+    elif t == "comparaison":
+        cw = (W - 2 * M - 40) // 2
+        for k, c in enumerate(spec["cartes"]):
+            x = M + k * (cw + 40); y = y0 + 10
+            d.rounded_rectangle([x, y, x + cw, y + 210], radius=16, fill=C["blanc"], outline=C["sable"], width=2)
+            icone(d, c.get("icone", "document"), x + 50, y + 56, 30, tit, ep=4)
+            d.text((x + 100, y + 38), typo(c["titre"]), font=police("moyen", 24), fill=C["gris"])
+            f = police("titre_gras", 40); v = typo(c["valeur"])
+            d.text((x + 34, y + 118), v, font=f, fill=tit)
+        xm = M + cw + 20; ym = y0 + 115
+        d.ellipse([xm - 30, ym - 30, xm + 30, ym + 30], fill=C["terre"])
+        d.text((xm - 12, ym - 24), "≠", font=police("titre_gras", 40), fill=C["blanc"])
+        if spec.get("legende"):
+            d.text((M, y0 + 242), typo(spec["legende"]), font=police("leger", 24), fill=C["gris"])
+
 def g_etapes(s, i, n, opts):
     """Démarche pas à pas : liste numérotée en couverture, une étape par slide."""
     img, d, A = toile(opts.get("ambiance", "blanc"))
@@ -452,9 +553,11 @@ def g_etapes(s, i, n, opts):
         img.paste(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)), (0, 0))
         d.rectangle([0, hb - 5, W, hb], fill=A["accent"])
         d.text((M - 10, 60), num, font=police("titre", 300), fill=C["or_clair"])
+    elif s.get("infographie"):
+        d.text((M - 6, 50), num, font=police("titre", 190), fill=A["accent"])
     else:
         d.text((M - 10, 60), num, font=police("titre", 300), fill=A["accent"])
-    fx0, fx1, fy = M, W - M, (hb + 60 if hb else 450)
+    fx0, fx1, fy = M, W - M, (hb + 60 if hb else (300 if s.get("infographie") else 450))
     d.line([(fx0, fy), (fx1, fy)], fill=C["sable"], width=4)
     if tot > 1:
         pos = fx0 + (fx1 - fx0) * (int(num) - 1) / (tot - 1)
@@ -463,7 +566,12 @@ def g_etapes(s, i, n, opts):
             px = fx0 + (fx1 - fx0) * k / (tot - 1)
             r = 10 if k + 1 == int(num) else 7
             d.ellipse([px - r, fy - r, px + r, fy + r], fill=A["accent"] if k + 1 <= int(num) else C["sable"])
-    poser(img, titre_texte(s, A, False, t_int=68), fy + 60, H - 260, "centre")
+    if s.get("infographie"):
+        hi = hauteur_infographie(s["infographie"])
+        _, yb = poser(img, titre_texte(s, A, False, t_int=62), fy + 50, H - 190 - hi - 30, "haut")
+        infographie(img, d, A, s["infographie"], yb + 70)
+    else:
+        poser(img, titre_texte(s, A, False, t_int=68), fy + 60, H - 260, "centre")
     if s.get("delai"):
         f2 = police("moyen", 28)
         t = typo("Délai indicatif : " + s["delai"])
