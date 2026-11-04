@@ -16,7 +16,14 @@ const big: React.CSSProperties = {fontFamily: SANS, fontWeight: 800, letterSpaci
 const eyebrow: React.CSSProperties = {fontFamily: SANS, fontWeight: 700, fontSize: 32, letterSpacing: 7, textTransform: 'uppercase', color: C.orClair};
 const shadow = 'drop-shadow(0 6px 24px rgba(0,0,0,0.7))';
 type Sc = React.FC<{a: number; b: number}>;
-const tt = (x: number) => s(x) + OFF; // temps voix → image
+// Recalage sur la coupe v2 (coupes alignées sur les images : lèvres synchrones). Paires [temps v1, temps v2].
+const A7: [number, number][] = [[0, 0], [0.04, 0.02], [1.68, 1.65], [2.93, 2.91], [4.83, 4.83], [5.55, 5.54], [7.59, 7.59], [9.0, 8.97], [10.87, 10.85], [11.58, 11.54], [12.45, 12.44], [13.25, 13.22], [14.93, 14.9], [15.91, 15.87], [16.67, 16.63], [18.21, 18.16], [30, 29.95]];
+const W7 = (x: number): number => {
+  for (let i = 1; i < A7.length; i++) if (x <= A7[i][0]) { const [a0, b0] = A7[i - 1], [a1, b1] = A7[i]; return b0 + ((x - a0) * (b1 - b0)) / (a1 - a0); }
+  return x;
+};
+
+const tt = (x: number) => s(W7(x)) + OFF; // temps voix → image
 
 /* fond photo saturé, flou ou net, avec voile nuit et lueur or */
 const Fond: React.FC<{src: string; blur?: number; veil?: number; zoom?: [number, number]; dur: number; oy?: number}> = ({src, blur = 0, veil = 0.45, zoom = [1.12, 1.0], dur, oy = 50}) => {
@@ -32,7 +39,7 @@ const Fond: React.FC<{src: string; blur?: number; veil?: number; zoom?: [number,
 };
 
 /* plan de la conseillère : fenêtre dorée, filigrane HeyGen conservé (version gratuite) */
-const Conseillere: React.FC<{t0: number; dur: number; y?: number; w?: number; tilt?: number; from?: 'bas' | 'gauche' | 'droite' | 'zoom'; face?: boolean}> = ({t0, dur, y = 1040, w = 900, tilt = -1.5, from = 'bas', face}) => {
+const Conseillere: React.FC<{t0: number; dur: number; y?: number; w?: number; tilt?: number; from?: 'bas' | 'gauche' | 'droite' | 'zoom'; face?: boolean; lead?: number}> = ({t0, dur, y = 1040, w = 900, tilt = -1.5, from = 'bas', face, lead = 0}) => {
   const f = useCurrentFrame();
   const p = useSpring(0, 13, 150);
   const h = Math.round((w * 1576) / 1440);
@@ -45,7 +52,10 @@ const Conseillere: React.FC<{t0: number; dur: number; y?: number; w?: number; ti
     <div style={{position: 'absolute', left: W / 2, top: y, transform: `translate(-50%,-50%) translate(${tx}px, ${ty}px) rotate(${tilt * p}deg) scale(${sc})`}}>
       <div style={{position: 'relative', width: w, height: h, borderRadius: 34, overflow: 'hidden', border: `7px solid ${C.orClair}`, boxShadow: '0 40px 90px rgba(0,0,0,0.6), 0 0 60px rgba(233,207,142,0.45)'}}>
         <div style={{position: 'absolute', inset: 0, transform: `scale(${z})`, transformOrigin: face ? '50% 38%' : '50% 45%'}}>
-          <OffthreadVideo src={staticFile('video/pixar-fredha.mp4')} startFrom={Math.round(t0 * 25)} muted style={{width: w, height: h, objectFit: 'cover'}} />
+          <Img src={staticFile('img/px-premiere-image.jpg')} style={{position: 'absolute', inset: 0, width: w, height: h, objectFit: 'cover'}} />
+          <Sequence from={lead} layout="none">
+            <OffthreadVideo src={staticFile('video/pixar-fredha.mp4')} startFrom={s(W7(t0))} muted style={{position: 'absolute', inset: 0, width: w, height: h, objectFit: 'cover'}} />
+          </Sequence>
         </div>
         <Img src={staticFile('img/heygen-filigrane.png')} style={{position: 'absolute', right: 26, bottom: 22, width: 170, opacity: 0.8}} />
       </div>
@@ -62,7 +72,7 @@ const Titre: React.FC<{y?: number; children: React.ReactNode; out?: number}> = (
 /* ---------- plans ---------- */
 const P1: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => tt(x) - tt(a) + (a === 0 ? OFF : 0);
+  const r = (x: number) => tt(x);
   return (
     <AbsoluteFill>
       <Fond src="img/px-succession.jpg" blur={6} veil={0.5} dur={s(2)} />
@@ -71,13 +81,13 @@ const P1: Sc = ({a}) => {
         <div style={{...big, fontSize: 84}}><Word at={r(0.04)}>Vous </Word><Word at={r(0.25)}>héritez </Word><Word at={r(0.55)}>d’un bien</Word></div>
         <div><Accent at={r(1.0)} size={140} color={C.orClair} stroke="none">en Algérie ?</Accent></div>
       </Titre>
-      <Conseillere t0={0} dur={s(2)} y={1180} w={860} from="zoom" />
+      <Conseillere t0={0} dur={s(2)} y={1180} w={860} from="zoom" lead={OFF} />
     </AbsoluteFill>
   );
 };
 const P2: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
   const A = MAP.villes.alger, G = MAP.villes.geneve, Pa = MAP.villes.paris, B = MAP.villes.bruxelles;
   const z = interpolate(f, [0, s(1.3)], [0.95, 0.82], clamp);
   const cx = 1150, cy = 1650;
@@ -109,7 +119,7 @@ const P2: Sc = ({a}) => {
 };
 const P3: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
   const doc = useSpring(r(4.83), 11, 170);
   const swap = prog(f, r(4.78), 6);
   return (
@@ -149,7 +159,7 @@ const Tampon: React.FC<{at: number; x: number; y: number; txt: string; color?: s
 };
 const P4: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
   const sheet = useSpring(0, 13, 130);
   const heirs = ['Héritier 1', 'Héritier 2', 'Héritier 3', 'Héritier 4'];
   return (
@@ -197,17 +207,17 @@ const P4: Sc = ({a}) => {
 };
 const P5: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
-  const swap = r(9.95);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
+  const swap = r(10.4);
   const lock = useSpring(swap + 2, 9, 170);
   const shake = f >= r(10.87) && f < r(10.87) + 6 ? Math.sin(f * 3) * 9 : f >= r(11.58) && f < r(11.58) + 6 ? Math.sin(f * 3) * 9 : 0;
   return (
     <AbsoluteFill style={{transform: `translateX(${shake}px)`}}>
       {f < swap ? (
         <>
-          <Fond src="img/px-immeuble.jpg" blur={8} veil={0.55} dur={s(1)} />
+          <Fond src="img/px-immeuble.jpg" blur={8} veil={0.55} dur={s(2)} />
           <Titre y={200}><div style={{...big, fontSize: 110}}><Word at={r(9.0)}>Sans </Word><Word at={r(9.3)}>lui…</Word></div></Titre>
-          <Conseillere t0={9.0} dur={s(1)} y={1120} w={880} from="gauche" />
+          <Conseillere t0={8.38} dur={s(2)} y={1120} w={880} from="gauche" />
         </>
       ) : (
         <>
@@ -234,8 +244,8 @@ const P5: Sc = ({a}) => {
 };
 const P6: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
-  const swap = r(13.3);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
+  const swap = r(12.6);
   const A = MAP.villes.alger, G = MAP.villes.geneve;
   const u = prog(f, swap + 4, s(1.4), Easing.bezier(0.45, 0, 0.25, 1));
   const z = 0.8, cx = 1210, cy = 1960, tx = W / 2 - cx * z, ty = H / 2 - cy * z;
@@ -244,15 +254,7 @@ const P6: Sc = ({a}) => {
   const py = (1 - u) * (1 - u) * G[1] + 2 * (1 - u) * u * my + u * u * A[1];
   return (
     <AbsoluteFill>
-      {f < swap ? (
-        <>
-          <Fond src="img/s2-chez-vous.jpg" blur={8} veil={0.5} dur={s(1)} />
-          <Titre y={200}>
-            <div style={eyebrow}><Word at={r(12.45)}>Bonne nouvelle</Word></div>
-          </Titre>
-          <Conseillere t0={12.45} dur={s(1)} y={1110} w={880} from="zoom" face />
-        </>
-      ) : (
+      {(
         <>
           <AbsoluteFill style={{background: 'radial-gradient(ellipse 90% 60% at 50% 50%, #22406B 0%, #142540 50%, #0A111E 100%)'}} />
           <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
@@ -272,7 +274,8 @@ const P6: Sc = ({a}) => {
             </div>
           </div>
           <Titre y={190}>
-            <div style={{...big, fontSize: 84}}><Word at={swap}>Préparée </Word><Word at={swap + 6}>à distance,</Word></div>
+            <div style={eyebrow}><Word at={r(12.45)}>Bonne nouvelle</Word></div>
+            <div style={{...big, fontSize: 84, marginTop: 12}}><Word at={r(13.25)}>Préparée </Word><Word at={r(13.6)}>à distance,</Word></div>
             <div><Accent at={r(14.93)} size={140} color={C.orClair} stroke="none">par procuration.</Accent></div>
           </Titre>
           <Tampon at={r(15.25)} x={W / 2} y={1500} txt="SANS DÉPLACEMENT ✓" />
@@ -283,22 +286,22 @@ const P6: Sc = ({a}) => {
 };
 const P7: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
   return (
     <AbsoluteFill>
-      <Fond src="img/px-succession.jpg" blur={8} veil={0.55} dur={s(1.2)} zoom={[1.05, 1.15]} />
+      <Fond src="img/px-succession.jpg" blur={8} veil={0.55} dur={s(2.2)} zoom={[1.05, 1.15]} />
       <Titre y={210}><div style={{...big, fontSize: 120}}><Word at={r(15.91)}>Besoin </Word><Word at={r(16.15)}>d’aide ?</Word></div></Titre>
-      <Conseillere t0={15.8} dur={s(1.2)} y={1130} w={880} from="bas" tilt={1} />
+      <Conseillere t0={15.28} dur={s(2.2)} y={1130} w={880} from="bas" tilt={1} />
     </AbsoluteFill>
   );
 };
 const P8: Sc = ({a}) => {
   const f = useCurrentFrame();
-  const r = (x: number) => s(x - a);
+  const r = (x: number) => s(W7(x)) - s(W7(a));
   const open = prog(f, 0, 12, Easing.bezier(0.7, 0, 0.2, 1));
   const reveal = prog(f, 6, 20, Easing.bezier(0.6, 0, 0.2, 1));
-  const btn = useSpring(r(16.8), 12, 150);
-  const shine = interpolate(f, [r(17.6), r(18.4)], [-30, 130], clamp);
+  const btn = useSpring(r(17.45), 12, 150);
+  const shine = interpolate(f, [r(18.0), r(18.8)], [-30, 130], clamp);
   return (
     <AbsoluteFill style={{clipPath: `circle(${open * 140}% at 50% 55%)`}}>
       <AbsoluteFill style={{background: 'radial-gradient(circle at 50% 34%, #26406A 0%, #16243A 40%, #0E1726 72%, #0A101C 100%)'}} />
@@ -313,13 +316,13 @@ const P8: Sc = ({a}) => {
         <span style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, color: C.nuit}}>Réservez votre appel découverte</span>
         <div style={{position: 'absolute', top: 0, bottom: 0, left: `${shine}%`, width: '22%', background: 'linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%)'}} />
       </div>
-      <div style={{position: 'absolute', top: H * 0.63, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 42, color: C.orClair, letterSpacing: 2, opacity: prog(f, r(17.2), 10)}}>moconseildz.com</div>
+      <div style={{position: 'absolute', top: H * 0.63, width: '100%', textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 42, color: C.orClair, letterSpacing: 2, opacity: prog(f, r(17.7), 10)}}>moconseildz.com</div>
     </AbsoluteFill>
   );
 };
 
 const PLAN: [number, number, Sc][] = [
-  [0, 1.68, P1], [1.66, 2.95, P2], [2.93, 5.55, P3], [5.53, 9.0, P4], [8.98, 12.45, P5], [12.43, 15.82, P6], [15.8, 17.2, P7], [16.7, P07_DUREE, P8],
+  [0, 1.68, P1], [1.66, 2.95, P2], [2.93, 5.55, P3], [5.53, 8.4, P4], [8.38, 12.45, P5], [12.43, 15.3, P6], [15.28, 17.6, P7], [17.25, P07_DUREE, P8],
 ];
 export const Pack07Fredha: React.FC = () => (
   <AbsoluteFill style={{background: C.nuit}}>
