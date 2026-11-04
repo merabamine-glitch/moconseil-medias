@@ -16,6 +16,10 @@ export type ChibiPose = {
   armR?: number;
   tilt?: number; // inclinaison de la tête
   bounce?: number; // petit saut (px)
+  squash?: number; // >0 écrasé, <0 étiré (rebond)
+  fx?: 'sueur' | 'question' | 'coeurs' | 'etoiles' | 'exclam';
+  fxT?: number; // 0→1 progression de l'effet
+  sticker?: boolean; // contour blanc (lisible sur fond vif)
 };
 type Kind = 'femme' | 'homme';
 const PAL = {
@@ -70,8 +74,24 @@ export const Chibi: React.FC<{kind: Kind; pose?: ChibiPose; scale?: number; x?: 
   const hair = f ? PAL.cheveuxF : PAL.cheveuxH;
   const hairL = f ? PAL.cheveuxFClair : PAL.cheveuxHClair;
   const brow = (pose.brow ?? 0) * 12;
+  const sq = pose.squash ?? 0;
+  const fxT = pose.fxT ?? 1;
   return (
-    <g transform={`translate(${x} ${y - (pose.bounce ?? 0)}) scale(${scale})`}>
+    <g transform={`translate(${x} ${y - (pose.bounce ?? 0)}) scale(${scale * (1 + sq * 0.12)} ${scale * (1 - sq * 0.12)})`} filter={pose.sticker ? 'url(#stickerMO)' : undefined}>
+      {pose.sticker && (
+        <defs>
+          <filter id="stickerMO" x="-20%" y="-20%" width="140%" height="140%">
+            <feMorphology in="SourceAlpha" operator="dilate" radius={9} result="d" />
+            <feFlood floodColor="#FFFFFF" result="w" />
+            <feComposite in="w" in2="d" operator="in" result="o" />
+            <feGaussianBlur in="d" stdDeviation={10} result="sb" />
+            <feFlood floodColor="#000000" floodOpacity={0.35} result="k" />
+            <feComposite in="k" in2="sb" operator="in" result="sh" />
+            <feOffset in="sh" dy={14} result="sh2" />
+            <feMerge><feMergeNode in="sh2" /><feMergeNode in="o" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+      )}
       {/* ombre au sol */}
       <ellipse cx={0} cy={6 + (pose.bounce ?? 0) / scale} rx={130 - (pose.bounce ?? 0) * 0.4} ry={16} fill="rgba(15,27,45,0.18)" />
       {/* jambes */}
@@ -133,6 +153,30 @@ export const Chibi: React.FC<{kind: Kind; pose?: ChibiPose; scale?: number; x?: 
       </g>
       <Arm side={-1} angle={pose.armL ?? 0} />
       <Arm side={1} angle={pose.armR ?? 0} />
+      {pose.fx === 'sueur' && (
+        <g transform={`translate(175 ${-700 + fxT * 70})`} opacity={1 - Math.max(0, fxT - 0.7) / 0.3}>
+          <path d="M0 -40 C 22 -6 30 14 0 30 C -30 14 -22 -6 0 -40 Z" fill="#7EC8F0" stroke={K} strokeWidth={6} />
+          <ellipse cx={-7} cy={8} rx={6} ry={9} fill="#FFFFFF" />
+        </g>
+      )}
+      {pose.fx === 'question' && (
+        <g transform={`translate(${200} -820) scale(${Math.min(1, fxT * 3)}) rotate(${12 - fxT * 12})`}>
+          <text x={0} y={0} textAnchor="middle" fontFamily="Manrope" fontWeight={800} fontSize={170} fill="#C9A24B" stroke={K} strokeWidth={8} paintOrder="stroke">?</text>
+        </g>
+      )}
+      {pose.fx === 'exclam' && (
+        <g transform={`translate(${215} -800) scale(${Math.min(1, fxT * 3)}) rotate(10)`}>
+          <text x={0} y={0} textAnchor="middle" fontFamily="Manrope" fontWeight={800} fontSize={170} fill="#C4512B" stroke={K} strokeWidth={8} paintOrder="stroke">!</text>
+        </g>
+      )}
+      {pose.fx === 'coeurs' && [0, 1, 2].map((i) => {
+        const u = (fxT + i * 0.33) % 1;
+        return <path key={i} transform={`translate(${-120 + i * 120 + Math.sin(u * 6 + i) * 20} ${-760 - u * 160}) scale(${0.6 + 0.4 * Math.sin(u * Math.PI)})`} opacity={Math.sin(u * Math.PI)} d="M0 12 C -30 -12 -18 -38 0 -22 C 18 -38 30 -12 0 12 Z" fill="#E9A08C" stroke={K} strokeWidth={5} />;
+      })}
+      {pose.fx === 'etoiles' && [0, 1, 2, 3].map((i) => {
+        const a = fxT * Math.PI * 2 + (i * Math.PI) / 2;
+        return <path key={i} transform={`translate(${Math.cos(a) * 230} ${-800 + Math.sin(a) * 50}) scale(0.9)`} d="M0 -26 L7 -8 L26 -8 L11 4 L17 24 L0 12 L-17 24 L-11 4 L-26 -8 L-7 -8 Z" fill="#F2DDA2" stroke={K} strokeWidth={5} strokeLinejoin="round" />;
+      })}
     </g>
   );
 };
