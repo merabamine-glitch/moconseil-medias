@@ -14,6 +14,7 @@ import {Test3D} from './test3d';
 import {Pack02Suivi} from './p02';
 import {Pack02SuiviV2} from './p02v2';
 import {Pack05ConciergerieV2} from './p05v2';
+import {Pack05ConciergerieV3, P05V3_FRAMES} from './p05v3';
 import {ValiseTest} from './valise_test';
 import {Pack10RetourDefinitif} from './p10';
 
@@ -137,6 +138,7 @@ export const Root: React.FC = () => (
     <Composition id="Test3D" component={Test3D} durationInFrames={90} fps={30} width={1080} height={1920} />
     <Composition id="Pack02Suivi" component={Pack02Suivi} durationInFrames={882} fps={30} width={1080} height={1920} />
     <Composition id="Pack02SuiviV2" component={Pack02SuiviV2} durationInFrames={885} fps={30} width={1080} height={1920} />
+    <Composition id="Pack05ConciergerieV3" component={Pack05ConciergerieV3} durationInFrames={P05V3_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Pack05ConciergerieV2" component={Pack05ConciergerieV2} durationInFrames={899} fps={30} width={1080} height={1920} />
     <Composition id="Certificat" component={Certificat} durationInFrames={765} fps={30} width={1080} height={1920} />
         <Composition id="ValiseTest" component={ValiseTest} durationInFrames={60} fps={30} width={1080} height={1920} />
