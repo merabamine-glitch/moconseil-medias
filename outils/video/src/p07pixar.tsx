@@ -38,7 +38,7 @@ const Fond: React.FC<{src: string; blur?: number; veil?: number; zoom?: [number,
   );
 };
 
-/* plan de la conseillère : fenêtre dorée, filigrane HeyGen conservé (version gratuite) */
+/* plan de la conseillère : fenêtre dorée (formule HeyGen payante depuis le 04/11/2026 : plus de logo affiché) */
 const Conseillere: React.FC<{t0: number; dur: number; y?: number; w?: number; tilt?: number; from?: 'bas' | 'gauche' | 'droite' | 'zoom'; face?: boolean; lead?: number}> = ({t0, dur, y = 1040, w = 900, tilt = -1.5, from = 'bas', face, lead = 0}) => {
   const f = useCurrentFrame();
   const p = useSpring(0, 13, 150);
@@ -57,7 +57,6 @@ const Conseillere: React.FC<{t0: number; dur: number; y?: number; w?: number; ti
             <OffthreadVideo src={staticFile('video/pixar-fredha.mp4')} startFrom={s(W7(t0))} muted style={{position: 'absolute', inset: 0, width: w, height: h, objectFit: 'cover'}} />
           </Sequence>
         </div>
-        <Img src={staticFile('img/heygen-filigrane.png')} style={{position: 'absolute', right: 26, bottom: 22, width: 170, opacity: 0.8}} />
       </div>
     </div>
   );
