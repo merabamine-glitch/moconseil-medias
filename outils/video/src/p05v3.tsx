@@ -95,7 +95,7 @@ const CITY = MAP.villes;
 const ARCS: {k: keyof typeof CITY; l: string; d: number; side: number}[] = [
   {k: 'paris', l: 'Paris', d: 0, side: -1.6},
   {k: 'geneve', l: 'Genève', d: 3, side: 1.3},
-  {k: 'bruxelles', l: 'Bruxelles', d: 6, side: 2.2},
+  {k: 'bruxelles', l: 'Bruxelles', d: 6, side: 1.1},
 ];
 const arcPath = (a: readonly number[], b: readonly number[], bend: number) => {
   const mx = (a[0] + b[0]) / 2 + bend;
@@ -111,7 +111,7 @@ const BMAP: Sc = ({st}) => {
   const t = useT(st);
   // caméra : centre (cx, cy) en pixels de carte, zoom z
   const k1 = interpolate(f, [t(1.62), t(2.62)], [0, 1], {...clamp, easing: inOut});
-  const k2 = interpolate(f, [t(2.8), t(3.2)], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.9, 0.4)});
+  const k2 = interpolate(f, [t(2.8), t(3.15)], [0, 1], {...clamp, easing: Easing.bezier(0.7, 0, 0.9, 0.4)});
   const A = CITY.alger;
   const G = CITY.geneve;
   let cx = interpolate(k1, [0, 1], [A[0], 1150]);
@@ -206,7 +206,8 @@ const CARDS = [
 const B2: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
-  const iris = interpolate(f, [t(2.95), t(3.28)], [0, 1], {...clamp, easing: Easing.bezier(0.3, 0, 0.2, 1)});
+  const iris = interpolate(f, [t(3.02), t(3.3)], [0, 1], {...clamp, easing: Easing.bezier(0.3, 0, 0.2, 1)});
+  const ringOp = interpolate(iris, [0, 0.08, 0.7, 1], [0, 1, 1, 0]);
   const z = interpolate(f, [0, dur], [1.08, 1.0], clamp);
   const out = interpolate(f, [t(7.9), t(8.12)], [0, 1], {...clamp, easing: easeIn});
   const grad = prog(f, t(5.6), 10);
@@ -237,6 +238,7 @@ const B2: Sc = ({st, dur}) => {
           );
         })}
       </div>
+      {ringOp > 0 && <div style={{position: 'absolute', boxSizing: 'border-box', left: W / 2 - iris * 1150, top: H / 2 - iris * 1150, width: 2 * iris * 1150, height: 2 * iris * 1150, borderRadius: '50%', border: `7px solid ${C.orClair}`, boxShadow: 'inset 0 0 30px rgba(233,207,142,0.8)', opacity: ringOp}} />}
       <div style={{position: 'absolute', top: 1360, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>
         <div style={{...eyebrow, color: C.orClair, fontSize: 32}}>
           <Word at={t(5.8)}>À chaque fois,</Word>
@@ -560,7 +562,7 @@ const B5: Sc = ({st, dur}) => {
   );
 };
 
-/* ===================================================== 6. Pendant que vous restez chez vous… nous gérons le reste */
+/* ===================================================== 6. Vous restez chez vous, nous gérons le reste */
 const B6: Sc = ({st, dur}) => {
   const f = useCurrentFrame();
   const t = useT(st);
@@ -572,15 +574,13 @@ const B6: Sc = ({st, dur}) => {
       <AbsoluteFill style={{background: 'linear-gradient(to bottom, rgba(244,239,230,0.97) 0%, rgba(244,239,230,0.92) 28%, rgba(244,239,230,0.3) 46%, rgba(244,239,230,0) 58%)'}} />
       <AbsoluteFill style={{background: 'linear-gradient(to top, rgba(14,23,38,0.82) 0%, rgba(14,23,38,0.45) 26%, rgba(14,23,38,0) 44%)'}} />
       <div style={{position: 'absolute', top: 210, width: '100%', textAlign: 'center', color: C.marine}}>
-        <div style={{...big, fontSize: 84}}>
-          <Word at={t(24.17)}>Pendant </Word>
-          <Word at={t(24.39)}>que </Word>
-          <Word at={t(24.52)}>vous</Word>
+        <div style={{...big, fontSize: 96}}>
+          <Word at={t(24.52)}>Vous </Word>
+          <Word at={t(24.67)}>restez</Word>
         </div>
-        <div style={{...big, fontSize: 84}}>
-          <Word at={t(24.67)}>restez </Word>
+        <div style={{...big, fontSize: 96}}>
           <Word at={t(24.88)}>chez </Word>
-          <Word at={t(25.02)}>vous…</Word>
+          <Word at={t(25.02)}>vous,</Word>
         </div>
       </div>
       <div style={{position: 'absolute', top: 1290, width: '100%', textAlign: 'center', color: C.blanc, filter: shadowW}}>

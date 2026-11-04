@@ -1,0 +1,523 @@
+[
+ {
+  "chunk": "Vous avez des affaires en Algérie",
+  "start": 0.14,
+  "end": 1.87,
+  "words": [
+   [
+    "Vous",
+    0.14
+   ],
+   [
+    "avez",
+    0.31
+   ],
+   [
+    "des",
+    0.52
+   ],
+   [
+    "affaires",
+    0.63
+   ],
+   [
+    "en",
+    1.29
+   ],
+   [
+    "Algérie",
+    1.33
+   ]
+  ]
+ },
+ {
+  "chunk": "et vous vivez en Europe ?",
+  "start": 2.13,
+  "end": 3.01,
+  "words": [
+   [
+    "et",
+    2.13
+   ],
+   [
+    "vous",
+    2.29
+   ],
+   [
+    "vivez",
+    2.4
+   ],
+   [
+    "en",
+    2.68
+   ],
+   [
+    "Europe",
+    2.73
+   ],
+   [
+    "?",
+    3.01
+   ]
+  ]
+ },
+ {
+  "chunk": "Une facture, un logement, du courrier,",
+  "start": 3.93,
+  "end": 6.31,
+  "words": [
+   [
+    "Une",
+    3.93
+   ],
+   [
+    "facture,",
+    4.03
+   ],
+   [
+    "un",
+    4.75
+   ],
+   [
+    "logement,",
+    4.98
+   ],
+   [
+    "du",
+    5.63
+   ],
+   [
+    "courrier,",
+    5.73
+   ]
+  ]
+ },
+ {
+  "chunk": "un rendez-vous",
+  "start": 6.42,
+  "end": 7.07,
+  "words": [
+   [
+    "un",
+    6.42
+   ],
+   [
+    "rendez-vous",
+    6.7
+   ]
+  ]
+ },
+ {
+  "chunk": "à chaque fois, il faut appeler un proche.",
+  "start": 7.56,
+  "end": 9.22,
+  "words": [
+   [
+    "à",
+    7.56
+   ],
+   [
+    "chaque",
+    8.88
+   ],
+   [
+    "fois,",
+    7.9
+   ],
+   [
+    "il",
+    8.26
+   ],
+   [
+    "faut",
+    8.39
+   ],
+   [
+    "appeler",
+    8.54
+   ],
+   [
+    "un",
+    8.74
+   ],
+   [
+    "proche.",
+    8.85
+   ]
+  ]
+ },
+ {
+  "chunk": "Être votre représentant sur place,",
+  "start": 9.46,
+  "end": 11.04,
+  "words": [
+   [
+    "Être",
+    9.46
+   ],
+   [
+    "votre",
+    9.73
+   ],
+   [
+    "représentant",
+    9.98
+   ],
+   [
+    "sur",
+    10.52
+   ],
+   [
+    "place,",
+    10.66
+   ]
+  ]
+ },
+ {
+  "chunk": "c'est exactement ce que nous faisons chez M et O Conseil !",
+  "start": 11.12,
+  "end": 13.69,
+  "words": [
+   [
+    "c'est",
+    11.12
+   ],
+   [
+    "exactement",
+    11.94
+   ],
+   [
+    "ce",
+    12.24
+   ],
+   [
+    "que",
+    12.3
+   ],
+   [
+    "nous",
+    12.54
+   ],
+   [
+    "faisons",
+    12.54
+   ],
+   [
+    "chez",
+    12.85
+   ],
+   [
+    "M",
+    13.01
+   ],
+   [
+    "et",
+    13.16
+   ],
+   [
+    "O",
+    13.16
+   ],
+   [
+    "Conseil",
+    13.34
+   ],
+   [
+    "!",
+    13.69
+   ]
+  ]
+ },
+ {
+  "chunk": "Avec le Pack",
+  "start": 14.02,
+  "end": 14.73,
+  "words": [
+   [
+    "Avec",
+    14.02
+   ],
+   [
+    "le",
+    14.2
+   ],
+   [
+    "Pack",
+    14.37
+   ]
+  ]
+ },
+ {
+  "chunk": "Conciergerie !",
+  "start": 14.95,
+  "end": 15.47,
+  "words": [
+   [
+    "Conciergerie",
+    14.95
+   ],
+   [
+    "!",
+    15.47
+   ]
+  ]
+ },
+ {
+  "chunk": "Nous réglons vos factures,",
+  "start": 15.78,
+  "end": 16.81,
+  "words": [
+   [
+    "Nous",
+    15.78
+   ],
+   [
+    "réglons",
+    15.95
+   ],
+   [
+    "vos",
+    16.23
+   ],
+   [
+    "factures,",
+    16.32
+   ]
+  ]
+ },
+ {
+  "chunk": "relevons votre courrier",
+  "start": 16.95,
+  "end": 17.99,
+  "words": [
+   [
+    "relevons",
+    16.95
+   ],
+   [
+    "votre",
+    17.36
+   ],
+   [
+    "courrier",
+    17.59
+   ]
+  ]
+ },
+ {
+  "chunk": "et veillons sur votre logement,",
+  "start": 18.07,
+  "end": 19.23,
+  "words": [
+   [
+    "et",
+    18.07
+   ],
+   [
+    "veillons",
+    18.84
+   ],
+   [
+    "sur",
+    18.57
+   ],
+   [
+    "votre",
+    18.72
+   ],
+   [
+    "logement,",
+    18.99
+   ]
+  ]
+ },
+ {
+  "chunk": "sans que vous ayez à vous déplacer.",
+  "start": 19.47,
+  "end": 20.8,
+  "words": [
+   [
+    "sans",
+    19.47
+   ],
+   [
+    "que",
+    19.77
+   ],
+   [
+    "vous",
+    19.87
+   ],
+   [
+    "ayez",
+    20.02
+   ],
+   [
+    "à",
+    20.22
+   ],
+   [
+    "vous",
+    20.32
+   ],
+   [
+    "déplacer.",
+    20.44
+   ]
+  ]
+ },
+ {
+  "chunk": "Chaque mois, ce que vous obtenez,",
+  "start": 21.02,
+  "end": 22.33,
+  "words": [
+   [
+    "Chaque",
+    21.02
+   ],
+   [
+    "mois,",
+    21.38
+   ],
+   [
+    "ce",
+    21.6
+   ],
+   [
+    "que",
+    21.75
+   ],
+   [
+    "vous",
+    21.75
+   ],
+   [
+    "obtenez,",
+    21.93
+   ]
+  ]
+ },
+ {
+  "chunk": "c'est un compte rendu précis,",
+  "start": 22.41,
+  "end": 23.62,
+  "words": [
+   [
+    "c'est",
+    22.41
+   ],
+   [
+    "un",
+    22.56
+   ],
+   [
+    "compte",
+    22.68
+   ],
+   [
+    "rendu",
+    22.88
+   ],
+   [
+    "précis,",
+    23.12
+   ]
+  ]
+ },
+ {
+  "chunk": "avec tous les justificatifs.",
+  "start": 23.87,
+  "end": 24.98,
+  "words": [
+   [
+    "avec",
+    23.87
+   ],
+   [
+    "tous",
+    24.2
+   ],
+   [
+    "les",
+    24.56
+   ],
+   [
+    "justificatifs.",
+    24.38
+   ]
+  ]
+ },
+ {
+  "chunk": "Vous restez chez vous,",
+  "start": 25.38,
+  "end": 26.16,
+  "words": [
+   [
+    "Vous",
+    25.38
+   ],
+   [
+    "restez",
+    26.16
+   ],
+   [
+    "chez",
+    25.82
+   ],
+   [
+    "vous,",
+    25.95
+   ]
+  ]
+ },
+ {
+  "chunk": "nous gérons le reste.",
+  "start": 26.39,
+  "end": 27.22,
+  "words": [
+   [
+    "nous",
+    26.39
+   ],
+   [
+    "gérons",
+    26.63
+   ],
+   [
+    "le",
+    26.86
+   ],
+   [
+    "reste.",
+    26.95
+   ]
+  ]
+ },
+ {
+  "chunk": "Réservez votre appel découverte !",
+  "start": 27.48,
+  "end": 28.75,
+  "words": [
+   [
+    "Réservez",
+    27.48
+   ],
+   [
+    "votre",
+    27.91
+   ],
+   [
+    "appel",
+    28.17
+   ],
+   [
+    "découverte",
+    28.26
+   ],
+   [
+    "!",
+    28.75
+   ]
+  ]
+ }
+]
