@@ -1,0 +1,82 @@
+{
+  "nom": "creer-societe-5-decisions-avant-notaire",
+  "date": "2026-11-19T19:00",
+  "objectif": "Prouver",
+  "pilier": "P1",
+  "pack": "Pack Création de Société",
+  "format": "carrousel",
+  "gabarit": "zellige",
+  "options": {
+    "ambiance": "marine",
+    "bande": "bronze"
+  },
+  "cadre": "Liste complète : 5 décisions, tenues exactement",
+  "levier": "Réciprocité (la liste de cadrage offerte)",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui créent une société en Algérie depuis l'étranger",
+    "quoi": "Les 5 décisions à prendre avant le rendez-vous chez le notaire",
+    "que_faire": "Enregistrer le post, réserver l'appel découverte"
+  },
+  "sources": "Check-lists opérationnelles, Pack 1, « Avant signature, à clarifier avec le client » ; manuel opérationnel, Pack 1, script de cadrage et étape 1 (objet social précis, élargissement = modification statutaire) ; rétroplanning Pack 1 (procuration lancée dès le jour 1, 2 à 3 noms commerciaux) ; catalogue Pack 1 (domiciliation ou local). Aucune règle légale présentée comme obligation : il s'agit de notre méthode de cadrage.",
+  "photos": [
+    "banque/site/theme-entreprendre-900.webp",
+    "banque/site/pack-creation-immeuble-1600.webp"
+  ],
+  "slides": [
+    {
+      "gabarit": "bande",
+      "photo": "banque/site/theme-entreprendre-900.webp",
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "surtitre": "Créer sa société à distance",
+      "titre": "Vous créez\nvotre société\nen Algérie depuis\nl'étranger ?",
+      "titre2": "5 décisions\nà prendre\navant le notaire.",
+      "texte": "Chacune est écrite dans les statuts ou commande la suite du dossier."
+    },
+    {
+      "surtitre": "01 · L'activité",
+      "titre": "Que fera exactement votre société ?",
+      "texte": "L'activité est décrite dans les statuts : on parle d'objet social. Elle doit être précise et couvrir vos projets à moyen terme.",
+      "accent": "L'élargir après l'immatriculation oblige à modifier les statuts."
+    },
+    {
+      "surtitre": "02 · Les associés",
+      "titre": "Qui entre au capital, et pour quelle part ?",
+      "texte": "Le nombre d'associés, la part de chacun et le montant du capital. Ces chiffres figurent dans les statuts : arrêtez-les avant leur rédaction.",
+      "accent": "Le capital, ce sont vos fonds propres, apportés à la société."
+    },
+    {
+      "surtitre": "03 · Le gérant",
+      "titre": "Qui dirige, et depuis où ?",
+      "texte": "S'il vit à l'étranger, un mandataire peut signer les statuts chez le notaire grâce à sa procuration.",
+      "accent": "Elle se prépare dès le premier jour."
+    },
+    {
+      "surtitre": "04 · Le nom",
+      "titre": "Quel nom, et lequel en second ?",
+      "texte": "Préparez 2 ou 3 noms commerciaux, classés par préférence. Si le premier est déjà pris au registre du commerce, le suivant prend le relais.",
+      "accent": "Aucun temps perdu à tout recommencer."
+    },
+    {
+      "gabarit": "bande",
+      "photo": "banque/site/pack-creation-immeuble-1600.webp",
+      "focus": [
+        0.6,
+        0.4
+      ],
+      "surtitre": "05 · Le siège",
+      "titre": "Où sera votre siège ?",
+      "texte": "Domiciliation administrative ou vrai local : tout dépend de votre activité. Ce choix pèse sur le budget et le calendrier.",
+      "accent": "Un local se cherche sur le marché : prévoyez du temps."
+    },
+    {
+      "role": "cta",
+      "titre": "Ces 5 décisions, nous les prenons avec vous",
+      "texte": "C'est la première étape du Pack Création de Société, avant tout frais administratif. Enregistrez ce post pour votre projet.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}
