@@ -1,16 +1,16 @@
 {
- "duree": 18.21,
+ "duree": 18.16,
  "phrases": [
   {
-   "t": 0.04,
+   "t": 0.02,
    "txt": "Vous héritez d'un bien en Algérie"
   },
   {
-   "t": 1.68,
+   "t": 1.65,
    "txt": "et vous vivez à l'étranger ?"
   },
   {
-   "t": 2.93,
+   "t": 2.91,
    "txt": "Première étape, souvent oubliée :"
   },
   {
@@ -18,7 +18,7 @@
    "txt": "la fredha."
   },
   {
-   "t": 5.55,
+   "t": 5.54,
    "txt": "Cet acte, établi chez un notaire,"
   },
   {
@@ -26,35 +26,35 @@
    "txt": "liste tous les héritiers."
   },
   {
-   "t": 9.0,
+   "t": 8.97,
    "txt": "Sans lui, le bien reste bloqué :"
   },
   {
-   "t": 10.87,
+   "t": 10.85,
    "txt": "ni vente,"
   },
   {
-   "t": 11.58,
+   "t": 11.54,
    "txt": "ni partage."
   },
   {
-   "t": 12.45,
+   "t": 12.44,
    "txt": "Bonne nouvelle :"
   },
   {
-   "t": 13.25,
+   "t": 13.22,
    "txt": "elle peut se préparer à distance,"
   },
   {
-   "t": 14.93,
+   "t": 14.9,
    "txt": "par procuration."
   },
   {
-   "t": 15.91,
+   "t": 15.87,
    "txt": "Besoin d'aide ?"
   },
   {
-   "t": 16.67,
+   "t": 16.63,
    "txt": "Réservez votre appel découverte."
   }
  ]

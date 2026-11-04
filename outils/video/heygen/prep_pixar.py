@@ -6,6 +6,7 @@ D = pathlib.Path(__file__).resolve().parent
 SRC = D / 'pixar-fredha-source-heygen.mp4'
 KEEP = [(0.30, 1.88), (1.91, 3.16), (3.61, 5.51), (5.73, 6.45), (6.96, 9.00), (9.01, 10.42), (10.75, 12.62), (12.75, 13.46),
         (13.48, 14.35), (14.50, 15.30), (15.52, 17.20), (17.24, 18.22), (18.49, 19.25), (19.61, 21.25)]
+KEEP = [(round(a / 0.04) * 0.04, round(b / 0.04) * 0.04) for a, b in KEEP]  # coupes alignées sur les images (25 i/s) : image et son restent synchrones
 n = len(KEEP)
 fc = ''.join(f"[0:v]trim={a}:{b},setpts=PTS-STARTPTS[v{i}];[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS[a{i}];" for i, (a, b) in enumerate(KEEP))
 fc += ''.join(f"[v{i}][a{i}]" for i in range(n)) + f"concat=n={n}:v=1:a=1[v][a]"

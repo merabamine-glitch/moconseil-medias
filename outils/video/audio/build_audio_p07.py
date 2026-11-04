@@ -34,11 +34,17 @@ def pop(t0, f=900, g=0.06):
 def clank(t0, g=0.3):
     L = int(0.6 * SR); tt = np.arange(L) / SR
     return int(t0 * SR), (g * (np.sin(2 * np.pi * 420 * tt) * 0.6 + np.sin(2 * np.pi * 1130 * tt) * 0.4) * np.exp(-tt * 9)).astype(np.float32)
-V = lambda x: x + OFF
+import json, re
+A7 = json.loads(re.search(r'const A7: \[number, number\]\[\] = (\[.*?\]);', (ROOT / 'src' / 'p07pixar.tsx').read_text(), re.S).group(1))
+def W7(x):
+    for (a0, b0), (a1, b1) in zip(A7, A7[1:]):
+        if x <= a1: return b0 + (x - a0) * (b1 - b0) / (a1 - a0)
+    return x
+V = lambda x: W7(x) + OFF
 ev = [whoosh(V(1.6), 0.45, 0.18), whoosh(V(2.88), 0.45, 0.15), boom(V(4.9), 0.22), whoosh(V(5.5), 0.5, 0.12), stamp(V(6.55) + 0.17, 0.35)]
 ev += [pop(V(7.59) + 0.2 + k * 0.13, 880 + k * 120, 0.06) for k in range(4)]
-ev += [whoosh(V(8.95), 0.4, 0.14), clank(V(9.95) + 0.25, 0.3), stamp(V(10.87) + 0.17, 0.38), stamp(V(11.58) + 0.17, 0.38),
-       whoosh(V(12.4), 0.4, 0.12), whoosh(V(13.4), 1.3, 0.1), stamp(V(15.25) + 0.17, 0.32), whoosh(V(15.75), 0.4, 0.12), whoosh(V(16.65), 0.7, 0.16), pop(V(16.8) + 0.2, 880, 0.07)]
+ev += [whoosh(V(8.35), 0.4, 0.14), clank(V(10.4) + 0.25, 0.3), stamp(V(10.87) + 0.17, 0.38), stamp(V(11.58) + 0.17, 0.38),
+       whoosh(V(12.4), 0.4, 0.12), whoosh(V(13.4), 1.3, 0.1), stamp(V(15.25) + 0.17, 0.32), whoosh(V(15.25), 0.4, 0.12), whoosh(V(17.2), 0.7, 0.16), pop(V(17.45) + 0.2, 880, 0.07)]
 sfx = np.zeros(N, np.float32)
 for i, sg in ev: sfx[i:i + len(sg)] += sg[:N - i]
 sfx *= 0.316
