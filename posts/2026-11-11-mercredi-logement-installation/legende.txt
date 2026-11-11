@@ -26,9 +26,10 @@ TITRE TIKTOK
 Installation en Algérie : un logement prêt à votre arrivée
 
 TEXTE ALTERNATIF (une ligne par slide)
-1. Photo en noir et blanc d'un trousseau de clés anciennes suspendu à un crochet, sur une porte sombre. Titre : « Vous vous installez en Algérie ? Un logement prêt à votre arrivée. » Texte : « 3 points à régler, dans cet ordre : le bail, le certificat de résidence, les compteurs. » Logo M&O Conseil.
-2. Bandeau photo d'une façade d'immeuble à balcons vitrés, puis fond beige : « 3 points, dans cet ordre. Le bail, authentifié devant notaire avec l'état des lieux. Puis le certificat de résidence à l'APC, redemandé pour ouvrir les compteurs. Avance de loyer : le montant peut être élevé. » Schéma en trois étapes reliées par des flèches : 1 Bail authentifié, 2 Certificat de résidence, 3 Eau, électricité, gaz.
-3. Fond beige : « Votre logement, prêt avant votre arrivée. C'est ce que couvre le Pack Logement et Installation : bail authentifié, certificat de résidence et compteurs. Délais indicatifs. » Bouton « Appel découverte gratuit, lien en bio », logo M&O Conseil.
+1. Photo d'une main qui tend une clé et un porte-clés en forme de maison dans la main d'une autre personne. Titre : « Vous vous installez en Algérie ? Un logement prêt à votre arrivée. » Texte : « 3 points à régler, dans cet ordre : le bail, le certificat de résidence, les compteurs. » Logo M&O Conseil.
+2. Fond beige, grand chiffre 1 : « Le bail, authentifié. Négocié, puis authentifié devant notaire, avec l'état des lieux annexé : le logement est décrit noir sur blanc dès l'entrée. Avance de loyer : le montant demandé peut être élevé. Mieux vaut le savoir avant les visites. »
+3. Bandeau photo d'une façade d'immeuble à balcons vitrés, grand chiffre 2 : « Certificat de résidence, puis compteurs. Demandez à l'APC votre certificat de résidence : il est redemandé pour ouvrir les compteurs. Prévoyez aussi leurs dépôts de garantie. » Trois pictogrammes : Eau, Électricité, Gaz.
+4. Bandeau photo d'un patio algérien à arcades et céramiques sous un ciel bleu, puis fond beige : « Votre logement, prêt avant votre arrivée. C'est ce que couvre le Pack Logement et Installation : bail authentifié, certificat de résidence et compteurs. Délais indicatifs. » Bouton « Appel découverte gratuit, lien en bio », logo M&O Conseil.
 
 TEXTE LINKEDIN (publication manuelle, document PDF logement-installation-3-points-linkedin.pdf)
 Arriver en Algérie dans un logement prêt repose sur trois points, à régler dans cet ordre.

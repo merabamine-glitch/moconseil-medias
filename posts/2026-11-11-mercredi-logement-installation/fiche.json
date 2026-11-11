@@ -14,55 +14,68 @@
   "cta": "Appel découverte (lien en bio)",
   "sources": "Catalogue Pack 4 et contrat annexe (bail négocié et authentifié devant notaire, honoraires inclus ; certificat de résidence ; compteurs eau, électricité, gaz ; avance de loyer à prévoir) ; manuel opérationnel Pack 4 étapes 3, 4 et 7 (état des lieux annexé au bail ; certificat redemandé pour les compteurs) ; rétroplanning Pack 4. Aucune règle légale citée comme obligation : pratique de terrain de M&O Conseil. Durées retirées le 04/11/2026 (décision d'Amine : aucune durée sans source officielle).",
   "photos": [
-    "banque/drive/cles-suspendues-nb.jpg",
-    "banque/drive/balcons-immeuble-blanc.jpg"
+    "outils/video/public/img/s5-cles.jpg",
+    "banque/drive/balcons-immeuble-blanc.jpg",
+    "banque/site/pack-patrimoine-immobilier-1600.webp"
   ],
   "slides": [
     {
       "gabarit": "pleine-photo",
-      "photo": "banque/drive/cles-suspendues-nb.jpg",
+      "photo": "outils/video/public/img/s5-cles.jpg",
       "focus": [
         0.5,
-        0.45
+        1.0
       ],
       "titre": "Vous vous installez\nen Algérie ?",
       "titre2": "Un logement prêt\nà votre arrivée.",
       "texte": "3 points à régler, dans cet ordre : le bail, le certificat de résidence, les compteurs."
     },
     {
-      "titre": "3 points, dans cet ordre",
-      "texte": "Le bail, authentifié devant notaire avec l'état des lieux. Puis le certificat de résidence à l'APC, redemandé pour ouvrir les compteurs.",
-      "accent": "Avance de loyer : le montant peut être élevé.",
+      "numero": 1,
+      "total": 3,
+      "titre": "Le bail, authentifié",
+      "texte": "Négocié, puis authentifié devant notaire, avec l'état des lieux annexé : le logement est décrit noir sur blanc dès l'entrée.",
+      "accent": "Avance de loyer : le montant demandé peut être élevé. Mieux vaut le savoir avant les visites."
+    },
+    {
+      "numero": 2,
+      "total": 3,
+      "titre": "Certificat de résidence, puis compteurs",
+      "texte": "Demandez à l'APC votre certificat de résidence : il est redemandé pour ouvrir les compteurs.",
+      "accent": "Prévoyez aussi leurs dépôts de garantie.",
       "photo": "banque/drive/balcons-immeuble-blanc.jpg",
       "focus": [
         0.5,
         0.5
       ],
       "infographie": {
-        "type": "circuit",
+        "type": "icones",
         "etapes": [
           {
-            "icone": "contrat",
-            "texte": "Bail authentifié"
-          },
-          {
-            "icone": "document",
-            "texte": "Certificat de résidence"
+            "icone": "goutte",
+            "texte": "Eau"
           },
           {
             "icone": "eclair",
-            "texte": "Eau, électricité, gaz"
+            "texte": "Électricité"
+          },
+          {
+            "icone": "flamme",
+            "texte": "Gaz"
           }
         ]
-      },
-      "numero": "",
-      "total": 1
+      }
     },
     {
       "role": "cta",
       "titre": "Votre logement, prêt avant votre arrivée",
       "texte": "C'est ce que couvre le Pack Logement et Installation : bail authentifié, certificat de résidence et compteurs. Délais indicatifs.",
-      "action": "Appel découverte gratuit · lien en bio"
+      "action": "Appel découverte gratuit · lien en bio",
+      "photo": "banque/site/pack-patrimoine-immobilier-1600.webp",
+      "focus": [
+        0.5,
+        0.45
+      ]
     }
   ]
 }
