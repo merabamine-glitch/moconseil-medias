@@ -1,0 +1,64 @@
+{
+  "nom": "preparer-appel-decouverte",
+  "date": "2026-11-26T19:00",
+  "objectif": "Humaniser",
+  "pilier": "P5",
+  "pack": "Tous les packs (appel découverte)",
+  "format": "carrousel",
+  "gabarit": "etapes",
+  "options": {"ambiance": "mer"},
+  "cadre": "Démarche pas à pas : 4 informations à préparer avant l'appel",
+  "levier": "Réciprocité (liste utile offerte, même sans appel)",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui ont un projet en Algérie et hésitent à prendre contact",
+    "quoi": "Les 4 informations à préparer pour que l'appel découverte de 30 minutes serve vraiment",
+    "que_faire": "Enregistrer le post, réserver l'appel découverte"
+  },
+  "sources": "Playbook M&O, 11.2 (appel découverte de 30 minutes, gratuit, WhatsApp ou visio, questions du formulaire Calendly : pays de résidence, projet en une phrase) et 11.3 (appel : qualifier, choisir pack et palier, signaler ce qui exige la présence physique). Contrat annexe Pack 6 (statut de l'acheteur binational ou étranger). Veille réglementaire C-02, Vérifiée le 14/10/2026 : présence obligatoire du titulaire lors du dédouanement (CCR), procurations irrecevables.",
+  "photos": ["banque/site/pack-retour-definitif-1600.webp", "banque/site/apropos-mains-1600.webp", "banque/site/hero-1-maqam-echahid-1600.webp"],
+  "slides": [
+    {
+      "gabarit": "pleine-photo",
+      "photo": "banque/site/pack-retour-definitif-1600.webp",
+      "focus": [0.5, 0.35],
+      "titre": "Un projet en Algérie,\nun appel de 30 minutes.",
+      "titre2": "4 choses à préparer.",
+      "texte": "Avec ces informations, l'appel découverte suffit pour savoir par où commencer."
+    },
+    {
+      "numero": 1, "total": 4,
+      "titre": "Votre projet en une phrase",
+      "texte": "Ce que vous voulez faire en Algérie, et pour quand : acheter avant l'été, créer votre société cette année, rentrer à la retraite.",
+      "accent": "Une échéance nous aide à fixer le bon ordre."
+    },
+    {
+      "numero": 2, "total": 4,
+      "photo": "banque/site/apropos-mains-1600.webp",
+      "focus": [0.5, 0.4],
+      "titre": "Votre situation",
+      "texte": "Votre pays de résidence et vos papiers : passeport algérien, passeport étranger, ou les deux.",
+      "accent": "Les démarches possibles à distance en dépendent."
+    },
+    {
+      "numero": 3, "total": 4,
+      "titre": "Les documents déjà en main",
+      "texte": "Acte de naissance, titre de propriété, statuts, courriers d'une administration : notez ce que vous avez, même incomplet.",
+      "accent": "Inutile de tout réunir avant l'appel."
+    },
+    {
+      "numero": 4, "total": 4,
+      "photo": "banque/site/hero-1-maqam-echahid-1600.webp",
+      "focus": [0.5, 0.45],
+      "titre": "Vos possibilités de venir",
+      "texte": "Certaines étapes se font en personne. Lors d'un retour définitif, par exemple, le passage en douane de vos biens exige votre présence.",
+      "accent": "Nous vous le disons dès l'appel."
+    },
+    {
+      "role": "cta",
+      "titre": "30 minutes pour savoir par où commencer",
+      "texte": "L'appel découverte est gratuit, sur WhatsApp ou en visio. Nous repérons le pack adapté à votre projet et l'ordre des étapes.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}

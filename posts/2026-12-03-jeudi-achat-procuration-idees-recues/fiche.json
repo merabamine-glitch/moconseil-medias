@@ -1,0 +1,62 @@
+{
+  "nom": "achat-procuration-idees-recues",
+  "date": "2026-12-03T19:00",
+  "objectif": "Prouver",
+  "pilier": "P2",
+  "pack": "Pack Achat Immobilier",
+  "format": "carrousel",
+  "gabarit": "vrai-faux",
+  "options": {
+    "ambiance_couverture": "terre"
+  },
+  "cadre": "Idées reçues : 4 croyances sur la procuration d'achat, corrigées par nos modèles",
+  "levier": "Aversion à la perte (protéger son argent et son bien) et autorité (précision des modèles)",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui veulent acheter un bien en Algérie sans se déplacer",
+    "quoi": "Ce qu'une procuration d'achat bien rédigée permet, et ce qu'elle interdit",
+    "que_faire": "Enregistrer le post, réserver l'appel découverte"
+  },
+  "sources": "Modèles M&O Pack 6 (projet Claude) : « Recherche logement » (recherche et vérification seulement, aucun pouvoir de signer ni de verser un acompte), « Démarches bancaires » (ouverture de comptes et attestations, aucune opération de débit, prix versé par le mandant seul), « Acquisition du bien » (bien désigné, prix maximal en DA, prix versé directement par le mandant au vendeur ou au notaire, mandataires non habilités à recevoir les fonds, interdiction de vendre, hypothéquer, emprunter). Durée 9 mois, révocable à tout moment, fin à l'achèvement. Contrat annexe Pack 6, art. 5.4 : procuration spéciale, jamais générale. Aucune règle de droit présentée comme obligation légale.",
+  "photos": [
+    "banque/site/pack-patrimoine-immobilier-1600.webp"
+  ],
+  "slides": [
+    {
+      "titre": "Acheter en Algérie\npar procuration ?",
+      "titre2": "4 idées reçues.",
+      "texte": "Ce que nos procurations d'achat prévoient vraiment, étape par étape."
+    },
+    {
+      "idee": "Une seule procuration suffit pour tout l'achat.",
+      "realite": "Nous en prévoyons trois, une par étape.",
+      "texte": "Chercher et vérifier le bien. Préparer les comptes. Signer l'achat. Chacune s'arrête là où commence la suivante."
+    },
+    {
+      "idee": "Mon mandataire pourra payer le vendeur.",
+      "realite": "Le prix part de vous, directement.",
+      "texte": "Vous le versez au vendeur ou chez le notaire, par virement. Vos mandataires ne reçoivent ni ne détiennent les fonds."
+    },
+    {
+      "idee": "Il choisira le bien à ma place.",
+      "realite": "Le bien et le prix maximal sont écrits.",
+      "texte": "Adresse, superficie, références foncières, prix maximal en dinars : aucun autre bien, aucun prix plus élevé."
+    },
+    {
+      "idee": "Une procuration ne se reprend pas.",
+      "realite": "Vous pouvez la révoquer à tout moment.",
+      "texte": "Durée de 9 mois, fin automatique à l'achat. Vendre, hypothéquer ou emprunter en votre nom reste interdit."
+    },
+    {
+      "role": "cta",
+      "photo": "banque/site/pack-patrimoine-immobilier-1600.webp",
+      "focus": [
+        0.5,
+        0.35
+      ],
+      "titre": "Votre achat, protégé à chaque étape",
+      "texte": "C'est exactement ce que couvre le Pack Achat Immobilier : vérification du bien, procuration spéciale, suivi jusqu'au titre de propriété.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}
