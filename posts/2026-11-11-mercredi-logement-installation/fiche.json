@@ -1,6 +1,6 @@
 {
   "nom": "logement-installation-3-points",
-  "date": "2026-11-10T19:00",
+  "date": "2026-11-11T19:00",
   "objectif": "Attirer",
   "pilier": "P1",
   "pack": "Pack Logement et Installation",
@@ -30,40 +30,33 @@
       "texte": "3 points à régler, dans cet ordre : le bail, le certificat de résidence, les compteurs."
     },
     {
-      "numero": 1,
-      "total": 3,
-      "titre": "Le bail, authentifié",
-      "texte": "Négocié, puis authentifié devant notaire, avec l'état des lieux annexé : le logement est décrit noir sur blanc dès l'entrée.",
-      "accent": "Avance de loyer : le montant demandé peut être élevé. Mieux vaut le savoir avant les visites.",
+      "titre": "3 points, dans cet ordre",
+      "texte": "Le bail, authentifié devant notaire avec l'état des lieux. Puis le certificat de résidence à l'APC, redemandé pour ouvrir les compteurs.",
+      "accent": "Avance de loyer : le montant peut être élevé.",
       "photo": "banque/drive/balcons-immeuble-blanc.jpg",
       "focus": [
         0.5,
         0.5
-      ]
-    },
-    {
-      "numero": 2,
-      "total": 3,
-      "titre": "Certificat de résidence, puis compteurs",
-      "texte": "Demandez à l'APC votre certificat de résidence : il est redemandé pour ouvrir les compteurs.",
-      "accent": "Prévoyez aussi leurs dépôts de garantie.",
+      ],
       "infographie": {
-        "type": "icones",
+        "type": "circuit",
         "etapes": [
           {
-            "icone": "goutte",
-            "texte": "Eau"
+            "icone": "contrat",
+            "texte": "Bail authentifié"
+          },
+          {
+            "icone": "document",
+            "texte": "Certificat de résidence"
           },
           {
             "icone": "eclair",
-            "texte": "Électricité"
-          },
-          {
-            "icone": "flamme",
-            "texte": "Gaz"
+            "texte": "Eau, électricité, gaz"
           }
         ]
-      }
+      },
+      "numero": "",
+      "total": 1
     },
     {
       "role": "cta",

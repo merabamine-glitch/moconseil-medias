@@ -560,10 +560,14 @@ def g_etapes(s, i, n, opts):
         a = a * (1 - voile) + (np.array([10, 20, 32]) / 255.0) * voile
         img.paste(Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)), (0, 0))
         d.rectangle([0, hb - 5, W, hb], fill=A["accent"])
-        if s.get("infographie"):
+        if not num:  # « numero »: "" : slide de synthèse sans grand numéro
+            pass
+        elif s.get("infographie"):
             d.text((M - 6, 50), num, font=police("titre", 190), fill=C["or_clair"])
         else:
             d.text((M - 10, 60), num, font=police("titre", 300), fill=C["or_clair"])
+    elif not num:
+        pass
     elif s.get("infographie"):
         d.text((M - 6, 50), num, font=police("titre", 190), fill=A["accent"])
     else:
