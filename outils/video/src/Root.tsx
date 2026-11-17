@@ -22,6 +22,12 @@ import {Pack11Reel, P11_FRAMES} from './p11reel';
 import {MaisonDemo} from './maison_demo';
 import {DuoSigne, DUO2_FRAMES} from './duo2';
 import {DuoSigneCouverture} from './duo2_couverture';
+import {DuoEdu1} from './duo3_v1';
+import {DuoEdu2} from './duo3_v2';
+import {DuoEdu3} from './duo3_v3';
+import {DuoEdu4} from './duo3_v4';
+import {DuoEduCouv} from './duo3_couv';
+import {D3_V1, D3_V2, D3_V3, D3_V4} from './duo3_data';
 import {ValiseTest} from './valise_test';
 import {Pack10RetourDefinitif} from './p10';
 
@@ -147,6 +153,11 @@ export const Root: React.FC = () => (
     <Composition id="Pack02SuiviV2" component={Pack02SuiviV2} durationInFrames={885} fps={30} width={1080} height={1920} />
     <Composition id="Pack07Fredha" component={Pack07Fredha} durationInFrames={P07_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="DuoSigne" component={DuoSigne} durationInFrames={DUO2_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="DuoEdu1" component={DuoEdu1} durationInFrames={Math.round(D3_V1.duree * 30)} fps={30} width={1080} height={1920} />
+    <Composition id="DuoEdu2" component={DuoEdu2} durationInFrames={Math.round(D3_V2.duree * 30)} fps={30} width={1080} height={1920} />
+    <Composition id="DuoEdu3" component={DuoEdu3} durationInFrames={Math.round(D3_V3.duree * 30)} fps={30} width={1080} height={1920} />
+    <Composition id="DuoEduCouv" component={DuoEduCouv} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{n: 1}} />
+    <Composition id="DuoEdu4" component={DuoEdu4} durationInFrames={Math.round(D3_V4.duree * 30)} fps={30} width={1080} height={1920} />
     <Composition id="DuoSigneCouverture" component={DuoSigneCouverture} durationInFrames={1} fps={30} width={1080} height={1920} />
     <Composition id="MaisonDemo" component={MaisonDemo} durationInFrames={210} fps={30} width={1080} height={1920} />
     <Composition id="Pack11Reel" component={Pack11Reel} durationInFrames={P11_FRAMES} fps={30} width={1080} height={1920} />
