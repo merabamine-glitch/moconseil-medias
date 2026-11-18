@@ -1,0 +1,30 @@
+{
+  "nom": "logement-vide-sans-bruit",
+  "date": "2026-12-06T11:00",
+  "objectif": "Attirer",
+  "pilier": "P2",
+  "pack": "Pack Conciergerie",
+  "format": "photo unique",
+  "gabarit": "pleine-photo",
+  "options": {},
+  "cadre": "Erreurs nommées (laisser un logement fermé sans passage)",
+  "levier": "Aversion à la perte",
+  "cta": "Réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui ont un logement en Algérie, fermé entre deux séjours",
+    "quoi": "Un logement inoccupé se dégrade sans que personne ne le voie",
+    "que_faire": "Organiser un passage régulier ; réserver l'appel découverte"
+  },
+  "sources": "Aucun fait réglementaire, aucun chiffre. Risques de bon sens (fuite, factures, courrier, inoccupation visible). Pack Conciergerie : factures locales réglées, courrier relevé et numérisé, logement contrôlé régulièrement, compte rendu mensuel avec justificatifs (catalogue et contrat annexe Pack 9 ; post du 15/11/2026 validé). Photo : Pexels, Curtis Adams (licence Pexels), Drive › Banque photos.",
+  "photos": ["banque/drive/entree-maison-vide-escalier.jpg"],
+  "slides": [
+    {
+      "photo": "banque/drive/entree-maison-vide-escalier.jpg",
+      "focus": [0.4, 0.45],
+      "surtitre": "Un logement en Algérie, et vous en Europe ?",
+      "titre": "Un logement vide\nse dégrade",
+      "titre2": "sans bruit.",
+      "texte": "Une fuite, une facture impayée, du courrier qui s'entasse. Souvent, personne ne s'en aperçoit avant le séjour suivant."
+    }
+  ]
+}

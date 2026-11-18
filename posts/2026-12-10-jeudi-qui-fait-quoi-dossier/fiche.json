@@ -1,0 +1,77 @@
+{
+  "nom": "qui-fait-quoi-dossier",
+  "date": "2026-12-10T19:00",
+  "objectif": "Humaniser",
+  "pilier": "P4",
+  "pack": "Pack Suivi de Société (mention discrète)",
+  "format": "carrousel",
+  "gabarit": "zellige",
+  "options": {
+    "ambiance": "olive"
+  },
+  "cadre": "Liste complète : les quatre rôles d'un dossier",
+  "levier": "Franchise (ce que nous faisons et ce que signent les professionnels agréés)",
+  "cta": "Enregistrer le post et réserver l'appel découverte",
+  "premier_regard": {
+    "a_qui": "Personnes de la diaspora qui préparent un dossier en Algérie depuis l'étranger",
+    "quoi": "Qui fait quoi : notaire, expert-comptable, avocat, et notre rôle de coordination",
+    "que_faire": "Enregistrer le post, réserver l'appel découverte"
+  },
+  "sources": "Positionnement M&O (playbook 3.1 : conseil, coordination, représentation par procuration spéciale ; actes réglementés confiés à des professionnels agréés). Notaire : statuts (playbook 4.5), vente (Pack 6), fredha (Pack 7, modèle de procuration Fredha), bail notarié (playbook 3.4). Expert-comptable agréé partenaire : tenue comptable, déclarations fiscales et sociales, bilan (contrat annexe Pack 3, art. 1). Avocat : contentieux et représentation devant les juridictions (contrat annexe Pack 3, art. 3 ; catalogue Pack 3, non inclus). Aucune règle légale présentée comme obligation.",
+  "photos": [
+    "banque/drive/poignee-de-main-costumes.jpg",
+    "banque/site/pack-suivi-comptabilite-1600.webp"
+  ],
+  "slides": [
+    {
+      "gabarit": "pierre",
+      "options": {
+        "ambiance": "pierre"
+      },
+      "photo": "banque/drive/poignee-de-main-costumes.jpg",
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "surtitre": "Votre dossier en Algérie",
+      "titre": "Notaire, avocat, expert-comptable",
+      "titre2": "et nous.",
+      "texte": "Chacun son rôle dans votre dossier."
+    },
+    {
+      "surtitre": "01 · Le notaire",
+      "titre": "Il rédige et authentifie les actes.",
+      "texte": "Statuts d'une société, vente d'un bien, fredha (l'acte de notoriété qui liste les héritiers), bail notarié.",
+      "accent": "Nous préparons avec vous le dossier et les pièces."
+    },
+    {
+      "surtitre": "02 · L'expert-comptable",
+      "titre": "Il tient les comptes et signe les déclarations.",
+      "texte": "Tenue comptable, déclarations fiscales et sociales, bilan annuel de votre société.",
+      "accent": "Nous suivons les échéances et lui transmettons vos pièces chaque mois."
+    },
+    {
+      "surtitre": "03 · L'avocat",
+      "titre": "Il vous représente devant la justice.",
+      "texte": "Litiges, contentieux, procédures devant un tribunal.",
+      "accent": "Si votre dossier en a besoin, nous vous le signalons dès le départ."
+    },
+    {
+      "surtitre": "04 · Nous",
+      "titre": "Nous coordonnons l'ensemble.",
+      "texte": "Une équipe en Europe, une équipe en Algérie. Démarches par procuration spéciale, rendez-vous, suivi de chaque étape.",
+      "accent": "Et vous savez toujours qui agit en votre nom."
+    },
+    {
+      "role": "cta",
+      "photo": "banque/site/pack-suivi-comptabilite-1600.webp",
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "titre": "Un seul interlocuteur pour vous",
+      "texte": "Pack Suivi de Société : un expert-comptable agréé partenaire tient vos comptes, nous suivons vos échéances.",
+      "action": "Appel découverte gratuit · lien en bio"
+    }
+  ]
+}
