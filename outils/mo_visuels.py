@@ -739,15 +739,16 @@ def g_bande(s, i, n, opts):
     ph = recadrer(ouvrir_photo(s["photo"]), W, H, *s.get("focus", (0.6, 0.5)))
     img = rideau(traitement_charte(ph), var).convert("RGBA")
     d = ImageDraw.Draw(img)
-    lmax = int(W * 0.62)
+    lmax = int(W * s.get("largeur", 0.62))
+    taille = s.get("taille", 66)
     A = dict(titre=b["titre"], texte=b["texte"], accent=b["filet"])
     def dessin(c, dc, y):
         if s.get("surtitre"):
             y, _ = bloc(dc, M, y, s["surtitre"], "moyen", 28, b["sur"], lmax, 1.3, 2, 24, esp=3, maj=True)
             y += 28
-        y, _ = bloc(dc, M, y, s["titre"], "titre", 66, b["titre"], lmax, 1.16, 4, 48, maj=True)
+        y, _ = bloc(dc, M, y, s["titre"], "titre", taille, b["titre"], lmax, 1.16, 4, 48, maj=True)
         if s.get("titre2"):
-            y, _ = bloc(dc, M, y + 10, s["titre2"], "titre", 66, b["sur"], lmax, 1.16, 2 if var == "beige" else 4, 48, maj=True)
+            y, _ = bloc(dc, M, y + 10, s["titre2"], "titre", taille, b["sur"], lmax, 1.16, 2 if var == "beige" else 4, 48, maj=True)
         filet(dc, M, y + 20, 110, b["filet"], 3)
         y += 24
         if s.get("texte"):
