@@ -20,16 +20,18 @@
   },
   "sources": "Check-lists opérationnelles, Pack 1, « Avant signature, à clarifier avec le client » ; manuel opérationnel, Pack 1, script de cadrage et étape 1 (objet social précis, élargissement = modification statutaire) ; rétroplanning Pack 1 (procuration lancée dès le jour 1, 2 à 3 noms commerciaux) ; catalogue Pack 1 (domiciliation ou local). Aucune règle légale présentée comme obligation : il s'agit de notre méthode de cadrage.",
   "photos": [
-    "banque/site/theme-entreprendre-900.webp",
+    "banque/drive/alger-baie-immeubles.jpg",
+    "banque/drive/mains-qui-se-tendent.jpg",
+    "banque/drive/aeroport-attente-depart.jpg",
     "banque/site/pack-creation-immeuble-1600.webp"
   ],
   "slides": [
     {
       "gabarit": "bande",
-      "photo": "banque/site/theme-entreprendre-900.webp",
+      "photo": "banque/drive/alger-baie-immeubles.jpg",
       "focus": [
-        0.6,
-        0.4
+        0.35,
+        0.45
       ],
       "surtitre": "Créer sa société à distance",
       "titre": "Vous créez\nvotre société\nen Algérie depuis\nl'étranger ?",
@@ -46,13 +48,25 @@
       "surtitre": "02 · Les associés",
       "titre": "Qui entre au capital, et pour quelle part ?",
       "texte": "Le nombre d'associés, la part de chacun et le montant du capital. Ces chiffres figurent dans les statuts : arrêtez-les avant leur rédaction.",
-      "accent": "Le capital, ce sont vos fonds propres, apportés à la société."
+      "accent": "Le capital, ce sont vos fonds propres, apportés à la société.",
+      "gabarit": "bande",
+      "photo": "banque/drive/mains-qui-se-tendent.jpg",
+      "focus": [
+        0.5,
+        0.5
+      ]
     },
     {
       "surtitre": "03 · Le gérant",
       "titre": "Qui dirige, et depuis où ?",
       "texte": "S'il vit à l'étranger, un mandataire peut signer les statuts chez le notaire grâce à sa procuration.",
-      "accent": "Elle se prépare dès le premier jour."
+      "accent": "Elle se prépare dès le premier jour.",
+      "gabarit": "bande",
+      "photo": "banque/drive/aeroport-attente-depart.jpg",
+      "focus": [
+        0.5,
+        0.5
+      ]
     },
     {
       "surtitre": "04 · Le nom",
