@@ -5,9 +5,9 @@
   "pilier": "P4",
   "pack": "Pack Conciergerie",
   "format": "photo unique",
-  "gabarit": "pierre",
+  "gabarit": "illustration (couverture.py)",
   "options": {
-    "ambiance": "pierre"
+    "ambiance": "pierre et sable, dégradé chaud"
   },
   "cadre": "Coulisses : notre règle de travail (un justificatif à chaque point d'étape)",
   "levier": "Similarité (l'inquiétude de suivre un dossier à distance)",
@@ -18,20 +18,15 @@
     "que_faire": "Dire en commentaire comment elles suivent leurs démarches aujourd'hui"
   },
   "sources": "Aucun fait réglementaire. Méthode M&O : points d'étape documentés avec les justificatifs (post de présentation du 27/10/2026, validé par Amine) ; Pack Conciergerie : factures réglées, courrier relevé et numérisé, compte rendu mensuel avec justificatifs (catalogue, contrat annexe Pack 9). Photo : site moconseildz.com (Oran, Santa Cruz vu d'une arche).",
-  "photos": [
-    "banque/site/pourquoi-arcades-santa-cruz-1600.webp"
-  ],
+  "photos": [],
   "slides": [
     {
-      "photo": "banque/site/pourquoi-arcades-santa-cruz-1600.webp",
-      "focus": [
-        0.5,
-        0.5
-      ],
-      "surtitre": "Vous suivez un dossier en Algérie depuis l'étranger ?",
-      "titre": "Chaque étape",
-      "titre2": "arrive avec sa preuve.",
-      "texte": "Récépissé, reçu, facture acquittée. Et vous, comment suivez-vous vos démarches ?"
+      "rendu": "python3 posts/2026-11-22-dimanche-chaque-etape-avec-sa-preuve/couverture.py <sortie.jpg>",
+      "surtitre": "Votre dossier en Algérie",
+      "titre": "Une étape faite,",
+      "titre2": "une preuve envoyée.",
+      "illustration": "Téléphone : conversation M&O Conseil avec trois justificatifs reçus (Dossier déposé, récépissé.pdf ; Facture payée, reçu.jpg ; Courrier relevé, courrier.pdf)"
     }
-  ]
+  ],
+  "notes": "22/11/2026 : couverture refaite à la demande d'Amine (ancienne version jugée pas claire : photo sans rapport, surtitre trop long, titre abstrait). Couverture épurée (playbook 10.5)."
 }
